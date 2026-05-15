@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>client-original.html</loc>
+    <loc>https://ombria.es/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>servicios.html</loc>
+    <loc>https://ombria.es/servicios.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>nosotros.html</loc>
+    <loc>https://ombria.es/nosotros.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>contacto.html</loc>
+    <loc>https://ombria.es/contacto.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
