@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IA para el Sector Forestal en Valencia | OmbrIA</title>
+    <meta name="description" content="OmbrIA automatiza tu gestión forestal con IA. Sistemas a medida, agentes inteligentes, webs con SEO y consultoría. Bocairent, Valencia. 644 34 24 30." />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="OmbrIA" />
+    <meta name="keywords" content="inteligencia artificial sector forestal, automatización forestal IA, gestión forestal inteligente, IA forestal Valencia, software gestión monte" />
+    <link rel="canonical" href="client-original.html" />
+    <meta property="og:title" content="IA para el Sector Forestal en Valencia | OmbrIA" />
+    <meta property="og:description" content="Automatizamos tu gestión forestal con IA. Sistemas a medida, agentes inteligentes y webs con SEO. Bocairent, Valencia." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="client-original.html" />
+    <meta property="og:image" content="assets/ombria-1.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="OmbrIA" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="IA para el Sector Forestal en Valencia | OmbrIA" />
+    <meta name="twitter:description" content="Automatizamos tu gestión forestal con IA. Sistemas a medida, agentes inteligentes y webs con SEO. Bocairent, Valencia." />
+    <meta name="twitter:image" content="assets/ombria-1.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preload" as="image" href="assets/ombria-1.jpg" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "OmbrIA",
+      "description": "Empresa especializada en implementación de inteligencia artificial en el sector forestal. Automatizamos procesos, digitalizamos la gestión y posicionamos empresas forestales en internet.",
+      "url": "client-original.html",
+      "telephone": "+34644342430",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bocairent",
+        "addressRegion": "Valencia",
+        "addressCountry": "ES"
+      },
+      "areaServed": ["Bocairent", "Valencia", "Comunitat Valenciana", "España"],
+      "openingHours": "<!-- REVISAR -->",
+      "priceRange": "<!-- REVISAR -->",
+      "image": "assets/ombria-1.jpg",
+      "logo": "assets/logo.png",
+      "sameAs": []
+    }
+    </script>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root {
+        --color-primary: #2d9494;
+        --color-primary-dark: #1f6b6b;
+        --color-primary-light: #e8f5f5;
+        --color-dark: #1a2b2b;
+        --color-text: #2e3d3d;
+        --color-muted: #6b8080;
+        --color-light: #f7fafa;
+        --color-white: #ffffff;
+        --font: 'Outfit', sans-serif;
+        --radius: 12px;
+        --shadow: 0 4px 24px rgba(0,0,0,0.08);
+        --shadow-hover: 0 8px 40px rgba(0,0,0,0.14);
+        --transition: 0.25s ease;
+      }
+
+      html { scroll-behavior: smooth; }
+      body { font-family: var(--font); color: var(--color-text); background: var(--color-white); line-height: 1.6; }
+
+      /* ── HEADER ── */
+      header {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+        background: rgba(26,43,43,0.96);
+        backdrop-filter: blur(10px);
+        padding: 0 5%;
+        display: flex; align-items: center; justify-content: space-between;
+        height: 70px;
+        transition: var(--transition);
+      }
+      .header-logo img { height: 42px; width: auto; }
+      nav { display: flex; gap: 2rem; align-items: center; }
+      nav a {
+        color: rgba(255,255,255,0.85); text-decoration: none;
+        font-size: 0.9rem; font-weight: 500; letter-spacing: 0.02em;
+        transition: color var(--transition);
+      }
+      nav a:hover { color: var(--color-white); }
+      .header-cta {
+        color: var(--color-primary); font-weight: 600; font-size: 0.95rem;
+        text-decoration: none; white-space: nowrap;
+      }
+      .header-cta:hover { color: #5bbcbc; }
+      .nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+      .nav-toggle span {
+        display: block; width: 24px; height: 2px;
+        background: white; margin: 5px 0; transition: var(--transition);
+      }
+
+      /* ── HERO (5 slides · 25 s cycle) ── */
+      .hero {
+        height: 100vh; min-height: 600px;
+        position: relative; overflow: hidden;
+        display: flex; align-items: center; justify-content: center;
+        text-align: center;
+      }
+      .hero-slide {
+        position: absolute; inset: 0;
+        background-size: cover; background-position: center;
+        opacity: 0; z-index: 0;
+      }
+      .hero-slide:nth-child(1) { animation: heroFadeFirst 25s infinite; }
+      .hero-slide:nth-child(2) { animation: heroFade 25s infinite; animation-delay: 5s; }
+      .hero-slide:nth-child(3) { animation: heroFade 25s infinite; animation-delay: 10s; }
+      .hero-slide:nth-child(4) { animation: heroFade 25s infinite; animation-delay: 15s; }
+      .hero-slide:nth-child(5) { animation: heroFade 25s infinite; animation-delay: 20s; }
+      @keyframes heroFadeFirst {
+        0%, 20% { opacity: 1; }
+        25% { opacity: 0; }
+        95%, 100% { opacity: 0; }
+      }
+      @keyframes heroFade {
+        0% { opacity: 0; }
+        5% { opacity: 1; }
+        20% { opacity: 1; }
+        25% { opacity: 0; }
+        100% { opacity: 0; }
+      }
+      .hero::before {
+        content: ''; position: absolute; inset: 0; z-index: 1;
+        background: linear-gradient(160deg, rgba(10,30,30,0.72) 0%, rgba(45,148,148,0.45) 100%);
+      }
+      .hero-content { position: relative; z-index: 2; padding: 0 20px; max-width: 760px; }
+      .hero-badge {
+        display: inline-block; background: rgba(45,148,148,0.35);
+        border: 1px solid rgba(45,148,148,0.6);
+        color: #7dd9d9; font-size: 0.8rem; font-weight: 600;
+        letter-spacing: 0.12em; text-transform: uppercase;
+        padding: 6px 18px; border-radius: 50px; margin-bottom: 1.5rem;
+      }
+      .hero h1 {
+        font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 800;
+        color: white; line-height: 1.1; margin-bottom: 1.2rem;
+        text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+      }
+      .hero h1 span { color: #7dd9d9; }
+      .hero p {
+        font-size: clamp(1rem, 2.5vw, 1.2rem); color: rgba(255,255,255,0.88);
+        margin-bottom: 2.5rem; max-width: 560px; margin-left: auto; margin-right: auto;
+      }
+      .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+      .btn-primary {
+        background: var(--color-primary); color: white;
+        padding: 14px 32px; border-radius: 50px;
+        font-size: 1rem; font-weight: 600; text-decoration: none;
+        transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+        box-shadow: 0 4px 20px rgba(45,148,148,0.4);
+      }
+      .btn-primary:hover { background: var(--color-primary-dark); transform: translateY(-2px); box-shadow: 0 6px 28px rgba(45,148,148,0.5); }
+      .btn-outline {
+        border: 2px solid rgba(255,255,255,0.7); color: white;
+        padding: 14px 32px; border-radius: 50px;
+        font-size: 1rem; font-weight: 600; text-decoration: none;
+        transition: all var(--transition);
+      }
+      .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: white; }
+      .hero-scroll {
+        position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+        display: flex; flex-direction: column; align-items: center; gap: 6px;
+        color: rgba(255,255,255,0.6); font-size: 0.75rem; letter-spacing: 0.08em;
+        text-transform: uppercase; z-index: 2;
+      }
+      .hero-scroll::after {
+        content: ''; display: block; width: 1px; height: 40px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+      }
+
+      /* ── SECTIONS GENERAL ── */
+      section { padding: 90px 5%; }
+      .section-label {
+        font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em;
+        text-transform: uppercase; color: var(--color-primary);
+        margin-bottom: 0.6rem;
+      }
+      .section-title {
+        font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700;
+        color: var(--color-dark); line-height: 1.2; margin-bottom: 1rem;
+      }
+      .section-sub {
+        font-size: 1.05rem; color: var(--color-muted); max-width: 560px;
+      }
+      .section-header { margin-bottom: 3.5rem; }
+      .section-header.center { text-align: center; }
+      .section-header.center .section-sub { margin: 0 auto; }
+
+      /* ── POR QUÉ ELEGIRNOS — imagen ombria-6 de fondo ── */
+      .why {
+        background:
+          linear-gradient(rgba(26,43,43,0.87), rgba(26,43,43,0.87)),
+          url('assets/ombria-6.jpg') center/cover no-repeat;
+      }
+      .why .section-label { color: #7dd9d9; }
+      .why .section-title { color: white; }
+      .why .section-sub { color: rgba(255,255,255,0.6); }
+      .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+      .why-card {
+        background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+        border-radius: var(--radius); padding: 2rem;
+        transition: border-color var(--transition), transform var(--transition);
+      }
+      .why-card:hover { border-color: rgba(45,148,148,0.5); transform: translateY(-4px); }
+      .why-icon {
+        width: 52px; height: 52px; border-radius: 12px;
+        background: rgba(45,148,148,0.2); border: 1px solid rgba(45,148,148,0.3);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.5rem; margin-bottom: 1.2rem;
+      }
+      .why-card h3 { font-size: 1.1rem; font-weight: 600; color: white; margin-bottom: 0.5rem; }
+      .why-card p { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+      /* ── SERVICIOS ── */
+      .servicios { background: var(--color-light); }
+      .servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+      .servicio-card {
+        background: white; border-radius: var(--radius);
+        padding: 1.8rem; box-shadow: var(--shadow);
+        border-left: 4px solid var(--color-primary);
+        transition: transform var(--transition), box-shadow var(--transition);
+      }
+      .servicio-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+      .servicio-card .tag {
+        display: inline-block; font-size: 0.72rem; font-weight: 700;
+        letter-spacing: 0.1em; text-transform: uppercase;
+        background: var(--color-primary-light); color: var(--color-primary);
+        padding: 3px 10px; border-radius: 50px; margin-bottom: 0.8rem;
+      }
+      .servicio-card h3 { font-size: 1.05rem; font-weight: 600; color: var(--color-dark); margin-bottom: 0.4rem; }
+      .servicio-card p { font-size: 0.88rem; color: var(--color-muted); }
+
+      /* ── GALERÍA (ombria-8 a ombria-17) ── */
+      .galeria { padding: 0; overflow: hidden; }
+      .galeria-strip { display: flex; height: 300px; }
+      .galeria-item {
+        flex: 1; min-width: 0;
+        background-size: cover; background-position: center;
+        transition: flex 0.5s ease;
+        cursor: pointer;
+        position: relative;
+      }
+      .galeria-item::after {
+        content: ''; position: absolute; inset: 0;
+        background: rgba(10,30,30,0.3);
+        transition: background 0.5s ease;
+      }
+      .galeria-item:hover { flex: 3; }
+      .galeria-item:hover::after { background: rgba(10,30,30,0.05); }
+
+      /* ── CLIENTES ── */
+      .clientes { background: white; }
+      .clientes-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+      .cliente-item {
+        display: flex; align-items: center; gap: 0.8rem;
+        padding: 1rem 1.2rem; border-radius: var(--radius);
+        border: 1px solid #e8eded;
+        font-size: 0.9rem; font-weight: 500; color: var(--color-text);
+        transition: border-color var(--transition), background var(--transition);
+      }
+      .cliente-item:hover { border-color: var(--color-primary); background: var(--color-primary-light); }
+      .cliente-item::before {
+        content: ''; width: 8px; height: 8px; border-radius: 50%;
+        background: var(--color-primary); flex-shrink: 0;
+      }
+
+      /* ── CTA — imagen ombria-7 de fondo ── */
+      .cta {
+        background:
+          linear-gradient(135deg, rgba(31,107,107,0.88) 0%, rgba(45,148,148,0.82) 100%),
+          url('assets/ombria-7.jpg') center/cover no-repeat;
+        text-align: center; padding: 80px 5%;
+      }
+      .cta h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; color: white; margin-bottom: 1rem; }
+      .cta p { color: rgba(255,255,255,0.82); font-size: 1.05rem; margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+      .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+      .btn-white {
+        background: white; color: var(--color-primary-dark);
+        padding: 14px 32px; border-radius: 50px;
+        font-size: 1rem; font-weight: 700; text-decoration: none;
+        transition: transform var(--transition), box-shadow var(--transition);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      }
+      .btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(0,0,0,0.25); }
+      .btn-outline-white {
+        border: 2px solid rgba(255,255,255,0.7); color: white;
+        padding: 14px 32px; border-radius: 50px;
+        font-size: 1rem; font-weight: 600; text-decoration: none;
+        transition: all var(--transition);
+      }
+      .btn-outline-white:hover { background: rgba(255,255,255,0.15); border-color: white; }
+
+      /* ── FOOTER ── */
+      footer {
+        background: #0f1e1e; color: rgba(255,255,255,0.6);
+        padding: 60px 5% 30px;
+      }
+      .footer-grid {
+        display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 3rem; margin-bottom: 3rem;
+      }
+      .footer-brand img { height: 40px; width: auto; margin-bottom: 1rem; background: white; padding: 6px 10px; border-radius: 8px; }
+      .footer-brand p { font-size: 0.88rem; line-height: 1.7; max-width: 280px; }
+      .footer-col h4 {
+        color: white; font-size: 0.85rem; font-weight: 600;
+        letter-spacing: 0.08em; text-transform: uppercase;
+        margin-bottom: 1.2rem;
+      }
+      .footer-col ul { list-style: none; }
+      .footer-col ul li { margin-bottom: 0.6rem; }
+      .footer-col ul li a {
+        color: rgba(255,255,255,0.55); text-decoration: none;
+        font-size: 0.88rem; transition: color var(--transition);
+      }
+      .footer-col ul li a:hover { color: var(--color-primary); }
+      .footer-col p { font-size: 0.88rem; line-height: 1.9; }
+      .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.08);
+        padding-top: 1.5rem;
+        display: flex; justify-content: space-between; align-items: center;
+        font-size: 0.8rem; flex-wrap: wrap; gap: 0.5rem;
+      }
+
+      /* ── REVEAL ── */
+      .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 768px) {
+        nav, .header-cta { display: none; }
+        nav.open { display: flex; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: var(--color-dark); padding: 1.5rem 5%; gap: 1.2rem; }
+        nav.open + .header-cta { display: block; padding: 0 5% 1.5rem; background: var(--color-dark); }
+        .nav-toggle { display: block; }
+        .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+        .footer-bottom { flex-direction: column; text-align: center; }
+        .galeria-strip { height: 200px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <a href="client-original.html" class="header-logo">
+        <img src="assets/logo.png" alt="OmbrIA - IA para el Sector Forestal" width="160" height="42" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="nav">
+        <a href="client-original.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <a href="contacto.html" class="header-cta">Habla con nosotros</a>
+    </header>
+
+    <!-- PORTADA: secuencia ombria-1 → ombria-2 → ombria-3 → ombria-4 → ombria-5 -->
+    <section class="hero" id="inicio">
+      <div class="hero-slide" style="background-image: url('assets/ombria-1.jpg')"></div>
+      <div class="hero-slide" style="background-image: url('assets/ombria-2.jpg')"></div>
+      <div class="hero-slide" style="background-image: url('assets/ombria-3.jpg')"></div>
+      <div class="hero-slide" style="background-image: url('assets/ombria-4.jpg')"></div>
+      <div class="hero-slide" style="background-image: url('assets/ombria-5.jpg')"></div>
+      <div class="hero-content">
+        <span class="hero-badge">Sector Forestal · Inteligencia Artificial</span>
+        <h1>
+          El poder de la <span>IA</span> aplicado<br />a la gestión forestal
+        </h1>
+        <p>
+          Automatizamos tus procesos forestales para multiplicar el rendimiento, reducir costes y tomar decisiones más inteligentes con sistemas de IA diseñados para el sector.
+        </p>
+        <div class="hero-actions">
+          <a href="contacto.html" class="btn-primary">Solicitar consulta gratuita</a>
+          <a href="servicios.html" class="btn-outline">Ver servicios</a>
+        </div>
+      </div>
+      <div class="hero-scroll">Scroll</div>
+    </section>
+
+    <!-- CABECERA SECCIÓN: fondo ombria-6 -->
+    <section class="why">
+      <div class="section-header">
+        <p class="section-label">Por qué elegirnos</p>
+        <h2 class="section-title">
+          IA forestal de verdad,<br />no tecnología genérica
+        </h2>
+        <p class="section-sub">
+          Combinamos inteligencia artificial de última generación con conocimiento real del sector forestal. Automatizamos, digitalizamos y posicionamos tu empresa para multiplicar resultados y reducir costes.
+        </p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon">🌲</div>
+          <h3>IA especializada en forestal</h3>
+          <p>No somos una consultora genérica. Conocemos el sector y diseñamos soluciones adaptadas a su realidad operativa y de negocio.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">⚙️</div>
+          <h3>Automatización de procesos</h3>
+          <p>Eliminamos tareas repetitivas y optimizamos flujos de trabajo con agentes y sistemas de IA a medida para tu empresa.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">🌐</div>
+          <h3>Web y SEO que capta clientes</h3>
+          <p>Creamos y optimizamos páginas web con SEO para que tu empresa aparezca primero en Google y gane más clientes.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">📈</div>
+          <h3>Resultados medibles</h3>
+          <p>Cada solución tiene objetivos claros: más rendimiento, menos coste y mayor control sobre tu gestión forestal.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="servicios">
+      <div class="section-header center">
+        <p class="section-label">Nuestros servicios</p>
+        <h2 class="section-title">¿En qué podemos ayudarte?</h2>
+        <p class="section-sub">
+          Desde la automatización de operaciones de campo hasta el posicionamiento digital, cubrimos todo lo que tu empresa forestal necesita para crecer.
+        </p>
+      </div>
+      <div class="servicios-grid">
+        <div class="servicio-card reveal">
+          <span class="tag">IA Forestal</span>
+          <h3>Automatización de Procesos</h3>
+          <p>Diseñamos agentes y sistemas de IA que automatizan tareas de gestión, planificación y seguimiento forestal.</p>
+        </div>
+        <div class="servicio-card reveal">
+          <span class="tag">IA Forestal</span>
+          <h3>Sistemas de Gestión Inteligente</h3>
+          <p>Aplicaciones a medida para digitalizar y optimizar la explotación forestal: inventarios, aprovechamientos, logística y más.</p>
+        </div>
+        <div class="servicio-card reveal">
+          <span class="tag">IA Forestal</span>
+          <h3>Análisis de Datos Forestales</h3>
+          <p>Transformamos tus datos de campo en información accionable para tomar decisiones más inteligentes y rentables.</p>
+        </div>
+        <div class="servicio-card reveal">
+          <span class="tag">Web & SEO</span>
+          <h3>Creación de Páginas Web</h3>
+          <p>Diseñamos webs profesionales para empresas del sector forestal, modernas, rápidas y listas para posicionarse.</p>
+        </div>
+        <div class="servicio-card reveal">
+          <span class="tag">Web & SEO</span>
+          <h3>Posicionamiento SEO</h3>
+          <p>Mejoramos tu visibilidad en Google para que tus clientes te encuentren a ti antes que a la competencia.</p>
+        </div>
+        <div class="servicio-card reveal">
+          <span class="tag">Consultoría</span>
+          <h3>Consultoría IA para Empresas</h3>
+          <p>Analizamos tus procesos actuales e identificamos dónde la inteligencia artificial puede generar más valor en tu negocio.</p>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:2.5rem;">
+        <a href="servicios.html" class="btn-primary">Ver todos los servicios</a>
+      </div>
+    </section>
+
+    <!-- GALERÍA: ombria-8 a ombria-17 — expanden al pasar el ratón -->
+    <div class="galeria">
+      <div class="galeria-strip">
+        <div class="galeria-item" style="background-image: url('assets/ombria-8.jpg')"></div>
+        <div class="galeria-item" style="background-image: url('assets/ombria-9.jpg')"></div>
+        <div class="galeria-item" style="background-image: url('assets/ombria-10.jpg')"></div>
+        <div class="galeria-item" style="background-image: url('assets/ombria-11.jpg')"></div>
+        <div class="galeria-item" style="background-image: url('assets/ombria-12.jpg')"></div>
+        <div class="galeria-item" style="background-image: url('assets/ombria-13.jpg')"></div>
+        <div class="galeria-item" style="background-image: url('assets/ombria-14.jpg')"></div>
+        <div class="galeria-item" style="background-image: url('assets/ombria-15.jpg')"></div>
+        <div class="galeria-item" style="background-image: url('assets/ombria-16.jpg')"></div>
+        <div class="galeria-item" style="background-image: url('assets/ombria-17.jpg')"></div>
+      </div>
+    </div>
+
+    <section class="clientes">
+      <div class="section-header center">
+        <p class="section-label">A quién ayudamos</p>
+        <h2 class="section-title">Soluciones para todo el sector</h2>
+        <p class="section-sub">
+          Trabajamos con empresas y profesionales de toda la cadena forestal que quieren dar el salto a la gestión inteligente.
+        </p>
+      </div>
+      <div class="clientes-grid">
+        <div class="cliente-item reveal">Empresas de gestión y explotación forestal</div>
+        <div class="cliente-item reveal">Propietarios de fincas y montes</div>
+        <div class="cliente-item reveal">Viveros y empresas de repoblación</div>
+        <div class="cliente-item reveal">Empresas de biomasa y aprovechamiento</div>
+        <div class="cliente-item reveal">Consultorías ambientales y forestales</div>
+        <div class="cliente-item reveal">Administraciones y organismos públicos</div>
+      </div>
+    </section>
+
+    <!-- CABECERA SECCIÓN: fondo ombria-7 -->
+    <section class="cta">
+      <h2>¿Listo para transformar tu gestión forestal con IA?</h2>
+      <p>Cuéntanos tu proyecto. En 24 horas te respondemos con una propuesta adaptada a tu empresa, sin compromiso.</p>
+      <div class="cta-actions">
+        <a href="contacto.html" class="btn-white">Solicitar consulta gratuita</a>
+        <a href="servicios.html" class="btn-outline-white">Ver servicios</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="OmbrIA - Logo" />
+          <p>Implementación de inteligencia artificial en el sector forestal. Automatizamos procesos, optimizamos la gestión y posicionamos tu empresa en internet.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="client-original.html">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <p>
+            📍 Bocairent, Valencia<br />
+            <br />
+            <a href="tel:644342430" style="color:var(--color-primary);text-decoration:none;">📞 644 34 24 30</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 OmbrIA. Todos los derechos reservados.</span>
+        <span>España · Sector Forestal</span>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('navToggle').addEventListener('click', function() {
+        document.getElementById('nav').classList.toggle('open');
+      });
+
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+          if (e.isIntersecting) {
+            setTimeout(() => e.target.classList.add('visible'), i * 80);
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      reveals.forEach(r => observer.observe(r));
+    </script>
+  </body>
+</html>
