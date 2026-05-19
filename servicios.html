@@ -3,13 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Automatización IA para Empresas Forestales en Valencia | OmbrIA Servicios</title>
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <title>Automatización IA para Empresas Forestales para Empresas Forestales | OmbrIA Servicios</title>
     <meta name="description" content="Automatización forestal con IA, análisis de datos, agentes inteligentes, webs y SEO para empresas del sector forestal. Consulta gratuita. Bocairent, Valencia. Tel: 644 34 24 30." />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="OmbrIA" />
     <meta name="keywords" content="servicios IA forestal, automatización procesos forestales, agentes inteligencia artificial, web SEO empresas forestales Valencia" />
     <link rel="canonical" href="https://ombria.es/servicios.html" />
-    <meta property="og:title" content="Servicios de IA Forestal en Valencia | OmbrIA" />
+    <meta property="og:title" content="Servicios de IA Forestal para Empresas Forestales | OmbrIA" />
     <meta property="og:description" content="Automatización forestal, agentes IA, análisis de datos, webs y SEO para empresas del sector. Bocairent, Valencia." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ombria.es/servicios.html" />
@@ -20,7 +21,7 @@
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="OmbrIA" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Automatización IA para Empresas Forestales en Valencia | OmbrIA" />
+    <meta name="twitter:title" content="Automatización IA para Empresas Forestales para Empresas Forestales | OmbrIA" />
     <meta name="twitter:description" content="Automatización forestal con IA, análisis de datos, agentes inteligentes, webs y SEO para empresas del sector forestal. Consulta gratuita." />
     <meta name="twitter:image" content="https://ombria.es/assets/ombria-9.jpg" />
     <meta name="geo.region" content="ES-VC" />
@@ -158,23 +159,39 @@
       .section-header.center { text-align: center; }
       .section-header.center .section-sub { margin: 0 auto; }
 
-      /* SERVICIOS GRID */
+      /* PANELES DE SERVICIO */
       .servicios { background: var(--color-light); }
-      .servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-      .servicio-card {
-        background: white; border-radius: var(--radius); padding: 1.8rem;
-        box-shadow: var(--shadow); border-left: 4px solid var(--color-primary);
-        transition: transform var(--transition), box-shadow var(--transition);
+      .paneles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 2rem; }
+      @media (max-width: 768px) { .paneles-grid { grid-template-columns: 1fr; } }
+      .panel {
+        background: white; border-radius: 16px; padding: 2.5rem;
+        box-shadow: var(--shadow); border-top: 4px solid var(--color-primary);
       }
-      .servicio-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
-      .servicio-card .tag {
+      .panel-badge {
         display: inline-block; font-size: 0.72rem; font-weight: 700;
-        letter-spacing: 0.1em; text-transform: uppercase;
+        letter-spacing: 0.12em; text-transform: uppercase;
         background: var(--color-primary-light); color: var(--color-primary);
-        padding: 3px 10px; border-radius: 50px; margin-bottom: 0.8rem;
+        padding: 4px 14px; border-radius: 50px; margin-bottom: 1rem;
       }
-      .servicio-card h3 { font-size: 1.05rem; font-weight: 600; color: var(--color-dark); margin-bottom: 0.4rem; }
-      .servicio-card p { font-size: 0.88rem; color: var(--color-muted); }
+      .panel h2 { font-size: 1.5rem; font-weight: 700; color: var(--color-dark); margin-bottom: 0.5rem; }
+      .panel .panel-intro { font-size: 0.92rem; color: var(--color-muted); margin-bottom: 2rem; }
+      .paso {
+        display: flex; gap: 1.2rem; margin-bottom: 1.8rem;
+        padding-bottom: 1.8rem; border-bottom: 1px solid #eef2f2;
+      }
+      .paso:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+      .paso-num {
+        flex-shrink: 0; width: 36px; height: 36px; border-radius: 8px;
+        background: var(--color-primary); color: white;
+        font-size: 1rem; font-weight: 700; display: flex; align-items: center; justify-content: center;
+      }
+      .paso-body h3 { font-size: 1rem; font-weight: 600; color: var(--color-dark); margin-bottom: 0.5rem; }
+      .paso-body ul { list-style: none; padding: 0; margin-bottom: 0.6rem; }
+      .paso-body ul li { font-size: 0.88rem; color: var(--color-muted); padding: 2px 0 2px 1rem; position: relative; }
+      .paso-body ul li::before { content: '·'; position: absolute; left: 0; color: var(--color-primary); font-weight: 700; }
+      .paso-body ul li.sub { padding-left: 2rem; }
+      .paso-body ul li.sub::before { content: '○'; font-size: 0.7rem; top: 3px; }
+      .paso-insight { font-size: 0.85rem; color: var(--color-primary-dark); font-style: italic; margin-top: 0.4rem; }
 
       /* CTA */
       .cta {
@@ -243,52 +260,92 @@
     <section class="servicios">
       <div class="section-header center">
         <p class="section-label">Nuestros servicios</p>
-        <h2 class="section-title">Automatización, IA y Digitalización para Empresas Forestales</h2>
-        <p class="section-sub">
-          Desde la automatización de procesos de campo hasta el posicionamiento en Google, cubrimos todo lo que tu empresa forestal necesita para ser más eficiente, rentable y competitiva en el mercado actual.
-        </p>
+        <h2 class="section-title">Cómo trabajamos con tu empresa</h2>
+        <p class="section-sub">Un proceso estructurado, sin humo y sin vender lo que no necesitas.</p>
       </div>
-      <div class="servicios-grid">
-        <div class="servicio-card reveal">
-          <span class="tag">IA Forestal</span>
-          <h3>Automatización de Procesos Forestales</h3>
-          <p>Diseñamos agentes y sistemas de IA que automatizan tareas de gestión, planificación y seguimiento forestal. Reducimos el tiempo dedicado a tareas administrativas hasta un 70%, eliminamos errores manuales y liberamos a tu equipo para centrarse en lo que realmente importa.</p>
+      <div class="paneles-grid">
+
+        <!-- PANEL 1: DIAGNÓSTICO -->
+        <div class="panel reveal">
+          <span class="panel-badge">Paso 1</span>
+          <h2>Diagnóstico Inicial IA &amp; Cyber</h2>
+          <p class="panel-intro">Antes de proponer nada, entendemos cómo funciona tu empresa por dentro. El diagnóstico sigue siempre este orden:</p>
+
+          <div class="paso">
+            <div class="paso-num">1</div>
+            <div class="paso-body">
+              <h3>Auditoría y dibujo de procesos (BPMN)</h3>
+              <ul>
+                <li>Se analizan las 4 áreas clave: marketing, ventas, delivery y administración</li>
+                <li>Se dibujan los procesos reales, no los ideales</li>
+                <li>Se detecta dónde está el caos</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="paso">
+            <div class="paso-num">2</div>
+            <div class="paso-body">
+              <h3>Detección de mejoras y oportunidades</h3>
+              <p style="font-size:0.88rem;color:var(--color-muted);margin-bottom:0.4rem;">Una vez los procesos están claros:</p>
+              <ul>
+                <li>Se optimizan pasos innecesarios</li>
+                <li>Se detectan cuellos de botella</li>
+                <li>Se analizan oportunidades de:</li>
+                <li class="sub">Optimización del stack tecnológico</li>
+                <li class="sub">Automatización</li>
+                <li class="sub">Integración de IA (solo si tiene sentido)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="paso">
+            <div class="paso-num">3</div>
+            <div class="paso-body">
+              <h3>Revisión desde el punto de vista de ciberseguridad</h3>
+              <p style="font-size:0.88rem;color:var(--color-muted);margin-bottom:0.4rem;">Cada oportunidad propuesta se revisa desde:</p>
+              <ul>
+                <li>Accesos</li>
+                <li>Datos</li>
+                <li>Dependencias</li>
+                <li>Riesgos técnicos y humanos</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="paso">
+            <div class="paso-num">4</div>
+            <div class="paso-body">
+              <h3>Roadmap de implementación a medida</h3>
+              <p style="font-size:0.88rem;color:var(--color-muted);margin-bottom:0.4rem;">Por último:</p>
+              <ul>
+                <li>Se ordena todo lo anterior</li>
+                <li>Se define en qué orden se debería implementar</li>
+                <li>Se explica por qué ese orden</li>
+                <li>Se prioriza impacto vs riesgo</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="servicio-card reveal">
-          <span class="tag">IA Forestal</span>
-          <h3>Sistemas de Gestión Forestal Inteligente</h3>
-          <p>Aplicaciones y plataformas a medida para digitalizar la explotación forestal: inventarios de masa arbórea, gestión de aprovechamientos maderables y no maderables, logística, planificación de cortas, control de costes y trazabilidad de operaciones de campo.</p>
+
+        <!-- PANEL 2: IMPLEMENTACIÓN -->
+        <div class="panel reveal">
+          <span class="panel-badge">Paso 2</span>
+          <h2>Implementación de IA</h2>
+          <p class="panel-intro">Con el roadmap definido, ejecutamos. Sin fricciones, sin improvisación.</p>
+
+          <div class="paso">
+            <div class="paso-body">
+              <ul>
+                <li>Se ejecuta el roadmap</li>
+                <li>Se orquesta la tecnología</li>
+                <li>Se implementan las mejoras</li>
+                <li>Se integra IA y automatización</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="servicio-card reveal">
-          <span class="tag">IA Forestal</span>
-          <h3>Análisis de Datos Forestales con IA</h3>
-          <p>Transformamos tus datos de campo, teledetección satelital y SIG en información accionable. Identificamos tendencias, detectamos riesgos fitosanitarios, optimizamos la planificación de turnos de corta y generamos informes automáticos para maximizar la rentabilidad de tu monte.</p>
-        </div>
-        <div class="servicio-card reveal">
-          <span class="tag">IA Forestal</span>
-          <h3>Agentes IA para el Sector Forestal</h3>
-          <p>Desarrollamos agentes de inteligencia artificial especializados en tareas forestales: redacción automática de proyectos e informes técnicos, tramitación de solicitudes ante la administración, control de operaciones de campo y atención automatizada a clientes 24/7.</p>
-        </div>
-        <div class="servicio-card reveal">
-          <span class="tag">Web & SEO</span>
-          <h3>Páginas Web para Empresas Forestales</h3>
-          <p>Diseñamos webs profesionales, modernas y ultrarrápidas para empresas del sector forestal. Cada web se construye con arquitectura SEO desde cero para posicionarse en Google, con diseño responsive, formularios de captación de leads y velocidad de carga optimizada.</p>
-        </div>
-        <div class="servicio-card reveal">
-          <span class="tag">Web & SEO</span>
-          <h3>Posicionamiento SEO en Google</h3>
-          <p>Estrategia SEO completa para empresas forestales: auditoría técnica, optimización on-page, creación de contenido con keywords de alto valor, link building y seguimiento de posiciones. Logramos que tus clientes ideales te encuentren antes que a la competencia.</p>
-        </div>
-        <div class="servicio-card reveal">
-          <span class="tag">Consultoría</span>
-          <h3>Consultoría IA para Empresas Forestales</h3>
-          <p>Analizamos en profundidad tus procesos actuales e identificamos las oportunidades donde la inteligencia artificial puede generar mayor impacto económico. Entregamos un plan de transformación digital priorizado, con estimación de ROI y hoja de ruta de implementación.</p>
-        </div>
-        <div class="servicio-card reveal">
-          <span class="tag">Consultoría</span>
-          <h3>Formación en IA Aplicada al Sector</h3>
-          <p>Formamos a tu equipo en el uso práctico de herramientas de inteligencia artificial aplicadas al sector forestal: prompting avanzado, automatización con IA, análisis de datos y uso de agentes inteligentes para el trabajo diario.</p>
-        </div>
+
       </div>
     </section>
 
