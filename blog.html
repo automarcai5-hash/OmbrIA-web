@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <title>Blog IA Forestal | OmbrIA — Automatización y Gestión Forestal Inteligente</title>
+    <meta name="description" content="Artículos sobre inteligencia artificial en el sector forestal. Aprende cómo automatizar procesos, implementar agentes IA y digitalizar tu empresa forestal." />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="OmbrIA" />
+    <meta name="keywords" content="blog IA forestal, automatización forestal, inteligencia artificial gestión forestal, agentes IA sector forestal" />
+    <link rel="canonical" href="https://ombria.es/blog.html" />
+    <meta property="og:title" content="Blog IA Forestal | OmbrIA" />
+    <meta property="og:description" content="Artículos sobre inteligencia artificial en el sector forestal. Automatización, agentes IA y digitalización para empresas forestales." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ombria.es/blog.html" />
+    <meta property="og:image" content="https://ombria.es/assets/ombria-1.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="OmbrIA" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Blog IA Forestal | OmbrIA" />
+    <meta name="twitter:description" content="Artículos sobre IA y automatización para empresas del sector forestal." />
+    <meta name="twitter:image" content="https://ombria.es/assets/ombria-1.jpg" />
+    <meta name="geo.region" content="ES-VC" />
+    <meta name="geo.placename" content="Bocairent, Valencia, España" />
+    <meta name="theme-color" content="#2d9494" />
+    <meta name="google-site-verification" content="iO-g_4JYqSAIjRQbnookDrGr7Z85VDPK6Jcb-DGQB2k" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://ombria.es/"},
+        {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://ombria.es/blog.html"}
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFWQ53K1MT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SFWQ53K1MT');
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root {
+        --color-primary: #2d9494; --color-primary-dark: #1f6b6b;
+        --color-primary-light: #e8f5f5; --color-dark: #1a2b2b;
+        --color-text: #2e3d3d; --color-muted: #6b8080;
+        --color-light: #f7fafa; --color-white: #ffffff;
+        --font: 'Outfit', sans-serif; --radius: 12px;
+        --shadow: 0 4px 24px rgba(0,0,0,0.08);
+        --shadow-hover: 0 8px 40px rgba(0,0,0,0.14);
+        --transition: 0.25s ease;
+      }
+      html { scroll-behavior: smooth; }
+      body { font-family: var(--font); color: var(--color-text); background: var(--color-white); line-height: 1.6; }
+
+      /* HEADER */
+      header {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+        background: rgba(26,43,43,0.96); backdrop-filter: blur(10px);
+        padding: 0 5%; display: flex; align-items: center; justify-content: space-between;
+        height: 70px;
+      }
+      .header-logo img { height: 42px; width: auto; }
+      nav { display: flex; gap: 2rem; align-items: center; }
+      nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color var(--transition); }
+      nav a:hover { color: var(--color-white); }
+      nav a.active { color: #7dd9d9; }
+      .header-cta { color: var(--color-primary); font-weight: 600; font-size: 0.95rem; text-decoration: none; white-space: nowrap; }
+      .header-cta:hover { color: #5bbcbc; }
+      .nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+      .nav-toggle span { display: block; width: 24px; height: 2px; background: white; margin: 5px 0; }
+
+      /* PAGE BANNER */
+      .page-banner {
+        height: 380px; margin-top: 70px;
+        background: linear-gradient(160deg, rgba(10,30,30,0.75) 0%, rgba(45,148,148,0.5) 100%),
+          url('assets/ombria-3.jpg') center/cover no-repeat;
+        display: flex; align-items: center; justify-content: center; text-align: center;
+      }
+      .page-banner-content { padding: 0 20px; }
+      .page-badge { display: inline-block; background: rgba(45,148,148,0.35); border: 1px solid rgba(45,148,148,0.6); color: #7dd9d9; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 18px; border-radius: 50px; margin-bottom: 1rem; }
+      .page-banner h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; color: white; text-shadow: 0 2px 20px rgba(0,0,0,0.4); }
+      .page-banner p { color: rgba(255,255,255,0.82); font-size: 1.1rem; margin-top: 1rem; max-width: 540px; }
+
+      /* BLOG SECTION */
+      .blog-section { padding: 80px 5%; background: var(--color-white); }
+      .blog-section .section-header { text-align: center; margin-bottom: 56px; }
+      .section-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-primary); margin-bottom: 0.5rem; }
+      .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--color-dark); line-height: 1.25; }
+      .section-sub { color: var(--color-muted); margin-top: 0.75rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+
+      /* ARTICLE CARDS */
+      .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 32px; }
+      .blog-card {
+        background: var(--color-white); border: 1px solid #e8f0f0;
+        border-radius: var(--radius); overflow: hidden;
+        box-shadow: var(--shadow); transition: box-shadow var(--transition), transform var(--transition);
+        display: flex; flex-direction: column;
+      }
+      .blog-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
+      .blog-card-img {
+        height: 200px; overflow: hidden;
+      }
+      .blog-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+      .blog-card:hover .blog-card-img img { transform: scale(1.04); }
+      .blog-card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+      .blog-card-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+      .blog-tag { background: var(--color-primary-light); color: var(--color-primary-dark); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+      .blog-date { font-size: 0.8rem; color: var(--color-muted); }
+      .blog-card h2 { font-size: 1.15rem; font-weight: 700; color: var(--color-dark); line-height: 1.4; margin-bottom: 10px; }
+      .blog-card p { font-size: 0.92rem; color: var(--color-muted); flex: 1; }
+      .blog-card-footer { margin-top: 20px; display: flex; align-items: center; justify-content: space-between; }
+      .blog-read { color: var(--color-primary); font-size: 0.9rem; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: gap var(--transition); }
+      .blog-read:hover { gap: 10px; }
+      .read-time { font-size: 0.78rem; color: var(--color-muted); }
+
+      /* CTA */
+      .cta { padding: 90px 5%; text-align: center; background: var(--color-dark); color: white; }
+      .cta h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 1rem; }
+      .cta p { color: rgba(255,255,255,0.75); max-width: 560px; margin: 0 auto 2rem; }
+      .btn-white { display: inline-block; background: white; color: var(--color-dark); padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: var(--transition); }
+      .btn-white:hover { background: var(--color-primary-light); }
+
+      /* FOOTER */
+      footer { background: var(--color-dark); color: rgba(255,255,255,0.7); padding: 60px 5% 30px; }
+      .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+      .footer-brand img { height: 38px; margin-bottom: 1rem; filter: brightness(0) invert(1); }
+      .footer-brand p { font-size: 0.88rem; line-height: 1.7; }
+      .footer-col h4 { color: white; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; }
+      .footer-col ul { list-style: none; }
+      .footer-col ul li { margin-bottom: 0.5rem; }
+      .footer-col a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.9rem; transition: color var(--transition); }
+      .footer-col a:hover { color: var(--color-primary); }
+      .footer-col p { font-size: 0.88rem; line-height: 1.9; }
+      .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 0.82rem; flex-wrap: wrap; gap: 8px; }
+
+      /* REVEAL */
+      .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
+
+      @media (max-width: 768px) {
+        nav, .header-cta { display: none; }
+        nav.open { display: flex; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: var(--color-dark); padding: 1.5rem 5%; gap: 1.2rem; }
+        nav.open + .header-cta { display: block; padding: 0 5% 1.5rem; background: var(--color-dark); }
+        .nav-toggle { display: block; }
+        .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+        .footer-bottom { flex-direction: column; text-align: center; }
+        .blog-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <a href="https://ombria.es/" class="header-logo">
+        <img src="assets/logo.png" alt="OmbrIA - IA para el Sector Forestal" width="160" height="42" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav">
+        <a href="https://ombria.es/">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <a href="contacto.html" class="header-cta">Habla con nosotros</a>
+    </header>
+
+    <div class="page-banner">
+      <div class="page-banner-content">
+        <span class="page-badge">Conocimiento · IA · Forestal</span>
+        <h1>Blog OmbrIA</h1>
+        <p>Recursos, casos de uso y tendencias sobre inteligencia artificial en el sector forestal.</p>
+      </div>
+    </div>
+
+    <section class="blog-section">
+      <div class="section-header">
+        <p class="section-label">Últimos artículos</p>
+        <h2 class="section-title">IA aplicada al sector forestal</h2>
+        <p class="section-sub">Publicamos recursos prácticos para que las empresas forestales entiendan y aprovechen la inteligencia artificial.</p>
+      </div>
+
+      <div class="blog-grid">
+
+        <article class="blog-card reveal">
+          <div class="blog-card-img">
+            <img src="assets/ombria-9.jpg" alt="Automatización de procesos forestales con IA - OmbrIA" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-tag">Automatización</span>
+              <span class="blog-date">5 junio 2026</span>
+            </div>
+            <h2>3 procesos forestales que puedes automatizar con IA hoy mismo</h2>
+            <p>La mayoría de empresas forestales dedican horas semanales a tareas administrativas repetitivas. Te mostramos qué procesos tienen mayor potencial de automatización y qué impacto real genera.</p>
+            <div class="blog-card-footer">
+              <a href="blog-automatizacion-procesos-forestales.html" class="blog-read">Leer artículo →</a>
+              <span class="read-time">5 min lectura</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card reveal">
+          <div class="blog-card-img">
+            <img src="assets/ombria-14.jpg" alt="Agente IA para empresa forestal - OmbrIA" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-tag">Agentes IA</span>
+              <span class="blog-date">1 junio 2026</span>
+            </div>
+            <h2>Qué es un agente IA y cómo puede transformar tu empresa forestal</h2>
+            <p>Los agentes de inteligencia artificial son sistemas que trabajan de forma autónoma en tareas concretas. Explicamos qué son, cómo funcionan y qué casos de uso tienen en el sector forestal.</p>
+            <div class="blog-card-footer">
+              <a href="blog-agente-ia-empresa-forestal.html" class="blog-read">Leer artículo →</a>
+              <span class="read-time">6 min lectura</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>¿Quieres aplicar la IA en tu empresa forestal?</h2>
+      <p>El primer paso es un diagnóstico gratuito. Analizamos tu empresa y te decimos exactamente dónde la IA genera más impacto.</p>
+      <a href="contacto.html" class="btn-white">Solicitar diagnóstico gratuito</a>
+    </section>
+
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="OmbrIA - Logo" />
+          <p>Diagnosticamos e implementamos IA en empresas forestales. Primero entendemos tu empresa, luego ejecutamos el cambio.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="https://ombria.es/">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <p>
+            📍 Bocairent, Valencia<br /><br />
+            <a href="tel:644342430" style="color:var(--color-primary);text-decoration:none;">📞 644 34 24 30</a><br /><br />
+            <a href="mailto:info@ombria.es" style="color:var(--color-primary);text-decoration:none;">📧 info@ombria.es</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 OmbrIA. Todos los derechos reservados.</span>
+        <span>España · Sector Forestal</span>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('navToggle').addEventListener('click', function() {
+        document.getElementById('nav').classList.toggle('open');
+      });
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+          if (e.isIntersecting) {
+            setTimeout(() => e.target.classList.add('visible'), i * 80);
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      reveals.forEach(r => observer.observe(r));
+    </script>
+  </body>
+</html>
