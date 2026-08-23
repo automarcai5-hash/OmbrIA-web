@@ -317,6 +317,11 @@
         });
       }, { threshold: 0.12 });
       reveals.forEach(r => observer.observe(r));
+      // GA4 Conversion Tracking
+      var frm = document.querySelector('form');
+      if (frm) { frm.addEventListener('submit', function() { if(typeof gtag==='function') gtag('event','generate_lead',{event_category:'contacto',event_label:'formulario_web'}); }); }
+      document.querySelectorAll('a[href="tel:644342430"]').forEach(function(e){ e.addEventListener('click',function(){ if(typeof gtag==='function') gtag('event','contact',{contact_method:'telefono'}); }); });
+      document.querySelectorAll('a[href="mailto:info@ombria.es"]').forEach(function(e){ e.addEventListener('click',function(){ if(typeof gtag==='function') gtag('event','contact',{contact_method:'email'}); }); });
     </script>
   </body>
 </html>
