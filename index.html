@@ -405,6 +405,20 @@
         font-size: 0.8rem; flex-wrap: wrap; gap: 0.5rem;
       }
 
+
+      /* BLOG PREVIEW */
+      .blog-preview { background: var(--color-light); padding: 90px 5%; }
+      .blog-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+      .blog-card { background: white; border-radius: var(--radius); box-shadow: 0 2px 16px rgba(0,0,0,0.06); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.22s ease, box-shadow 0.22s ease; text-decoration: none; color: inherit; }
+      .blog-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(45,148,148,0.14); }
+      .blog-card-img { height: 160px; background: #d0e8e8 center/cover no-repeat; }
+      .blog-card-body { padding: 1.4rem 1.5rem 1.6rem; flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+      .blog-card-meta { font-size: 0.78rem; font-weight: 600; color: var(--color-primary); letter-spacing: 0.06em; text-transform: uppercase; }
+      .blog-card-title { font-size: 1rem; font-weight: 700; color: var(--color-dark); line-height: 1.4; }
+      .blog-card-excerpt { font-size: 0.88rem; color: var(--color-muted); line-height: 1.6; flex: 1; }
+      .blog-card-link { font-size: 0.85rem; font-weight: 600; color: var(--color-primary); margin-top: 0.5rem; }
+      @media (max-width: 600px) { .blog-cards { grid-template-columns: 1fr; } }
+
       /* ── REVEAL ── */
       .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
       .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -555,6 +569,57 @@
         <div class="cliente-item reveal">Empresas de biomasa y aprovechamiento</div>
         <div class="cliente-item reveal">Consultorías ambientales y forestales</div>
         <div class="cliente-item reveal">Administraciones y organismos públicos</div>
+      </div>
+    </section>
+
+
+    <!-- ULTIMAS PUBLICACIONES DEL BLOG -->
+    <section class="blog-preview">
+      <div class="section-header center">
+        <p class="section-label">Blog</p>
+        <h2 class="section-title">Recursos sobre IA forestal</h2>
+        <p class="section-sub">Articulos, casos de uso y tendencias sobre inteligencia artificial en el sector forestal.</p>
+      </div>
+      <div class="blog-cards">
+        <a href="blog/gestion-forestal-estrategias-exito.html" class="blog-card reveal">
+          <div class="blog-card-img" style="background-image:url('assets/ombria-10.jpg')"></div>
+          <div class="blog-card-body">
+            <span class="blog-card-meta">19 julio 2026 &middot; 8 min</span>
+            <h3 class="blog-card-title">Gestion Forestal: Estrategias Efectivas con Inteligencia Artificial</h3>
+            <p class="blog-card-excerpt">Como las empresas forestales estan usando IA para optimizar la planificacion, reducir costes y mejorar la toma de decisiones.</p>
+            <span class="blog-card-link">Leer articulo &rarr;</span>
+          </div>
+        </a>
+        <a href="blog/gestion-forestal-inteligencia-artificial.html" class="blog-card reveal">
+          <div class="blog-card-img" style="background-image:url('assets/ombria-11.jpg')"></div>
+          <div class="blog-card-body">
+            <span class="blog-card-meta">5 julio 2026 &middot; 8 min</span>
+            <h3 class="blog-card-title">Implementacion de Inteligencia Artificial en la Gestion Forestal</h3>
+            <p class="blog-card-excerpt">Guia practica para integrar IA en tu empresa forestal: por donde empezar, que procesos automatizar primero y como medir el impacto.</p>
+            <span class="blog-card-link">Leer articulo &rarr;</span>
+          </div>
+        </a>
+        <a href="blog-agente-ia-empresa-forestal.html" class="blog-card reveal">
+          <div class="blog-card-img" style="background-image:url('assets/ombria-14.jpg')"></div>
+          <div class="blog-card-body">
+            <span class="blog-card-meta">1 junio 2026 &middot; 5 min</span>
+            <h3 class="blog-card-title">Que es un Agente IA y Como Puede Transformar tu Empresa Forestal</h3>
+            <p class="blog-card-excerpt">Un agente IA no es un chatbot. Te explicamos como funcionan y que pueden hacer por una empresa del sector forestal hoy mismo.</p>
+            <span class="blog-card-link">Leer articulo &rarr;</span>
+          </div>
+        </a>
+        <a href="blog-automatizacion-procesos-forestales.html" class="blog-card reveal">
+          <div class="blog-card-img" style="background-image:url('assets/ombria-9.jpg')"></div>
+          <div class="blog-card-body">
+            <span class="blog-card-meta">5 junio 2026 &middot; 5 min</span>
+            <h3 class="blog-card-title">3 Procesos Forestales que Puedes Automatizar con IA Hoy</h3>
+            <p class="blog-card-excerpt">Sin grandes inversiones: tres procesos concretos donde la automatizacion genera resultados desde el primer mes.</p>
+            <span class="blog-card-link">Leer articulo &rarr;</span>
+          </div>
+        </a>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem;">
+        <a href="blog.html" class="btn-primary">Ver todos los articulos</a>
       </div>
     </section>
 
