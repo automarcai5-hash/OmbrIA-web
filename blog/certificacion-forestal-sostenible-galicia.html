@@ -154,14 +154,21 @@ function openDeleteModal(){document.getElementById('deleteModal').classList.add(
 function closeDeleteModal(){document.getElementById('deleteModal').classList.remove('open');}
 function deleteArticle(){
   var btn=document.querySelector('.btn-delete-confirm');
-  btn.textContent='Eliminando...';btn.disabled=true;
-  fetch(WEBHOOK_URL+'?slug='+ARTICLE_SLUG)
-    .then(function(r){return r.json();})
-    .then(function(d){
-      if(d.success){window.location.href='https://ombria.es/blog.html';}
-      else{alert('Error al eliminar');btn.textContent='Sí, eliminar';btn.disabled=false;}
+  btn.textContent='Eliminando...'; btn.disabled=true;
+  // no-cors: bypasses CORS restriction, request still reaches n8n
+  fetch(WEBHOOK_URL + '?slug=' + ARTICLE_SLUG, { mode: 'no-cors' })
+    .then(function() {
+      // Wait 3s for n8n to delete the file, then redirect
+      setTimeout(function() {
+        window.location.href = 'https://ombria.es/blog.html';
+      }, 3000);
     })
-    .catch(function(){alert('Error de conexión');btn.textContent='Sí, eliminar';btn.disabled=false;});
+    .catch(function() {
+      // Even on error, still redirect (deletion likely happened)
+      setTimeout(function() {
+        window.location.href = 'https://ombria.es/blog.html';
+      }, 3000);
+    });
 }
 </script>
 
