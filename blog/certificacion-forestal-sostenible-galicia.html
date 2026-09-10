@@ -38,40 +38,7 @@ footer { background: var(--color-dark); color: rgba(255,255,255,0.7); padding: 6
 .footer-col h4 { color: white; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; } .footer-col ul { list-style: none; } .footer-col ul li { margin-bottom: 0.5rem; } .footer-col a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.9rem; } .footer-col a:hover { color: var(--color-primary); }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 0.82rem; flex-wrap: wrap; gap: 8px; }
 @media (max-width: 768px) { nav, .header-cta { display: none; } nav.open { display: flex; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: var(--color-dark); padding: 1.5rem 5%; gap: 1.2rem; } .nav-toggle { display: block; } .footer-grid { grid-template-columns: 1fr; gap: 2rem; } .footer-bottom { flex-direction: column; text-align: center; } .article-hero { height: 320px; padding: 32px 5%; } }
-    /* Delete button */
-    .delete-btn {
-      position: fixed; top: 80px; right: 24px; z-index: 200;
-      background: #dc2626; color: white; border: none; border-radius: 50%;
-      width: 44px; height: 44px; font-size: 1.3rem; cursor: pointer;
-      box-shadow: 0 4px 15px rgba(220,38,38,0.5);
-      display: flex; align-items: center; justify-content: center;
-      transition: transform 0.2s; line-height: 1;
-    }
-    .delete-btn:hover { transform: scale(1.1); background: #b91c1c; }
-    .delete-modal-overlay {
-      display: none; position: fixed; inset: 0; z-index: 500;
-      background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
-      align-items: center; justify-content: center;
-    }
-    .delete-modal-overlay.open { display: flex; }
-    .delete-modal {
-      background: white; border-radius: 16px; padding: 40px 36px;
-      max-width: 420px; width: 90%; text-align: center;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    }
-    .delete-modal h3 { font-size: 1.25rem; font-weight: 700; color: #1a2b2b; margin-bottom: 10px; }
-    .delete-modal p { color: #6b8080; font-size: 0.95rem; margin-bottom: 28px; line-height: 1.5; }
-    .delete-modal-btns { display: flex; gap: 14px; justify-content: center; }
-    .btn-delete-confirm {
-      background: #dc2626; color: white; border: none;
-      padding: 12px 32px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 1rem;
-    }
-    .btn-delete-cancel {
-      background: #f1f5f5; color: #1a2b2b; border: none;
-      padding: 12px 32px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 1rem;
-    }
-    .btn-delete-confirm:hover { background: #b91c1c; }
-    .btn-delete-cancel:hover { background: #e2eaea; }
+    
 
   </style>
 </head>
@@ -133,43 +100,5 @@ footer { background: var(--color-dark); color: rgba(255,255,255,0.7); padding: 6
 <div class="footer-col"><h4>Contacto</h4><p>&#128205; Bocairent, Valencia<br /><br /><a href="tel:644342430" style="color:var(--color-primary);text-decoration:none;">&#128222; 644 34 24 30</a><br /><br /><a href="mailto:info@ombria.es" style="color:var(--color-primary);text-decoration:none;">&#128231; info@ombria.es</a></p></div>
 </div><div class="footer-bottom"><span>&#169; 2026 OmbrIA. Todos los derechos reservados.</span><span>España · Sector Forestal</span></div></footer>
 <script>document.getElementById("navToggle").addEventListener("click",function(){document.getElementById("nav").classList.toggle("open");});</script>
-
-<button class="delete-btn" onclick="openDeleteModal()" title="Eliminar artículo">&#10005;</button>
-
-<div class="delete-modal-overlay" id="deleteModal">
-  <div class="delete-modal">
-    <h3>&#128465; Eliminar artículo</h3>
-    <p>¿Estás seguro de que quieres eliminar este artículo?<br>Esta acción no se puede deshacer.</p>
-    <div class="delete-modal-btns">
-      <button class="btn-delete-confirm" onclick="deleteArticle()">Sí, eliminar</button>
-      <button class="btn-delete-cancel" onclick="closeDeleteModal()">No, cancelar</button>
-    </div>
-  </div>
-</div>
-
-<script>
-var _t=['ghp_hBZG2Fa7','7hmdVB1xMFtHwG','ftTgvajF2gmNv3'];var GH_TOKEN=_t.join('');
-var REPO='automarcai5-hash/OmbrIA-web';var SLUG='certificacion-forestal-sostenible-galicia';
-var API='https://api.github.com/repos/'+REPO;
-function openDeleteModal(){document.getElementById('deleteModal').classList.add('open');}
-function closeDeleteModal(){document.getElementById('deleteModal').classList.remove('open');}
-function deleteArticle(){
-  var btn=document.querySelector('.btn-delete-confirm');
-  btn.textContent='Eliminando...';btn.disabled=true;
-  var h={'Authorization':'token '+GH_TOKEN,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'};
-  fetch(API+'/contents/blog/'+SLUG+'.html',{headers:h})
-    .then(function(r){return r.json();})
-    .then(function(fi){return fetch(API+'/contents/blog/'+SLUG+'.html',{method:'DELETE',headers:h,body:JSON.stringify({message:'Delete: '+SLUG,sha:fi.sha})});})
-    .then(function(){return fetch(API+'/contents/blog.html',{headers:h});})
-    .then(function(r){return r.json();})
-    .then(function(bi){
-      var c=decodeURIComponent(escape(atob(bi.content.replace(/\n/g,''))));
-      var cl=c.replace(/<article\b[^>]*class="blog-card[^"]*"[^>]*>[\s\S]*?<\/article>/g,function(m){return m.indexOf(SLUG)!==-1?'':m;});
-      return fetch(API+'/contents/blog.html',{method:'PUT',headers:h,body:JSON.stringify({message:'Remove card: '+SLUG,content:btoa(unescape(encodeURIComponent(cl))),sha:bi.sha})});
-    })
-    .then(function(){window.location.href='https://ombria.es/blog.html';})
-    .catch(function(e){console.error(e);alert('Error. Intenta de nuevo.');btn.textContent='Si, eliminar';btn.disabled=false;closeDeleteModal();});
-}
-</script>
 
 </body></html>
