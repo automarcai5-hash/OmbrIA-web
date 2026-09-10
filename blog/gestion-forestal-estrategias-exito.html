@@ -128,40 +128,7 @@
         .article-hero { height: 320px; padding: 32px 5%; }
       }
     
-    /* Delete button */
-    .delete-btn {
-      position: fixed; top: 80px; right: 24px; z-index: 200;
-      background: #dc2626; color: white; border: none; border-radius: 50%;
-      width: 44px; height: 44px; font-size: 1.3rem; cursor: pointer;
-      box-shadow: 0 4px 15px rgba(220,38,38,0.5);
-      display: flex; align-items: center; justify-content: center;
-      transition: transform 0.2s; line-height: 1;
-    }
-    .delete-btn:hover { transform: scale(1.1); background: #b91c1c; }
-    .delete-modal-overlay {
-      display: none; position: fixed; inset: 0; z-index: 500;
-      background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
-      align-items: center; justify-content: center;
-    }
-    .delete-modal-overlay.open { display: flex; }
-    .delete-modal {
-      background: white; border-radius: 16px; padding: 40px 36px;
-      max-width: 420px; width: 90%; text-align: center;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    }
-    .delete-modal h3 { font-size: 1.25rem; font-weight: 700; color: #1a2b2b; margin-bottom: 10px; }
-    .delete-modal p { color: #6b8080; font-size: 0.95rem; margin-bottom: 28px; line-height: 1.5; }
-    .delete-modal-btns { display: flex; gap: 14px; justify-content: center; }
-    .btn-delete-confirm {
-      background: #dc2626; color: white; border: none;
-      padding: 12px 32px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 1rem;
-    }
-    .btn-delete-cancel {
-      background: #f1f5f5; color: #1a2b2b; border: none;
-      padding: 12px 32px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 1rem;
-    }
-    .btn-delete-confirm:hover { background: #b91c1c; }
-    .btn-delete-cancel:hover { background: #e2eaea; }
+    
 
   </style>
   </head>
@@ -238,43 +205,6 @@
       });
     </script>
   
-<button class="delete-btn" onclick="openDeleteModal()" title="Eliminar artículo">&#10005;</button>
-
-<div class="delete-modal-overlay" id="deleteModal">
-  <div class="delete-modal">
-    <h3>&#128465; Eliminar artículo</h3>
-    <p>¿Estás seguro de que quieres eliminar este artículo?<br>Esta acción no se puede deshacer.</p>
-    <div class="delete-modal-btns">
-      <button class="btn-delete-confirm" onclick="deleteArticle()">Sí, eliminar</button>
-      <button class="btn-delete-cancel" onclick="closeDeleteModal()">No, cancelar</button>
-    </div>
-  </div>
-</div>
-
-<script>
-var _t=['ghp_hBZG2Fa7','7hmdVB1xMFtHwG','ftTgvajF2gmNv3'];var GH_TOKEN=_t.join('');
-var REPO='automarcai5-hash/OmbrIA-web';var SLUG='gestion-forestal-estrategias-exito';
-var API='https://api.github.com/repos/'+REPO;
-function openDeleteModal(){document.getElementById('deleteModal').classList.add('open');}
-function closeDeleteModal(){document.getElementById('deleteModal').classList.remove('open');}
-function deleteArticle(){
-  var btn=document.querySelector('.btn-delete-confirm');
-  btn.textContent='Eliminando...';btn.disabled=true;
-  var h={'Authorization':'token '+GH_TOKEN,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'};
-  fetch(API+'/contents/blog/'+SLUG+'.html',{headers:h})
-    .then(function(r){return r.json();})
-    .then(function(fi){return fetch(API+'/contents/blog/'+SLUG+'.html',{method:'DELETE',headers:h,body:JSON.stringify({message:'Delete: '+SLUG,sha:fi.sha})});})
-    .then(function(){return fetch(API+'/contents/blog.html',{headers:h});})
-    .then(function(r){return r.json();})
-    .then(function(bi){
-      var c=decodeURIComponent(escape(atob(bi.content.replace(/\n/g,''))));
-      var cl=c.replace(/<article\b[^>]*class="blog-card[^"]*"[^>]*>[\s\S]*?<\/article>/g,function(m){return m.indexOf(SLUG)!==-1?'':m;});
-      return fetch(API+'/contents/blog.html',{method:'PUT',headers:h,body:JSON.stringify({message:'Remove card: '+SLUG,content:btoa(unescape(encodeURIComponent(cl))),sha:bi.sha})});
-    })
-    .then(function(){window.location.href='https://ombria.es/blog.html';})
-    .catch(function(e){console.error(e);alert('Error. Intenta de nuevo.');btn.textContent='Si, eliminar';btn.disabled=false;closeDeleteModal();});
-}
-</script>
 
 </body>
 </html>
