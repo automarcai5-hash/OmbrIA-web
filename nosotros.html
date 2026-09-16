@@ -174,16 +174,16 @@
 
       /* FOOTER */
       footer { background: #0f1e1e; color: rgba(255,255,255,0.6); padding: 60px 5% 30px; }
-      .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-      .footer-brand img { height: 40px; width: auto; margin-bottom: 1rem; background: white; padding: 6px 10px; border-radius: 8px; }
-      .footer-brand p { font-size: 0.88rem; line-height: 1.7; max-width: 280px; }
-      .footer-col h4 { color: white; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.2rem; }
-      .footer-col ul { list-style: none; }
-      .footer-col ul li { margin-bottom: 0.6rem; }
-      .footer-col ul li a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.88rem; transition: color var(--transition); }
-      .footer-col ul li a:hover { color: var(--color-primary); }
-      .footer-col p { font-size: 0.88rem; line-height: 1.9; }
-      .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; flex-wrap: wrap; gap: 0.5rem; }
+      .footer-tagline { text-align: center; max-width: 700px; margin: 0 auto 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,0.8); }
+      .footer-tagline strong { color: white; }
+      .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.85rem; }
+      .footer-legal a { color: rgba(255,255,255,0.55); text-decoration: none; margin-right: 0.8rem; transition: color var(--transition); }
+      .footer-legal a:hover { color: var(--color-primary); }
+      .footer-legal .sep { margin-right: 0.8rem; color: rgba(255,255,255,0.25); }
+      .footer-social { display: flex; gap: 0.7rem; }
+      .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); color: white; display: flex; align-items: center; justify-content: center; transition: background var(--transition); }
+      .footer-social a:hover { background: var(--color-primary); }
+      .footer-copyright { text-align: center; margin-top: 1.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.4); }
 
       .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
       .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -193,8 +193,8 @@
         nav.open { display: flex; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: var(--color-dark); padding: 1.5rem 5%; gap: 1.2rem; }
         .nav-toggle { display: block; }
         .mision-layout { grid-template-columns: 1fr; }
-        .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
         .footer-bottom { flex-direction: column; text-align: center; }
+        .footer-social { justify-content: center; }
       }
     </style>
   </head>
@@ -303,33 +303,20 @@
     </section>
 
     <footer>
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img alt="OmbrIA — IA para el sector forestal" src="assets/logo.png" />
-          <p>Diagnosticamos e implementamos IA en empresas forestales. Primero entendemos tu empresa, luego ejecutamos el cambio.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Navegación</h4>
-          <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="servicios.html">Servicios</a></li>
-            <li><a href="https://ombria.es/nosotros.html">Nosotros</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contacto</h4>
-          <p>
-            📍 Bocairent, Valencia<br /><br />
-            <a href="tel:644342430" style="color:var(--color-primary);text-decoration:none;">📞 644 34 24 30</a><br /><br />
-            <a href="mailto:info@ombria.es" style="color:var(--color-primary);text-decoration:none;">📧 info@ombria.es</a>
-          </p>
-        </div>
-      </div>
+      <p class="footer-tagline">👍 <strong>Automatizamos tu empresa forestal</strong> con soluciones de IA personalizadas: diagnóstico de procesos, automatización inteligente y agentes de IA a medida para llevar tu gestión al siguiente nivel.</p>
       <div class="footer-bottom">
-        <span>© 2026 OmbrIA. Todos los derechos reservados.</span>
-        <span>España · Sector Forestal</span>
+        <div class="footer-legal">
+          <a href="#">Política de Privacidad</a><span class="sep">|</span>
+          <a href="#">Política de Cookies</a><span class="sep">|</span>
+          <a href="#">Aviso Legal</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram" title="Instagram (próximamente)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="LinkedIn" title="LinkedIn (próximamente)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.7c0-1.36-.02-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.8H9z"/></svg></a>
+          <a href="#" aria-label="YouTube" title="YouTube (próximamente)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5v-7l6.3 3.5z"/></svg></a>
+        </div>
       </div>
+      <p class="footer-copyright">© 2026 OmbrIA. Todos los derechos reservados.</p>
     </footer>
 
     <script>
