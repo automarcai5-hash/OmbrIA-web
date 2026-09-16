@@ -280,7 +280,7 @@
         </div>
 
         <div class="contacto-form reveal">
-          <form action="https://formspree.io/f/mvzleldn" method="POST">
+          <form id="contacto-form">
             <div class="form-row">
               <div class="form-group">
                 <label for="nombre">Nombre</label>
@@ -310,6 +310,10 @@
             </div>
             <button type="submit" class="btn-submit">Enviar mensaje</button>
           </form>
+          <div id="contacto-success" style="display:none; text-align:center; padding:20px 0;">
+            <p style="font-weight:600; color:var(--color-primary);">¡Gracias! Hemos recibido tu mensaje.</p>
+            <p>Te contactaremos en las próximas 24 horas.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -342,16 +346,30 @@
         });
       }, { threshold: 0.12 });
       reveals.forEach(r => observer.observe(r));
-      // GA4 Conversion Tracking
-      var frm = document.querySelector('form');
-      if (frm) { frm.addEventListener('submit', function() { if(typeof gtag==='function') gtag('event','generate_lead',{event_category:'contacto',event_label:'formulario_web'}); }); }
+
       document.querySelectorAll('a[href="tel:644342430"]').forEach(function(e){ e.addEventListener('click',function(){ if(typeof gtag==='function') gtag('event','contact',{contact_method:'telefono'}); }); });
       document.querySelectorAll('a[href="mailto:info@ombria.es"]').forEach(function(e){ e.addEventListener('click',function(){ if(typeof gtag==='function') gtag('event','contact',{contact_method:'email'}); }); });
-      // GA4 Conversion Tracking
-      var frm = document.querySelector('form');
-      if (frm) { frm.addEventListener('submit', function() { if(typeof gtag==='function') gtag('event','generate_lead',{event_category:'contacto',event_label:'formulario_web'}); }); }
-      document.querySelectorAll('a[href="tel:644342430"]').forEach(function(e){ e.addEventListener('click',function(){ if(typeof gtag==='function') gtag('event','contact',{contact_method:'telefono'}); }); });
-      document.querySelectorAll('a[href="mailto:info@ombria.es"]').forEach(function(e){ e.addEventListener('click',function(){ if(typeof gtag==='function') gtag('event','contact',{contact_method:'email'}); }); });
+
+      const contactoForm = document.getElementById('contacto-form');
+      if (contactoForm) {
+        contactoForm.addEventListener('submit', async function (e) {
+          e.preventDefault();
+          const data = Object.fromEntries(new FormData(contactoForm).entries());
+          try {
+            const res = await fetch('https://ombria-n8n.fhqb2h.easypanel.host/webhook/contacto-leads', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(data)
+            });
+            if (!res.ok) throw new Error('Respuesta no OK del servidor');
+            if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_category: 'contacto', event_label: 'formulario_web' });
+            contactoForm.style.display = 'none';
+            document.getElementById('contacto-success').style.display = 'block';
+          } catch (err) {
+            alert('No hemos podido enviar el formulario. Por favor, escríbenos directamente a info@ombria.es o al 644 34 24 30.');
+          }
+        });
+      }
     </script>
   </body>
 </html>
