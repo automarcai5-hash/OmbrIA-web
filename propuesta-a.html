@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Propuesta A · HUD forestal | OmbrIA</title>
+<link rel="icon" type="image/png" href="assets/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --night: #06110f; --night-2: #0b1a17; --night-3: #10241f;
+    --brand: #2d9494; --neon: #3ee6c8; --neon-soft: rgba(62,230,200,0.14);
+    --line: rgba(62,230,200,0.18); --text: #e4f2ef; --muted: #8fb1aa;
+    --head: 'Space Grotesk', sans-serif; --body: 'Outfit', sans-serif; --mono: 'JetBrains Mono', monospace;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--night); color: var(--text); font-family: var(--body); line-height: 1.6; overflow-x: hidden; }
+  a { color: inherit; }
+
+  /* ── HEADER ── */
+  header {
+    position: fixed; inset: 0 0 auto 0; z-index: 50; height: 72px; padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(6,17,15,0.85), rgba(6,17,15,0.35));
+    backdrop-filter: blur(12px); border-bottom: 1px solid var(--line);
+  }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo img { height: 40px; width: auto; border-radius: 6px; background: #fff; padding: 3px 6px; }
+  .logo span { font-family: var(--mono); font-size: 0.7rem; color: var(--neon); letter-spacing: 0.12em; }
+  nav { display: flex; gap: 2rem; }
+  nav a { text-decoration: none; font-size: 0.92rem; color: rgba(228,242,239,0.75); transition: color .2s; }
+  nav a:hover, nav a.active { color: var(--neon); }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--head);
+    font-weight: 600; font-size: 0.95rem; padding: 13px 26px; border-radius: 4px; transition: all .25s;
+  }
+  .btn-neon { background: var(--neon); color: var(--night); box-shadow: 0 0 0 1px var(--neon), 0 0 28px rgba(62,230,200,0.35); }
+  .btn-neon:hover { box-shadow: 0 0 0 1px var(--neon), 0 0 44px rgba(62,230,200,0.6); transform: translateY(-2px); }
+  .btn-ghost { border: 1px solid rgba(228,242,239,0.35); color: var(--text); background: rgba(6,17,15,0.3); backdrop-filter: blur(6px); }
+  .btn-ghost:hover { border-color: var(--neon); color: var(--neon); }
+  .header-cta { padding: 9px 18px; font-size: 0.85rem; }
+
+  /* ── HERO ── */
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 120px 5% 90px; overflow: hidden; isolation: isolate; }
+  .hero-bg { position: absolute; inset: 0; z-index: -3; background: url('assets/ombria-6.jpg') center/cover no-repeat; transform: scale(1.06); animation: drift 30s ease-in-out infinite alternate; }
+  .hero::before { /* tinte nocturno */
+    content: ''; position: absolute; inset: 0; z-index: -2;
+    background:
+      radial-gradient(ellipse at 70% 40%, rgba(62,230,200,0.10), transparent 55%),
+      linear-gradient(100deg, rgba(6,17,15,0.94) 0%, rgba(6,17,15,0.72) 45%, rgba(6,17,15,0.35) 100%),
+      linear-gradient(to top, var(--night) 0%, transparent 30%);
+  }
+  .hero::after { /* retícula */
+    content: ''; position: absolute; inset: 0; z-index: -1; opacity: .55;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse at 65% 45%, #000 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at 65% 45%, #000 0%, transparent 70%);
+  }
+  .scan { position: absolute; left: 0; right: 0; height: 120px; z-index: -1; pointer-events: none;
+    background: linear-gradient(to bottom, transparent, rgba(62,230,200,0.08), transparent);
+    animation: scan 7s linear infinite; }
+  @keyframes scan { from { top: -120px; } to { top: 100%; } }
+  @keyframes drift { from { transform: scale(1.06) translateX(0); } to { transform: scale(1.12) translateX(-1.5%); } }
+
+  .hero-inner { position: relative; max-width: 720px; }
+  .tag { font-family: var(--mono); font-size: 0.78rem; color: var(--neon); letter-spacing: 0.14em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 10px; }
+  .tag::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--neon); box-shadow: 0 0 12px var(--neon); animation: pulse 2s infinite; }
+  @keyframes pulse { 50% { opacity: .35; } }
+  .hero h1 { font-family: var(--head); font-weight: 700; font-size: clamp(2.5rem, 6vw, 4.6rem); line-height: 1.04; letter-spacing: -0.02em; margin: 1.3rem 0 1.4rem; }
+  .hero h1 .grad { background: linear-gradient(90deg, var(--neon), #9ff5e6 60%, var(--brand)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p { font-size: 1.15rem; color: rgba(228,242,239,0.8); max-width: 560px; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.2rem; }
+
+  /* paneles HUD */
+  .hud { position: absolute; font-family: var(--mono); font-size: 0.72rem; color: rgba(228,242,239,0.7); letter-spacing: 0.08em; }
+  .hud b { color: var(--neon); font-weight: 500; }
+  .hud-coords { right: 5%; top: 110px; text-align: right; line-height: 1.9; }
+  .hud-panel {
+    right: 5%; bottom: 90px; width: 300px; padding: 18px 20px; border: 1px solid var(--line);
+    background: rgba(6,17,15,0.45); backdrop-filter: blur(10px); border-radius: 6px;
+  }
+  .hud-panel .row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed rgba(62,230,200,0.15); }
+  .hud-panel .row:last-child { border: none; }
+  .corner { position: absolute; width: 18px; height: 18px; border-color: var(--neon); border-style: solid; }
+  .c-tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; } .c-br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+  .target { position: absolute; right: 26%; top: 34%; width: 150px; height: 150px; pointer-events: none; }
+  .target::before, .target::after { content: ''; position: absolute; inset: 0; border: 1px solid rgba(62,230,200,0.5); border-radius: 50%; }
+  .target::after { inset: 32%; background: rgba(62,230,200,0.08); animation: ping 3s ease-out infinite; }
+  @keyframes ping { 0% { transform: scale(.6); opacity: 1; } 100% { transform: scale(2.6); opacity: 0; } }
+  .target span { position: absolute; left: 100%; top: 50%; white-space: nowrap; margin-left: 12px; font-family: var(--mono); font-size: .7rem; color: var(--neon); }
+  .target span::before { content: ''; display: inline-block; width: 40px; height: 1px; background: var(--neon); vertical-align: middle; margin-right: 8px; }
+  .hero-scroll { position: absolute; left: 5%; bottom: 32px; font-family: var(--mono); font-size: .7rem; color: var(--muted); letter-spacing: .2em; }
+
+  /* ── POR QUÉ ── */
+  section { padding: 110px 5%; position: relative; }
+  .why { background:
+      linear-gradient(to bottom, var(--night) 0%, rgba(6,17,15,0.88) 30%, rgba(6,17,15,0.88) 70%, var(--night) 100%),
+      url('assets/ombria-13.jpg') center/cover no-repeat fixed; }
+  .sec-head { max-width: 760px; margin-bottom: 3.5rem; }
+  .sec-num { font-family: var(--mono); font-size: .78rem; color: var(--neon); letter-spacing: .14em; }
+  .sec-head h2 { font-family: var(--head); font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -0.015em; margin: .8rem 0 1rem; }
+  .sec-head p { color: var(--muted); font-size: 1.05rem; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+  .card {
+    position: relative; padding: 28px 24px 30px; border-radius: 8px; border: 1px solid rgba(228,242,239,0.08);
+    background: linear-gradient(160deg, rgba(16,36,31,0.75), rgba(6,17,15,0.55)); backdrop-filter: blur(10px);
+    transition: border-color .3s, transform .3s, box-shadow .3s; overflow: hidden;
+  }
+  .card::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 1px; background: linear-gradient(90deg, transparent, var(--neon), transparent); opacity: 0; transition: opacity .3s; }
+  .card:hover { border-color: rgba(62,230,200,0.4); transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(62,230,200,0.08); }
+  .card:hover::before { opacity: 1; }
+  .card .n { font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+  .card svg { display: block; margin: 18px 0 16px; color: var(--neon); }
+  .card h3 { font-family: var(--head); font-size: 1.15rem; margin-bottom: .5rem; }
+  .card p { font-size: .93rem; color: var(--muted); }
+
+  .note { position: fixed; left: 16px; bottom: 16px; z-index: 60; font-family: var(--mono); font-size: .72rem; background: var(--neon); color: var(--night); padding: 6px 12px; border-radius: 4px; font-weight: 500; }
+
+  @media (prefers-reduced-motion: reduce) { .hero-bg, .scan, .target::after, .tag::before { animation: none; } }
+  @media (max-width: 1000px) { .cards { grid-template-columns: repeat(2, 1fr); } .hud-panel, .target { display: none; } }
+  @media (max-width: 720px) {
+    nav, .header-cta { display: none; }
+    .hud-coords { display: none; }
+    .cards { grid-template-columns: 1fr; }
+    .why { background-attachment: scroll; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo"><img src="assets/logo.png" alt="OmbrIA — IA para el sector forestal" width="160" height="42" /><span>// IA FORESTAL</span></a>
+    <nav>
+      <a href="/" class="active">Inicio</a><a href="servicios.html">Servicios</a><a href="nosotros.html">Nosotros</a><a href="blog.html">Blog</a><a href="contacto.html">Contacto</a>
+    </nav>
+    <a href="contacto.html" class="btn btn-ghost header-cta">Habla con nosotros</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg" role="img" aria-label="Bosque con niebla"></div>
+    <div class="scan"></div>
+
+    <div class="hud hud-coords">
+      LAT <b>38.7833° N</b><br />LON <b>0.5958° W</b><br />BOCAIRENT · VALÈNCIA
+    </div>
+    <div class="target"><span>ANÁLISIS DE PROCESOS</span></div>
+    <div class="hud hud-panel">
+      <i class="corner c-tl"></i><i class="corner c-br"></i>
+      <div class="row"><span>SISTEMA</span><b>OMBRIA.AI</b></div>
+      <div class="row"><span>SECTOR</span><b>FORESTAL</b></div>
+      <div class="row"><span>MÓDULOS</span><b>DIAG · IA · CYBER</b></div>
+      <div class="row"><span>ESTADO</span><b>● ONLINE</b></div>
+    </div>
+
+    <div class="hero-inner">
+      <span class="tag">Diagnóstico · Implementación · IA</span>
+      <h1><span class="grad">Inteligencia Artificial</span><br />para Empresas Forestales en España</h1>
+      <p>Analizamos tu empresa, detectamos dónde la IA genera más impacto y lo implementamos. Sin genéricos, sin rodeos.</p>
+      <div class="hero-actions">
+        <a href="contacto.html" class="btn btn-neon">Solicitar consulta gratuita →</a>
+        <a href="servicios.html" class="btn btn-ghost">Ver servicios</a>
+      </div>
+    </div>
+    <div class="hero-scroll">SCROLL ↓</div>
+  </section>
+
+  <section class="why">
+    <div class="sec-head">
+      <span class="sec-num">01 // POR QUÉ ELEGIRNOS</span>
+      <h2>IA forestal de verdad,<br />no tecnología genérica</h2>
+      <p>Combinamos inteligencia artificial de última generación con conocimiento real del sector forestal. Primero entendemos tu empresa, luego ejecutamos el cambio.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><span class="n">/01</span>
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 6 10h3l-4 6h5v6h4v-6h5l-4-6h3z"/></svg>
+        <h3>IA especializada en forestal</h3><p>No somos una consultora genérica. Conocemos el sector y diseñamos soluciones adaptadas a su realidad operativa y de negocio.</p></div>
+      <div class="card"><span class="n">/02</span>
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M8 11h6M11 8v6"/></svg>
+        <h3>Diagnóstico real, no suposiciones</h3><p>Auditamos tus procesos, mapeamos cuellos de botella y revisamos tu ciberseguridad antes de proponer nada.</p></div>
+      <div class="card"><span class="n">/03</span>
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg>
+        <h3>Ciberseguridad incluida</h3><p>Revisamos accesos, datos, dependencias y riesgos técnicos y humanos. Porque la IA sin seguridad es un problema.</p></div>
+      <div class="card"><span class="n">/04</span>
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-7"/></svg>
+        <h3>Resultados medibles</h3><p>Cada solución tiene objetivos claros: más rendimiento, menos coste y mayor control sobre tu gestión forestal.</p></div>
+    </div>
+  </section>
+
+  <div class="note">PROPUESTA A · HUD FORESTAL</div>
+</body>
+</html>
