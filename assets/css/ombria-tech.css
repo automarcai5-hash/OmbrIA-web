@@ -383,6 +383,13 @@ section { padding: 110px 5%; position: relative; }
 .article-body blockquote { border-left: 2px solid var(--neon); padding: 6px 0 6px 20px; margin: 24px 0; color: var(--text); font-style: italic; }
 .article-body img { border-radius: var(--radius); border: 1px solid var(--line); }
 .article-intro { color: var(--text) !important; }
+/* Citas numeradas y lista de fuentes */
+.article-body sup { line-height: 0; }
+.article-body a.cite { font-family: var(--mono); font-size: .72rem; text-decoration: none !important; color: var(--neon) !important; margin-left: 2px; padding: 0 2px; border-radius: 3px; }
+.article-body a.cite:hover { background: var(--neon-soft); }
+.article-body ol.fuentes { margin: 8px 0 0 0 !important; padding: 18px 22px 18px 44px; background: var(--night-2); border: 1px solid var(--line); border-radius: var(--radius); font-family: var(--mono); font-size: .82rem; }
+.article-body ol.fuentes li { margin-bottom: 6px !important; }
+
 .highlight-box { background: var(--night-2) !important; border: 1px solid var(--line) !important; border-left: 3px solid var(--neon) !important; border-radius: 0 var(--radius) var(--radius) 0 !important; color: var(--text-2); }
 .highlight-box strong { color: var(--neon) !important; }
 .article-cta { position: relative; background: var(--night-2) !important; border: 1px solid var(--line); border-radius: var(--radius) !important; color: var(--text) !important; }
