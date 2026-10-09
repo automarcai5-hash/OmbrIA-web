@@ -1,0 +1,8 @@
+<!doctype html><body style="margin:0;background:#222;overflow:hidden">
+<script>localStorage.setItem('ombria_consent',JSON.stringify({v:'denied',t:Date.now()}));
+const q=new URLSearchParams(location.search);const p=q.get('p'),y=+q.get('y'),w=+(q.get('w')||1440),h=+(q.get('h')||900);
+document.write('<iframe id="f" src="/'+p+'" width="'+w+'" height="'+h+'" style="border:0;display:block"></iframe>');
+const f=document.getElementById('f');
+f.onload=()=>{const d=f.contentDocument;d.documentElement.style.scrollBehavior='auto';d.querySelectorAll('.reveal').forEach(e=>e.classList.add('visible'));
+ f.contentWindow.scrollTo(0,y);};
+</script></body>
