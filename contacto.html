@@ -62,13 +62,7 @@
       }
     }
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFWQ53K1MT"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-SFWQ53K1MT');
-    </script>
+    <script src="/cookies.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -308,6 +302,13 @@
               <label for="mensaje">Mensaje</label>
               <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos tu proyecto..." required></textarea>
             </div>
+            <div class="form-group">
+              <label for="privacidad" style="display:flex; gap:0.6rem; align-items:flex-start; font-weight:400; cursor:pointer;">
+                <input type="checkbox" id="privacidad" required style="width:auto; margin-top:0.3rem; flex:none;" />
+                <span>He leído y acepto la <a href="privacidad.html" target="_blank" style="color:var(--color-primary);">Política de Privacidad</a>.</span>
+              </label>
+              <p style="font-size:0.78rem; color:var(--color-muted); line-height:1.5; margin-top:0.5rem;">Responsable: Marc Chirlaque Zapata (OmbrIA). Finalidad: responder a tu consulta. Legitimación: tu consentimiento. Destinatarios: no se ceden datos a terceros, salvo obligación legal. Derechos: acceso, rectificación, supresión y demás derechos en info@ombria.es. Más información en la Política de Privacidad.</p>
+            </div>
             <button type="submit" class="btn-submit">Enviar mensaje</button>
           </form>
           <div id="contacto-success" style="display:none; text-align:center; padding:20px 0;">
@@ -322,9 +323,10 @@
       <p class="footer-tagline">👍 <strong>Automatizamos tu empresa forestal</strong> con soluciones de IA personalizadas: diagnóstico de procesos, automatización inteligente y agentes de IA a medida para llevar tu gestión al siguiente nivel.</p>
       <div class="footer-bottom">
         <div class="footer-legal">
-          <a href="#">Política de Privacidad</a><span class="sep">|</span>
-          <a href="#">Política de Cookies</a><span class="sep">|</span>
-          <a href="#">Aviso Legal</a>
+          <a href="privacidad.html">Política de Privacidad</a><span class="sep">|</span>
+          <a href="cookies.html">Política de Cookies</a><span class="sep">|</span>
+          <a href="aviso-legal.html">Aviso Legal</a><span class="sep">|</span>
+          <a href="#" data-cookie-settings>Configurar cookies</a>
         </div>
         <div class="footer-social">
           <a href="#" aria-label="Instagram" title="Instagram (próximamente)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
