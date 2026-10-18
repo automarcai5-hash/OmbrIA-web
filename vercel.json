@@ -17,6 +17,7 @@
     }
   ],
   "rewrites": [
-    { "source": "/diagnostico", "destination": "/diagnostico.html" }
+    { "source": "/diagnostico", "destination": "/diagnostico.html" },
+    { "source": "/plantilla-apps", "destination": "/plantilla-apps.html" }
   ]
 }
