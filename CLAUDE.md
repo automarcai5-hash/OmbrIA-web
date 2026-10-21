@@ -17,7 +17,7 @@ Tono: "sin humo", no vender IA por vender. Mantener este mensaje coherente en to
 
 ## Infraestructura
 - Hosting: **Vercel** (plan gratuito). Código en GitHub `automarcai5-hash/OmbrIA-web`, rama `main`. **Cada push a `main` se publica automáticamente**: pedir confirmación antes de hacer push.
-  - Si tras un push no aparece ningún despliegue nuevo (le pasó al commit `187f3b3` el 2026-10-21), publicar a mano con el CLI de Vercel, que ya tiene sesión iniciada (`automarcai5-6363`, proyecto `marc-s-projects5/ombria-web`): `vercel deploy --prod --yes` desde esta carpeta, con el árbol de git limpio. Ver despliegues con `vercel ls ombria-web`.
+  - El despliegue automático a veces tarda **hasta unos 10–15 minutos** en arrancar (el 2026-10-21 tardó unos 10 min, aunque la conexión con GitHub estaba bien). Esperar antes de darlo por fallido. Ver despliegues con `vercel ls ombria-web` (el CLI de Vercel tiene sesión iniciada como `automarcai5-6363`, proyecto `marc-s-projects5/ombria-web`). Solo si no llega, publicar a mano con `vercel deploy --prod --yes` desde esta carpeta y con el árbol de git limpio.
 - Dominio `ombria.es` en **IONOS** (renovación automática, próxima: 15/05/2027). Los DNS apuntan a Vercel (`ombria.es` → 216.198.79.1; `www` → CNAME `vercel-dns-017.com`). `www` redirige a `ombria.es` (308).
 - Correo info@ombria.es: IONOS Correo Basic, redirigido a automarcai5@gmail.com.
 - Coste aproximado: 46 €/año (10 € el dominio y 36 € el correo).
