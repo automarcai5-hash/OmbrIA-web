@@ -459,7 +459,7 @@
     <div class="form-row">
       <label for="privacidad" style="display:flex; gap:0.6rem; align-items:flex-start; font-weight:400; cursor:pointer;">
         <input type="checkbox" id="privacidad" required style="width:auto; margin-top:0.3rem; flex:none;">
-        <span>He leído y acepto la <a href="privacidad.html" target="_blank">Política de Privacidad</a>.</span>
+        <span>He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>.</span>
       </label>
       <p style="font-size:0.78rem; line-height:1.5; margin-top:0.5rem; opacity:0.8;">Responsable: Marc Chirlaque Zapata (OmbrIA). Finalidad: responder a tu solicitud y preparar el diagnóstico. Legitimación: tu consentimiento. Destinatarios: no se ceden datos a terceros, salvo obligación legal. Derechos: acceso, rectificación, supresión y demás derechos en info@ombria.es. Más información en la Política de Privacidad.</p>
     </div>
@@ -507,6 +507,11 @@
     }
 
     const data = Object.fromEntries(new FormData(form).entries());
+    if (window.ombriaEsBot && window.ombriaEsBot(form, data)) {
+      form.style.display = 'none';
+      successBox.style.display = 'block';
+      return;
+    }
     try {
       const res = await fetch(LEADS_ENDPOINT, {
         method: 'POST',
@@ -526,5 +531,6 @@
 
   <script src="/cookies.js"></script>
   <script src="/assets/utm.js"></script>
+  <script src="/assets/antispam.js"></script>
 </body>
 </html>

@@ -226,7 +226,7 @@
             <div class="form-group">
               <label for="privacidad" style="display:flex; gap:0.6rem; align-items:flex-start; font-weight:400; cursor:pointer;">
                 <input type="checkbox" id="privacidad" required style="width:auto; margin-top:0.3rem; flex:none;" />
-                <span>He leído y acepto la <a href="privacidad.html" target="_blank" style="color:var(--color-primary);">Política de Privacidad</a>.</span>
+                <span>He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener" style="color:var(--color-primary);">Política de Privacidad</a>.</span>
               </label>
               <p style="font-size:0.78rem; color:var(--color-muted); line-height:1.5; margin-top:0.5rem;">Responsable: Marc Chirlaque Zapata (OmbrIA). Finalidad: responder a tu consulta. Legitimación: tu consentimiento. Destinatarios: no se ceden datos a terceros, salvo obligación legal. Derechos: acceso, rectificación, supresión y demás derechos en info@ombria.es. Más información en la Política de Privacidad.</p>
             </div>
@@ -278,6 +278,11 @@
         contactoForm.addEventListener('submit', async function (e) {
           e.preventDefault();
           const data = Object.fromEntries(new FormData(contactoForm).entries());
+          if (window.ombriaEsBot && window.ombriaEsBot(contactoForm, data)) {
+            contactoForm.style.display = 'none';
+            document.getElementById('contacto-success').style.display = 'block';
+            return;
+          }
           try {
             const res = await fetch('https://ombria-n8n.fhqb2h.easypanel.host/webhook/captacion-leads', {
               method: 'POST',
@@ -295,5 +300,6 @@
       }
     </script>
     <script src="assets/utm.js"></script>
+    <script src="assets/antispam.js"></script>
 </body>
 </html>

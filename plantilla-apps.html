@@ -102,7 +102,7 @@
       <div class="form-row"><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" required></div>
       <div class="form-row"><label for="empresa">Empresa (opcional)</label><input type="text" id="empresa" name="empresa" autocomplete="organization"></div>
       <div class="form-row">
-        <label for="privacidad" class="check"><input type="checkbox" id="privacidad" required><span>He leído y acepto la <a href="privacidad.html" target="_blank">Política de Privacidad</a>.</span></label>
+        <label for="privacidad" class="check"><input type="checkbox" id="privacidad" required><span>He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>.</span></label>
         <p class="legal">Responsable: Marc Chirlaque Zapata (OmbrIA). Finalidad: enviarte la plantilla y, si te interesa, información sobre automatización con IA. Legitimación: tu consentimiento. Destinatarios: no se ceden datos a terceros, salvo obligación legal. Derechos: acceso, rectificación, supresión y demás derechos en info@ombria.es.</p>
       </div>
       <button type="submit" class="btn" id="enviar">Quiero la plantilla</button>
@@ -195,6 +195,7 @@ Diseño minimalista, con el tiempo en grande para verlo bien desde el móvil.</p
       return;
     }
     const data = Object.fromEntries(new FormData(form).entries());
+    if (window.ombriaEsBot && window.ombriaEsBot(form, data)) { mostrarPrompts(''); return; }
     const boton = document.getElementById('enviar');
     boton.disabled = true; boton.textContent = 'Enviando…';
     try {
@@ -220,5 +221,6 @@ Diseño minimalista, con el tiempo en grande para verlo bien desde el móvil.</p
 
 <script src="/cookies.js"></script>
 <script src="/assets/utm.js"></script>
+<script src="/assets/antispam.js"></script>
 </body>
 </html>
