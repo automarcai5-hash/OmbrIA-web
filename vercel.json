@@ -20,6 +20,7 @@
   ],
   "rewrites": [
     { "source": "/diagnostico", "destination": "/diagnostico.html" },
-    { "source": "/plantilla-apps", "destination": "/plantilla-apps.html" }
+    { "source": "/plantilla-apps", "destination": "/plantilla-apps.html" },
+    { "source": "/prompts-campo", "destination": "/prompts-campo.html" }
   ]
 }
