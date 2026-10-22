@@ -1,0 +1,355 @@
+{
+  "name": "Buscador de clientes en Google Maps · plantilla",
+  "nodes": [
+    {
+      "id": "06fbe3e2-4c0a-4b77-873b-c9f87ce0c9b5",
+      "name": "Lunes y martes 8:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 * * 1,2"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "bc0efcd0-2c7c-4215-84ce-ce74a8aaf7b1",
+      "name": "Probar manualmente",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        200
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "a13362ba-0918-44e9-b5df-d2e4aef87526",
+      "name": "Elegir búsquedas de hoy",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        100
+      ],
+      "parameters": {
+        "jsCode": "// ===== CONFIGURA AQUÍ =====\n// KEYWORDS: lo que buscarías en Google Maps (tu cliente ideal).\n// ZONAS: centro (lat, lng) y radio en km de cada zona. Ordénalas de más cerca a más lejos.\n// Cada ejecución hace unas pocas búsquedas y avanza un cursor para no repetirlas.\nconst KEYWORDS = [\n  'empresa forestal', 'trabajos forestales', 'servicios forestales', 'vivero forestal',\n  'ingeniería forestal', 'consultora medio ambiente', 'prevención incendios forestales',\n  'desbroces y podas', 'educación ambiental', 'turismo de naturaleza'\n];\nconst ZONAS = [\n  // Anillo 1 (0-20 km)\n  { nombre: 'València ciudad', lat: 39.4699, lng: -0.3763, r: 7 },\n  { nombre: \"L'Horta Nord\", lat: 39.555, lng: -0.390, r: 8 },\n  { nombre: \"L'Horta Oest\", lat: 39.490, lng: -0.470, r: 8 },\n  { nombre: \"L'Horta Sud\", lat: 39.410, lng: -0.440, r: 8 },\n  // Anillo 2 (20-50 km)\n  { nombre: 'Camp de Morvedre', lat: 39.680, lng: -0.290, r: 10 },\n  { nombre: 'Camp de Túria', lat: 39.620, lng: -0.600, r: 12 },\n  { nombre: 'Ribera Baixa', lat: 39.200, lng: -0.320, r: 10 },\n  { nombre: 'Hoya de Buñol', lat: 39.430, lng: -0.800, r: 12 },\n  { nombre: 'Ribera Alta', lat: 39.140, lng: -0.480, r: 12 },\n  // Anillo 3 (> 50 km)\n  { nombre: 'Los Serranos', lat: 39.760, lng: -0.950, r: 18 },\n  { nombre: 'La Costera', lat: 38.990, lng: -0.560, r: 12 },\n  { nombre: 'La Safor', lat: 38.970, lng: -0.230, r: 12 },\n  { nombre: 'Canal de Navarrés', lat: 39.080, lng: -0.730, r: 12 },\n  { nombre: 'Requena-Utiel', lat: 39.500, lng: -1.150, r: 20 },\n  { nombre: \"Vall d'Albaida\", lat: 38.840, lng: -0.520, r: 12 },\n  { nombre: 'Valle de Cofrentes-Ayora', lat: 39.120, lng: -1.050, r: 20 },\n  { nombre: 'Rincón de Ademuz', lat: 40.060, lng: -1.280, r: 12 },\n];\nconst BUSQUEDAS_POR_EJECUCION = 4; // Text Search: tope 150/día en Google Cloud\n\nconst state = $getWorkflowStaticData('global');\nconst total = KEYWORDS.length * ZONAS.length;\nconst cursor = (state.cursor || 0) % total;\n\nconst out = [];\nfor (let i = 0; i < BUSQUEDAS_POR_EJECUCION; i++) {\n  const idx = (cursor + i) % total;\n  const zona = ZONAS[Math.floor(idx / KEYWORDS.length)];\n  const keyword = KEYWORDS[idx % KEYWORDS.length];\n  const dLat = zona.r / 111;\n  const dLng = zona.r / (111 * Math.cos(zona.lat * Math.PI / 180));\n  out.push({ json: {\n    keyword, zona: zona.nombre, posicion: `${idx + 1}/${total}`,\n    body: {\n      textQuery: keyword, languageCode: 'es', regionCode: 'ES', pageSize: 20,\n      locationRestriction: { rectangle: {\n        low: { latitude: zona.lat - dLat, longitude: zona.lng - dLng },\n        high: { latitude: zona.lat + dLat, longitude: zona.lng + dLng },\n      } },\n    },\n  } });\n}\nstate.cursor = (cursor + BUSQUEDAS_POR_EJECUCION) % total;\nreturn out;\n"
+      }
+    },
+    {
+      "id": "a6066c7f-d986-42f2-8547-68550fd78693",
+      "name": "Buscar en Google Places",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        100
+      ],
+      "onError": "continueRegularOutput",
+      "parameters": {
+        "method": "POST",
+        "url": "https://places.googleapis.com/v1/places:searchText",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Goog-FieldMask",
+              "value": "places.id,places.displayName,places.formattedAddress,places.location,places.types,places.googleMapsUri,places.addressComponents,places.businessStatus"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.body) }}",
+        "options": {}
+      }
+    },
+    {
+      "id": "ac8e89ef-9ac9-4401-aee9-ef2c8060e4fb",
+      "name": "Unir y filtrar (provincia de Valencia)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        100
+      ],
+      "parameters": {
+        "jsCode": "// Junta los resultados, quita repetidos y deja solo empresas abiertas de tu provincia\n// ===== CONFIGURA AQUÍ =====\nconst CASA = { lat: 39.4699, lng: -0.3763 }; // Tu punto de partida (oficina). Ejemplo: centro de València\nconst PREFIJO_CP = '46';                     // Código postal de tu provincia (46 = Valencia, 28 = Madrid, 08 = Barcelona…)\nconst PROVINCIA = 'Valencia';\nconst distanciaKm = (lat, lng) => {\n  const rad = x => x * Math.PI / 180, R = 6371;\n  const dLat = rad(lat - CASA.lat), dLng = rad(lng - CASA.lng);\n  const a = Math.sin(dLat / 2) ** 2 + Math.cos(rad(CASA.lat)) * Math.cos(rad(lat)) * Math.sin(dLng / 2) ** 2;\n  return Math.round(2 * R * Math.asin(Math.sqrt(a)) * 10) / 10;\n};\nconst TIPOS_DESCARTADOS = ['restaurant', 'bar', 'cafe', 'supermarket', 'grocery_store', 'car_dealer', 'car_repair', 'gas_station', 'clothing_store'];\n\nconst busquedas = $('Elegir búsquedas de hoy').all();\nconst empresas = new Map();\n$input.all().forEach((item, i) => {\n  const q = (busquedas[i] || {}).json || {};\n  for (const p of item.json.places || []) {\n    if (!p.id || empresas.has(p.id)) continue;\n    const comp = p.addressComponents || [];\n    const get = t => (comp.find(c => (c.types || []).includes(t)) || {}).longText || '';\n    if (!get('postal_code').startsWith(PREFIJO_CP)) continue;\n    if (p.businessStatus && p.businessStatus !== 'OPERATIONAL') continue;\n    if ((p.types || []).some(t => TIPOS_DESCARTADOS.includes(t))) continue;\n    empresas.set(p.id, {\n      placeId: p.id,\n      nombre: (p.displayName || {}).text || '',\n      direccion: p.formattedAddress || '',\n      municipio: get('locality') || get('administrative_area_level_3'),\n      provincia: PROVINCIA,\n      distanciaKm: p.location ? distanciaKm(p.location.latitude, p.location.longitude) : null,\n      googleMaps: p.googleMapsUri || null,\n      tipos: p.types || [],\n      keyword: q.keyword, zona: q.zona,\n    });\n  }\n});\nreturn [...empresas.values()].map(json => ({ json }));\n"
+      }
+    },
+    {
+      "id": "e86eef65-968a-4181-a148-17a2eb3864d8",
+      "name": "Leer empresas ya guardadas",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        960,
+        100
+      ],
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "mode": "id",
+          "value": "TU_BASE_ID"
+        },
+        "table": {
+          "__rl": true,
+          "mode": "id",
+          "value": "TU_TABLA_ID"
+        },
+        "returnAll": true,
+        "options": {
+          "fields": [
+            "Google Place ID"
+          ]
+        }
+      }
+    },
+    {
+      "id": "e3d8624a-12bf-4d0b-8b54-854bb9840227",
+      "name": "Quitar duplicados y limitar",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        100
+      ],
+      "parameters": {
+        "jsCode": "// Quita las empresas que ya están en Airtable y se queda con las más cercanas\nconst MAX_EMPRESAS = 10; // Place Details: tope 30/día en Google Cloud\nconst existentes = new Set($input.all()\n  .map(i => i.json['Google Place ID'] || (i.json.fields || {})['Google Place ID'])\n  .filter(Boolean));\nreturn $('Unir y filtrar (provincia de Valencia)').all()\n  .map(i => i.json)\n  .filter(e => !existentes.has(e.placeId))\n  .sort((a, b) => (a.distanciaKm ?? 999) - (b.distanciaKm ?? 999))\n  .slice(0, MAX_EMPRESAS)\n  .map(json => ({ json }));\n"
+      }
+    },
+    {
+      "id": "68defe97-a35e-473a-a26a-b393040667b2",
+      "name": "Detalles de la empresa (Google)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1440,
+        100
+      ],
+      "onError": "continueRegularOutput",
+      "parameters": {
+        "url": "=https://places.googleapis.com/v1/places/{{ $json.placeId }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "languageCode",
+              "value": "es"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Goog-FieldMask",
+              "value": "websiteUri,nationalPhoneNumber,internationalPhoneNumber,rating,userRatingCount"
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "89162a51-61d4-4abe-b41a-1998ff59718c",
+      "name": "Visitar web y extraer redes",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1680,
+        100
+      ],
+      "parameters": {
+        "jsCode": "// Visita la web de cada empresa (inicio + /contacto) y saca email, redes sociales y descripción\nconst empresas = $('Quitar duplicados y limitar').all();\nconst detalles = $input.all();\n\nconst decode = s => s.replace(/&amp;/g, '&').replace(/&quot;/g, '\"').replace(/&#39;|&#039;/g, \"'\")\n  .replace(/&aacute;/g, 'á').replace(/&eacute;/g, 'é').replace(/&iacute;/g, 'í').replace(/&oacute;/g, 'ó')\n  .replace(/&uacute;/g, 'ú').replace(/&ntilde;/g, 'ñ').replace(/\\s+/g, ' ').trim();\nconst primero = (html, re, malos) => {\n  for (const m of html.matchAll(re)) {\n    const id = m[m.length - 1];\n    if (!malos.includes(id.toLowerCase())) return m[0];\n  }\n  return null;\n};\n\nconst out = [];\nfor (let i = 0; i < empresas.length; i++) {\n  const d = (detalles[i] || {}).json || {};\n  const e = {\n    ...empresas[i].json,\n    web: d.websiteUri || null,\n    telefono: d.internationalPhoneNumber || d.nationalPhoneNumber || null,\n    rating: d.rating ?? null,\n    resenas: d.userRatingCount ?? null,\n    email: null, instagram: null, facebook: null, linkedin: null, descripcion: null,\n  };\n\n  let html = '';\n  if (e.web) {\n    for (const ruta of ['', '/contacto']) {\n      try {\n        const url = ruta ? new URL(ruta, e.web).href : e.web;\n        const r = await this.helpers.httpRequest({ url, timeout: 10000, json: false, skipSslCertificateValidation: true });\n        html += ' ' + String(r).slice(0, 500000);\n      } catch (err) { /* web caída o sin /contacto */ }\n    }\n  }\n\n  if (html) {\n    const dominio = (() => { try { return new URL(e.web).hostname.replace(/^www\\./, ''); } catch { return ''; } })();\n    const emails = [...new Set((html.match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}/g) || [])\n      .map(x => x.toLowerCase())\n      .filter(x => !/\\.(png|jpe?g|gif|svg|webp)$/.test(x) && !/(sentry|wixpress|example|domain\\.com|u003e)/.test(x)))];\n    // Solo emails fiables: del dominio de la web, enlazados con mailto: o de proveedores habituales\n    // (evita el email del diseñador de la web o restos de plantillas)\n    const mailtos = new Set([...html.matchAll(/mailto:([^\"'?\\s>]+)/gi)].map(m => decodeURIComponent(m[1]).toLowerCase()));\n    const esDelDominio = x => dominio && (x.endsWith('@' + dominio) || x.endsWith('.' + dominio));\n    const esProveedor = x => /@(gmail|hotmail|outlook|yahoo|icloud|live|telefonica|ono)\\./.test(x);\n    e.email = emails.find(esDelDominio) || emails.find(x => mailtos.has(x)) || emails.find(esProveedor) || null;\n\n    const ig = primero(html, /https?:\\/\\/(?:www\\.)?instagram\\.com\\/([A-Za-z0-9_.]{2,30})/g, ['p', 'reel', 'explore', 'accounts', 'sharer', 'share']);\n    if (ig) e.instagram = ig.replace(/^http:/, 'https:');\n    const fb = primero(html, /https?:\\/\\/(?:www\\.)?facebook\\.com\\/([A-Za-z0-9_.\\-]{2,80})/g, ['sharer', 'sharer.php', 'share', 'plugins', 'tr', 'dialog', 'login']);\n    if (fb) e.facebook = fb.replace(/^http:/, 'https:');\n    const li = primero(html, /https?:\\/\\/(?:[a-z]{2,3}\\.)?linkedin\\.com\\/(?:company|in|school)\\/([A-Za-z0-9_\\-%.]+)/g, ['sharearticle']);\n    if (li) e.linkedin = li.replace(/^http:/, 'https:');\n\n    const meta = html.match(/<meta[^>]+(?:name|property)=[\"'](?:description|og:description)[\"'][^>]*content=[\"']([^\"']{20,})[\"']/i)\n      || html.match(/<meta[^>]+content=[\"']([^\"']{20,})[\"'][^>]*(?:name|property)=[\"'](?:description|og:description)[\"']/i);\n    if (meta) e.descripcion = decode(meta[1]).slice(0, 1000);\n  }\n  out.push({ json: e });\n}\nreturn out;\n"
+      }
+    },
+    {
+      "id": "c01e2621-b1d7-4a15-80c1-12560dcbbfe7",
+      "name": "Clasificar y preparar ficha",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1920,
+        100
+      ],
+      "parameters": {
+        "jsCode": "// Clasifica la actividad y monta la ficha con los nombres exactos de los campos de Airtable\n// ===== CONFIGURA AQUÍ ===== Cambia las REGLAS por las actividades de tu sector.\nconst norm = s => (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');\nconst REGLAS = [\n  ['Vivero forestal', /vivero/],\n  ['Prevención de incendios', /incendi|cortafuego|bomber/],\n  ['Educación ambiental', /educacion ambiental|granja escuela|aula de (la )?naturaleza/],\n  ['Turismo de naturaleza', /turismo|aventura|senderismo|excursion|ecoturismo/],\n  ['Aprovechamiento maderero', /maderer|aserr|biomasa|lena\\b|madera/],\n  ['Trabajos forestales', /desbroce|poda|tala|trabajos forestales|servicios forestales|silvicult|repobla|clareo/],\n  ['Consultora / ingeniería ambiental', /consultor|ingenier|medio ?ambient|ambiental/],\n  ['Espacios naturales / restauración', /restauracion|espacios naturales|paisaj|bioingenier/],\n  ['Gestión forestal', /forestal|montes/],\n];\nconst hoy = new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/Madrid' });\n\nreturn $input.all().map(({ json: e }) => {\n  const texto = norm([e.nombre, e.descripcion, e.keyword].join(' '));\n  const actividad = (REGLAS.find(([, re]) => re.test(texto)) || ['Otro naturaleza'])[0];\n  const fields = {\n    'Nombre': e.nombre,\n    'Actividad': actividad,\n    'Descripción': e.descripcion,\n    'Teléfono': e.telefono,\n    'Email': e.email,\n    'Página web': e.web,\n    'Instagram': e.instagram,\n    'LinkedIn': e.linkedin,\n    'Facebook': e.facebook,\n    'Dirección': e.direccion,\n    'Municipio': e.municipio,\n    'Provincia': e.provincia,\n    'Google Maps': e.googleMaps,\n    'Google Place ID': e.placeId,\n    'Valoración Google': e.rating,\n    'Nº reseñas': e.resenas,\n    'Distancia (km)': e.distanciaKm,\n    'Fuente': 'Google Maps',\n    'Fecha de captación': hoy,\n    'Estado': 'Pendiente',\n    'Notas': `[Auto] Encontrada buscando \"${e.keyword}\" en ${e.zona}`,\n  };\n  for (const k of Object.keys(fields)) if (fields[k] === null || fields[k] === undefined || fields[k] === '') delete fields[k];\n  return { json: { fields } };\n});\n"
+      }
+    },
+    {
+      "id": "47a2ba0d-9181-4837-b003-a6a859f36907",
+      "name": "Guardar en Airtable",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2160,
+        100
+      ],
+      "onError": "continueRegularOutput",
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.airtable.com/v0/TU_BASE_ID/TU_TABLA_ID",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ records: [{ fields: $json.fields }], typecast: true }) }}",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 4,
+              "batchInterval": 1000
+            }
+          }
+        }
+      }
+    },
+    {
+      "parameters": {
+        "width": 620,
+        "height": 520,
+        "content": "## Buscador de clientes en Google Maps\nPlantilla de Marc · IA Ambiental (@marc.ia.ambiental)\n\n**Qué hace:** busca empresas en Google Maps, quita las que ya tienes, saca teléfono, web, email y redes, y las guarda en Airtable.\n\n**Para ponerlo en marcha:**\n1. Google Cloud: activa **Places API (New)**, crea una API key y **ponle topes diarios** (Cuotas) para no pagar.\n2. En n8n, crea una credencial **Header Auth**: nombre `X-Goog-Api-Key`, valor tu API key. Asígnala a los 2 nodos de Google.\n3. Airtable: crea una tabla con los campos del nodo «Clasificar y preparar ficha» (Nombre, Actividad, Teléfono, Email, Página web, Google Place ID…). Crea una credencial de Airtable (token) y asígnala a «Leer empresas ya guardadas» y «Guardar en Airtable».\n4. Cambia `TU_BASE_ID` y `TU_TABLA_ID` en esos dos nodos.\n5. Edita los bloques **CONFIGURA AQUÍ** (qué buscar, zonas, provincia y actividades).\n6. Pruébalo con «Probar manualmente» y, cuando vaya bien, activa el flujo.\n\nRevisa siempre los datos antes de llamar a nadie."
+      },
+      "id": "7dd1018e-f6d9-4d2b-b93e-36e5395d6343",
+      "name": "Instrucciones",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -520,
+        -420
+      ]
+    }
+  ],
+  "connections": {
+    "Lunes y martes 8:00": {
+      "main": [
+        [
+          {
+            "node": "Elegir búsquedas de hoy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Probar manualmente": {
+      "main": [
+        [
+          {
+            "node": "Elegir búsquedas de hoy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Elegir búsquedas de hoy": {
+      "main": [
+        [
+          {
+            "node": "Buscar en Google Places",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar en Google Places": {
+      "main": [
+        [
+          {
+            "node": "Unir y filtrar (provincia de Valencia)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Unir y filtrar (provincia de Valencia)": {
+      "main": [
+        [
+          {
+            "node": "Leer empresas ya guardadas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leer empresas ya guardadas": {
+      "main": [
+        [
+          {
+            "node": "Quitar duplicados y limitar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Quitar duplicados y limitar": {
+      "main": [
+        [
+          {
+            "node": "Detalles de la empresa (Google)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Detalles de la empresa (Google)": {
+      "main": [
+        [
+          {
+            "node": "Visitar web y extraer redes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Visitar web y extraer redes": {
+      "main": [
+        [
+          {
+            "node": "Clasificar y preparar ficha",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clasificar y preparar ficha": {
+      "main": [
+        [
+          {
+            "node": "Guardar en Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
