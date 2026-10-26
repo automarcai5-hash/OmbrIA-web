@@ -39,6 +39,10 @@ Web estática: HTML + CSS + JS sin framework ni build.
 El flujo de n8n **Agente creador de blog OmbrIA** (`58WdGeVhd2HAnF2y`) hace commits como "OmbrIA Bot": crea `blog/<slug>.html`, añade la tarjeta en `blog.html` y la URL en `sitemap.xml`.
 - Hacer `git pull` antes de trabajar.
 - Si cambia la estructura de `blog.html` o la plantilla de los artículos, el flujo puede dejar de encajar: avisar a Marc antes.
+- **Temas (desde el 2026-10-26): sector medioambiental y verde.** Jardinería, parques y zonas verdes, desbroces y trabajos forestales, viveros, agricultura, riego, poda e incendios, con un ángulo práctico de gestión, digitalización, automatización o IA. Así lo decidió Marc. Funciona así:
+  - «Get Google Trends» consulta el último mes sobre una semilla que rota en cada ejecución (`Math.floor($now.ordinal / 2)`): jardinería, agricultura, incendios forestales, viveros, desbroce, poda de árboles, riego, parques y jardines, gestión forestal y plagas en cultivos.
+  - «Elegir el mejor tema SEO» descarta la IA o tecnología genérica, los famosos y la economía, y evita los drones. Si nada sirve, usa una keyword de reserva que también rota (14 temas).
+  - El script con estos cambios está en el historial del 2026-10-26. Para cambiar las semillas o la reserva, editar las listas de esas expresiones en n8n.
 - Se ejecuta cada 2 días a las 8:00. Para ver si falla, revisar las ejecuciones por la API (`/executions?workflowId=58WdGeVhd2HAnF2y`).
 - Publica en GitHub con la credencial de n8n **«GITHUB blog OmbrIA»** (id `FwXEb3r8iJYChIJx`, cabecera `Authorization: Bearer <token>`). El token es el de grano fino **«Web Ombria»** de GitHub: solo da acceso a `OmbrIA-web`, con Contents de lectura y escritura, y desde el 2026-10-26 no caduca. El 2026-10-22 caducó y el blog estuvo parado hasta el 26.
   - Si da 401 «Bad credentials», el token ha caducado o se ha revocado. Si da 403 «Resource not accessible by personal access token», le falta el repositorio o el permiso de Contents (se arregla editando el token en GitHub, sin cambiarlo).
