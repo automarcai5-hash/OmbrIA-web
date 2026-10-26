@@ -39,6 +39,12 @@ Web estática: HTML + CSS + JS sin framework ni build.
 El flujo de n8n **Agente creador de blog OmbrIA** (`58WdGeVhd2HAnF2y`) hace commits como "OmbrIA Bot": crea `blog/<slug>.html`, añade la tarjeta en `blog.html` y la URL en `sitemap.xml`.
 - Hacer `git pull` antes de trabajar.
 - Si cambia la estructura de `blog.html` o la plantilla de los artículos, el flujo puede dejar de encajar: avisar a Marc antes.
+- Se ejecuta cada 2 días a las 8:00. Para ver si falla, revisar las ejecuciones por la API (`/executions?workflowId=58WdGeVhd2HAnF2y`).
+- Publica en GitHub con la credencial de n8n **«GITHUB blog OmbrIA»** (id `FwXEb3r8iJYChIJx`, cabecera `Authorization: Bearer <token>`). El token es el de grano fino **«Web Ombria»** de GitHub: solo da acceso a `OmbrIA-web`, con Contents de lectura y escritura, y desde el 2026-10-26 no caduca. El 2026-10-22 caducó y el blog estuvo parado hasta el 26.
+  - Si da 401 «Bad credentials», el token ha caducado o se ha revocado. Si da 403 «Resource not accessible by personal access token», le falta el repositorio o el permiso de Contents (se arregla editando el token en GitHub, sin cambiarlo).
+  - La API de n8n no permite editar credenciales (PATCH da 405). Para cambiar el token: crear una credencial nueva con POST, apuntar a ella los 7 nodos de GitHub del flujo y borrar la antigua.
+  - Para lanzar el blog fuera de su horario, se añade un momento un nodo Webhook conectado como el Schedule Trigger, se llama al webhook y se devuelve el flujo a como estaba.
+- Modelos de OpenAI: el 2026-10-26 se cambió `gpt-4` (retirado por OpenAI) por `gpt-4.1` en «Elegir el mejor tema SEO» y «Borrador inicial». Si un nodo da 404 «model … deprecated», cambiar el modelo.
 
 ## Formularios → ERP
 `contacto.html` y `diagnostico.html` envían por `fetch` al webhook `https://ombria-n8n.fhqb2h.easypanel.host/webhook/captacion-leads` (flujo **ERP OmbrIA · 1 · Captación de leads con UTMs** `SkjjNtCU9B1FJcWl`, base del ERP `appM5QdRYE0ATXNic`).
