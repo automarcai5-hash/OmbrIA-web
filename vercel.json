@@ -23,6 +23,7 @@
     { "source": "/plantilla-apps", "destination": "/plantilla-apps.html" },
     { "source": "/prompts-campo", "destination": "/prompts-campo.html" },
     { "source": "/crm-claude-code", "destination": "/crm-claude-code.html" },
-    { "source": "/buscador-clientes", "destination": "/buscador-clientes.html" }
+    { "source": "/buscador-clientes", "destination": "/buscador-clientes.html" },
+    { "source": "/cuestionario-clientes", "destination": "/cuestionario-clientes.html" }
   ]
 }
