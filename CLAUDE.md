@@ -36,7 +36,14 @@ Web estática: HTML + CSS + JS sin framework ni build.
 - `blog/`: artículos. Los dos `blog-*.html` de la raíz son antiguos y están huérfanos.
 - `assets/antispam.js`: campo trampa y tiempo mínimo en los formularios (ver "Formularios").
 - `vercel.json`: cabeceras de seguridad (incluida la CSP), caché de `/assets` y rewrites.
-- `.vercelignore`: evita que se publiquen `CLAUDE.md` y `.claude/`.
+- `.vercelignore`: evita que se publiquen `CLAUDE.md`, `.claude/` y `historial/`.
+- `historial/`: lo hecho en cada sesión grande, con sus scripts. El rediseño del 2026-11-04 (qué pidió Marc, decisiones, cambios del bot y herramientas) está en `historial/2026-11-04-rediseno-web/README.md`.
+
+### Crear o cambiar una página (diseño 2026)
+- Usar `historial/2026-11-04-rediseno-web/herramientas/montar.py`: pone el `<head>` común (fuentes, `ombria-2026.css`, `cookies.js`), la cabecera, el pie, el menú y `utm.js`. Los formularios tienen que añadir `antispam.js` en su cuerpo (como `contacto-cuerpo.html`).
+- Piezas reutilizables del CSS: `page-hero` + `pill` + `h1 em` (palabra en turquesa), `card`, `grid g2/g3`, `head center` + `label`, `dark`, `white`, `faq` (`<details>`), `cta` + `cta-box`, `btn` / `btn ghost` / `btn light`.
+- Textos cortos y al grano. Mensaje: IA para cualquier empresa, especializada en el sector medioambiental. Sin cifras inventadas.
+- Si se cambia la cabecera o el pie, regenerar `plantilla.js` (`hacer_plantilla.py`) y actualizar el nodo «Preparar GitHub» del bot del blog; si no, los artículos nuevos saldrán con la cabecera antigua.
 
 ## Blog: lo publica un bot
 El flujo de n8n **Agente creador de blog OmbrIA** (`58WdGeVhd2HAnF2y`) hace commits como "OmbrIA Bot": crea `blog/<slug>.html`, añade la tarjeta en `blog.html` y la URL en `sitemap.xml`.
@@ -48,7 +55,7 @@ El flujo de n8n **Agente creador de blog OmbrIA** (`58WdGeVhd2HAnF2y`) hace comm
   - **Dos líneas automáticas que se alternan en cada publicación** (Marc lo quiere todo en automático, sin tocar nada): `Math.floor($now.ordinal / 2) % 2 === 1` → «IA para empresas» (pymes de cualquier sector); si no, «IA medioambiental». Lo usan 6 nodos: «Get Google Trends» (semillas de cada línea), «Elegir el mejor tema SEO» (reglas y keywords de reserva de cada línea), «Borrador inicial» (lectores), «Seleccionar Foto Portada», «Preparar GitHub» y «Preparar Blog Index» (etiqueta).
   - **Portadas de la línea de empresas:** ilustraciones propias en `assets/blog-fotos-empresas/` (12, escena de oficina + un motivo). Marc no quiere fotos de campo ni de monte en esos artículos. La línea medioambiental sigue con las fotos de `assets/blog-fotos/`. Para añadir portadas de empresas, subirlas a esa carpeta y añadir el nombre a `FOTOS_EMPRESAS` en «Seleccionar Foto Portada».
 - **Temas (desde el 2026-10-26): sector medioambiental y verde.** Jardinería, parques y zonas verdes, desbroces y trabajos forestales, viveros, agricultura, riego, poda e incendios, con un ángulo práctico de gestión, digitalización, automatización o IA. Así lo decidió Marc. Funciona así:
-  - «Get Google Trends» consulta el último mes sobre una semilla que rota en cada ejecución (`Math.floor($now.ordinal / 2)`): jardinería, agricultura, incendios forestales, viveros, desbroce, poda de árboles, riego, parques y jardines, gestión forestal y plagas en cultivos.
+  - «Get Google Trends» consulta el último mes sobre una semilla que rota (desde el 2026-11-04, con el índice `Math.floor($now.ordinal / 4)` dentro de cada línea). Línea medioambiental: jardinería, agricultura, incendios forestales, viveros, desbroce, poda de árboles, riego, parques y jardines, gestión forestal y plagas en cultivos. La de empresas tiene su propia lista (ver el historial del 2026-11-04).
   - «Elegir el mejor tema SEO» descarta la IA o tecnología genérica, los famosos y la economía, y evita los drones. Si nada sirve, usa una keyword de reserva que también rota (14 temas).
   - El script con estos cambios está en el historial del 2026-10-26. Para cambiar las semillas o la reserva, editar las listas de esas expresiones en n8n.
 - Se ejecuta cada 2 días a las 8:00. Para ver si falla, revisar las ejecuciones por la API (`/executions?workflowId=58WdGeVhd2HAnF2y`).
@@ -95,6 +102,7 @@ La skill **`auditoria-seo`** está en [.claude/skills/auditoria-seo/SKILL.md](.c
 - ⏳ `/favicon.ico` devuelve 404.
 
 ## Forma de trabajar
+- **El trabajo de la web se hace desde este proyecto** (Marc, 2026-11-04: el rediseño se hizo por error desde «Marca personal»).
 - Todo en español, también los commits (cortos, estilo "Sección: qué cambia").
 - Para probar en local: `python -m http.server` en esta carpeta. Las rutas con `/` inicial (`/cookies.js`, `/diagnostico`) no funcionan abriendo el archivo directamente.
 - Nunca poner claves (n8n, Airtable…) en el código de la web: todo lo que hay aquí es público.
