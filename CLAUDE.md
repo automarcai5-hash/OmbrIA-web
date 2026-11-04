@@ -3,10 +3,10 @@
 Proyecto de trabajo de la web de OmbrIA. Aquí se trabaja todo lo relacionado con ombria.es: contenido, diseño, SEO, formularios y seguridad.
 
 ## La empresa
-- **OmbrIA**: inteligencia artificial y automatización para **empresas forestales**. Valencia capital (no Bocairent). Fundada en octubre de 2026.
+- **OmbrIA**: inteligencia artificial y automatización **para cualquier empresa, especializada en el sector medioambiental** (forestal, jardinería, viveros, agricultura…), desde el 2026-11-04. Antes, solo empresas forestales. Valencia capital (no Bocairent). Fundada en octubre de 2026.
 - **Fundador: Marc.** Técnico Superior en Gestión Forestal y del Medio Natural (IES La Creueta, 2022–2024). Trabajo de campo: vivero en Camp de Mirra (2022), desbroces y plantación en Bretaña (2022), áreas cortafuegos con FORESMA (2023) y apeo y plantación en Islandia con la Icelandic Forestry Association (2024). Mensaje: "viene del monte"; quien hace el diagnóstico es quien lo implementa.
 - Contacto: info@ombria.es · +34 644 34 24 30 · CP 46021 (debe coincidir en todo el schema).
-- Redes: YouTube @Marc·IAForestal, LinkedIn e Instagram (enlazadas en el footer y en `sameAs` del schema).
+- Redes: Instagram @marcchirlaque.ia, YouTube @marcchirlaque y LinkedIn (enlazadas en el pie y en `sameAs` del schema).
 
 ### Oferta
 1. **Llamadas previas: gratuitas** y sin compromiso.
@@ -27,7 +27,10 @@ Tono: "sin humo", no vender IA por vender. Mantener este mensaje coherente en to
 ## Estructura del código
 Web estática: HTML + CSS + JS sin framework ni build.
 - Páginas: `index.html`, `servicios.html`, `nosotros.html`, `contacto.html`, `blog.html`, `diagnostico.html` (landing de captación, sin menú; servida en `/diagnostico` por el rewrite de `vercel.json`) y legales (`aviso-legal`, `privacidad`, `cookies`).
-- `assets/css/ombria-tech.css`: diseño "HUD forestal" de las páginas principales. Colores y fuentes en variables de `:root` (`--brand #2d9494`, `--neon #3ee6c8`, fondo `--night #06110f`; Space Grotesk / Outfit / JetBrains Mono). Usar las variables, no colores sueltos.
+- `assets/css/ombria-2026.css` (desde el 2026-11-04): diseño oscuro de las páginas principales, las legales, el blog y sus artículos. Colores en variables de `:root` (`--bg #06110f`, `--brand #2d9494`, `--accent #3ee6c8`, `--card`, `--line`), fuente Outfit. Usar las variables, no colores sueltos. Marc lo quiere **claro, al grano y con poco texto**.
+  - Cabecera (`header.top`) y pie iguales en todas las páginas. En la portada, una ilustración SVG propia (no la foto de Marc). Su foto va en Nosotros.
+  - `assets/css/ombria-tech.css` (el antiguo "HUD forestal") solo lo usan ya las landings de recursos (`plantilla-apps`, `prompts-campo`, `crm-claude-code`, `buscador-clientes`, `cuestionario-clientes`) y los dos `blog-*.html` huérfanos.
+  - Los enlaces internos a `/diagnostico` van **sin UTM** (pisarían la fuente real del visitante). Excepción: el recuadro final de cada artículo lleva `utm_source=blog&utm_medium=organico&utm_content=<slug>`.
 - `cookies.js`: banner de consentimiento y carga de GA4. Va en todas las páginas.
 - `assets/utm.js`: guarda las UTMs de entrada en `localStorage` y rellena los campos ocultos `utm_*`, `pagina_entrada` y `referrer` de cualquier formulario. Incluirlo en toda página nueva.
 - `blog/`: artículos. Los dos `blog-*.html` de la raíz son antiguos y están huérfanos.
@@ -39,6 +42,9 @@ Web estática: HTML + CSS + JS sin framework ni build.
 El flujo de n8n **Agente creador de blog OmbrIA** (`58WdGeVhd2HAnF2y`) hace commits como "OmbrIA Bot": crea `blog/<slug>.html`, añade la tarjeta en `blog.html` y la URL en `sitemap.xml`.
 - Hacer `git pull` antes de trabajar.
 - Si cambia la estructura de `blog.html` o la plantilla de los artículos, el flujo puede dejar de encajar: avisar a Marc antes.
+- **Desde el 2026-11-04** el bot usa la plantilla nueva (nodo «Preparar GitHub»: función `construirArticulo`, categoría «IA medioambiental») y la tarjeta del nodo «Preparar Blog Index» lleva la etiqueta «IA medioambiental». Copia del flujo anterior en `../copias-flujos/blog-bot-58WdGeVhd2HAnF2y-2026-11-04-antes-rediseno.json`.
+  - `blog.html` tiene que conservar **una sola** marca `<div class="blog-grid">`: el bot inserta las tarjetas justo detrás.
+  - Pestañas del blog: «IA medioambiental» e «IA para empresas». La categoría sale del texto de `.blog-tag` (si contiene «empresas», va a IA para empresas). Los artículos de IA para empresas se hacen a mano, a partir de los vídeos y reels de Marc.
 - **Temas (desde el 2026-10-26): sector medioambiental y verde.** Jardinería, parques y zonas verdes, desbroces y trabajos forestales, viveros, agricultura, riego, poda e incendios, con un ángulo práctico de gestión, digitalización, automatización o IA. Así lo decidió Marc. Funciona así:
   - «Get Google Trends» consulta el último mes sobre una semilla que rota en cada ejecución (`Math.floor($now.ordinal / 2)`): jardinería, agricultura, incendios forestales, viveros, desbroce, poda de árboles, riego, parques y jardines, gestión forestal y plagas en cultivos.
   - «Elegir el mejor tema SEO» descarta la IA o tecnología genérica, los famosos y la economía, y evita los drones. Si nada sirve, usa una keyword de reserva que también rota (14 temas).
@@ -67,7 +73,7 @@ El flujo de n8n **Agente creador de blog OmbrIA** (`58WdGeVhd2HAnF2y`) hace comm
 
 ## SEO
 - Cada página lleva title, description, `canonical`, Open Graph, Twitter Card y JSON-LD. Al crear o cambiar una página, mantenerlos y actualizar `sitemap.xml`.
-- Objetivo: title de 50 a 60 caracteres y description de 150 a 155. Palabra clave principal: "IA / automatización para empresas forestales".
+- Objetivo: title de 50 a 60 caracteres y description de 150 a 155. Palabra clave principal: "IA / automatización para empresas", con el nicho medioambiental (forestal, jardinería, viveros) como especialidad.
 
 ### Kit de auditoría SEO
 La skill **`auditoria-seo`** está en [.claude/skills/auditoria-seo/SKILL.md](.claude/skills/auditoria-seo/SKILL.md). Se activa con "audita el SEO" y es una copia del kit original de `Empresa OmbrIA/Skills-HERRAMIENTAS/kit-auditoria-seo/`.

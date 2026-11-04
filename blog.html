@@ -1,318 +1,327 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="assets/logo.png" />
-    <title>Blog IA Forestal | OmbrIA</title>
-    <meta name="description" content="Artículos sobre inteligencia artificial en el sector forestal. Aprende cómo automatizar procesos, implementar agentes IA y digitalizar tu empresa forestal." />
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="OmbrIA" />
-    <meta name="keywords" content="blog IA forestal, automatización forestal, inteligencia artificial gestión forestal, agentes IA sector forestal" />
-    <link rel="canonical" href="https://ombria.es/blog.html" />
-    <meta property="og:title" content="Blog IA Forestal | OmbrIA" />
-    <meta property="og:description" content="Artículos sobre inteligencia artificial en el sector forestal. Automatización, agentes IA y digitalización para empresas forestales." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ombria.es/blog.html" />
-    <meta property="og:image" content="https://ombria.es/assets/ombria-1.jpg" />
-    <meta property="og:locale" content="es_ES" />
-    <meta property="og:site_name" content="OmbrIA" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Blog IA Forestal | OmbrIA" />
-    <meta name="twitter:description" content="Artículos sobre IA y automatización para empresas del sector forestal." />
-    <meta name="twitter:image" content="https://ombria.es/assets/ombria-1.jpg" />
-    <meta name="geo.region" content="ES-VC" />
-    <meta name="geo.placename" content="Valencia, España" />
-    <meta name="theme-color" content="#2d9494" />
-    <meta name="google-site-verification" content="iO-g_4JYqSAIjRQbnookDrGr7Z85VDPK6Jcb-DGQB2k" />
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://ombria.es/"},
-        {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://ombria.es/blog.html"}
-      ]
-    }
-    </script>
-    <script src="/cookies.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/assets/css/ombria-tech.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <title>Blog: IA y automatización para empresas y el sector medioambiental | OmbrIA</title>
+  <meta name="description" content="Casos prácticos de inteligencia artificial y automatización para empresas, y a fondo para el sector medioambiental: forestal, jardinería, viveros y agricultura." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="OmbrIA" />
+  <link rel="canonical" href="https://ombria.es/blog.html" />
+  <meta property="og:title" content="Blog: IA y automatización para empresas y el sector medioambiental | OmbrIA" />
+  <meta property="og:description" content="Casos prácticos de inteligencia artificial y automatización para empresas, y a fondo para el sector medioambiental: forestal, jardinería, viveros y agricultura." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ombria.es/blog.html" />
+  <meta property="og:image" content="https://ombria.es/assets/ombria-1.jpg" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="OmbrIA" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog: IA y automatización para empresas y el sector medioambiental | OmbrIA" />
+  <meta name="twitter:description" content="Casos prácticos de inteligencia artificial y automatización para empresas, y a fondo para el sector medioambiental: forestal, jardinería, viveros y agricultura." />
+  <meta name="twitter:image" content="https://ombria.es/assets/ombria-1.jpg" />
+  <meta name="geo.region" content="ES-VC" />
+  <meta name="geo.placename" content="Valencia, España" />
+  <meta name="theme-color" content="#06110f" />
+  <script src="/cookies.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/ombria-2026.css" />
+  <meta name="google-site-verification" content="iO-g_4JYqSAIjRQbnookDrGr7Z85VDPK6Jcb-DGQB2k" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://ombria.es/"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://ombria.es/blog.html"}
+    ]
+  }
+  </script>
+</head>
+<body>
 
-  </head>
-  <body>
-    <header id="header">
-      <a href="https://ombria.es/" class="header-logo">
-        <img alt="OmbrIA — IA para el sector forestal" src="assets/logo.png" width="160" height="42" />
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menú">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="nav">
+  <header class="top">
+    <div class="wrap">
+      <a href="https://ombria.es/" class="logo"><img src="assets/logo.png" alt="" width="44" height="44" /><span>Ombr<b>IA</b></span></a>
+      <nav class="menu" id="menu">
         <a href="https://ombria.es/">Inicio</a>
         <a href="servicios.html">Servicios</a>
         <a href="nosotros.html">Nosotros</a>
-        <a href="blog.html" class="active">Blog</a>
+        <a href="blog.html" aria-current="page">Blog</a>
         <a href="contacto.html">Contacto</a>
       </nav>
-      <a href="contacto.html" class="header-cta">Habla con nosotros</a>
-    </header>
-
-    <div class="page-banner" style="--bg:url('/assets/ombria-3.jpg')">
-      <div class="page-banner-content">
-        <span class="page-badge">Conocimiento · IA · Forestal</span>
-        <h1>Blog OmbrIA</h1>
-        <p>Recursos, casos de uso y tendencias sobre inteligencia artificial en el sector forestal.</p>
-      </div>
+      <a href="/diagnostico" class="btn sm">Reserva tu llamada</a>
+      <button class="burger" id="burger" aria-label="Abrir el menú" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
+  </header>
 
-    <section class="blog-section">
-      <div class="section-header">
-        <p class="section-label">Últimos artículos</p>
-        <h2 class="section-title">IA aplicada al sector forestal</h2>
-        <p class="section-sub">Publicamos recursos prácticos para que las empresas forestales entiendan y aprovechen la inteligencia artificial.</p>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="pill">Blog</span>
+      <h1>Ideas para quitarte <em>trabajo de encima</em>.</h1>
+      <p class="lead">Casos prácticos de IA y automatización para cualquier empresa, y a fondo para el sector medioambiental.</p>
+    </div>
+  </section>
+
+  <section class="white">
+    <div class="wrap">
+      <div class="blog-tabs" role="group" aria-label="Filtrar artículos">
+        <button type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+        <button type="button" data-filtro="medio" aria-pressed="false">IA medioambiental</button>
+        <button type="button" data-filtro="empresas" aria-pressed="false">IA para empresas</button>
       </div>
-
       <div class="blog-grid">
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/b6bfbe1b-e83d-427d-be10-c170867b6c33.jpg" alt="Cómo digitalizar la gestión de viveros en Valencia eficazmente - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">3 noviembre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">3 noviembre 2026</span></div>
             <h2>Cómo digitalizar la gestión de viveros en Valencia eficazmente</h2><p>Descubre cómo digitalizar la gestión de viveros en Valencia para optimizar inventarios, trazabilidad, producción y cumplimiento fitosanitario. Aumenta...</p>
-            <div class="blog-card-footer"><a href="blog/como-digitalizar-viveros-valencia.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/como-digitalizar-viveros-valencia.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/f315803f-cab0-4ca2-aa75-c8762f1a732b.jpg" alt="Prevención de incendios forestales: automatización y gestión digital - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">1 noviembre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">1 noviembre 2026</span></div>
             <h2>Prevención de incendios forestales: automatización y gestión digital</h2><p>Descubre cómo la automatización y las tecnologías digitales, como IoT, drones e IA, están revolucionando la prevención de incendios forestales para em...</p>
-            <div class="blog-card-footer"><a href="blog/prevencion-incendios-forestales-automacion-empresas.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/prevencion-incendios-forestales-automacion-empresas.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/ebc941b7-22ee-4077-8d6a-cf5f2bb59946.jpg" alt="Optimización del control de stock en viveros con tecnología digital - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">30 octubre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">30 octubre 2026</span></div>
             <h2>Optimización del control de stock en viveros con tecnología digital</h2><p>Descubre cómo optimizar el control de stock en viveros con herramientas digitales. Reduce pérdidas, mejora la planificación y aumenta la rentabilidad ...</p>
-            <div class="blog-card-footer"><a href="blog/optimizacion-control-stock-viveros-digitales.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/optimizacion-control-stock-viveros-digitales.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/e1d4d702-09e9-4530-8e72-ec91ce4b4345.jpg" alt="Cómo optimizar la gestión de centros de jardinería con IA en España - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">28 octubre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">28 octubre 2026</span></div>
             <h2>Cómo optimizar la gestión de centros de jardinería con IA en España</h2><p>Descubre cómo la IA transforma la gestión de centros de jardinería en España. Optimiza inventarios, reduce desperdicios y mejora la atención al client...</p>
-            <div class="blog-card-footer"><a href="blog/optimizacion-gestion-centros-jardineria-ia.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/optimizacion-gestion-centros-jardineria-ia.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/fc1268e2-e5d3-4180-9929-82cc8abe451a.jpg" alt="Astra AI: Qué es, por qué es trending y su impacto en España - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">26 octubre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">26 octubre 2026</span></div>
             <h2>Astra AI: Qué es, por qué es trending y su impacto en España</h2><p>Descubre qué es Astra AI, por qué está en tendencia y cómo puede inspirar al sector forestal español en gestión, automatización y sostenibilidad.</p>
-            <div class="blog-card-footer"><a href="blog/astra-ai-sector-forestal-espanol.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/astra-ai-sector-forestal-espanol.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/e0749792-0aee-4f65-9ffe-deb2f5f6e9c8.jpg" alt="Incendios forestales: prevención tecnológica y gestión sostenible - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">20 octubre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">20 octubre 2026</span></div>
             <h2>Incendios forestales: prevención tecnológica y gestión sostenible</h2><p>Descubre cómo la tecnología, desde IA hasta sensores IoT, puede revolucionar la prevención de incendios forestales con estrategias sostenibles y perso...</p>
-            <div class="blog-card-footer"><a href="blog/incendios-forestales-prevencion-tecnologia.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
-          </div>
-        </article>
-        <article class="blog-card reveal">
-          <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/312e5101-2241-4560-a695-eebd1b5433a2.jpg" alt="Prevención de incendios forestales: tecnología que revoluciona el sector - OmbrIA" loading="lazy" /></div>
-          <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">18 octubre 2026</span></div>
-            <h2>Prevención de incendios forestales: tecnología que revoluciona el sector</h2><p>"Descubre cómo la tecnología, desde IoT y drones hasta IA, está revolucionando la prevención de incendios forestales en España. Innovación al servicio...</p>
-            <div class="blog-card-footer"><a href="blog/incendios-forestales-prevencion-tecnologia.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/incendios-forestales-prevencion-tecnologia.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/7509c768-afd5-491e-9e03-a19fd54b0789.jpg" alt="Gestión Forestal Sostenible con IA: Innovación en la Conservación - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">16 octubre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">16 octubre 2026</span></div>
             <h2>Gestión Forestal Sostenible con IA: Innovación en la Conservación</h2><p>Descubre cómo la gestión forestal sostenible con IA está revolucionando la conservación de bosques, anticipando riesgos y mejorando la sostenibilidad.</p>
-            <div class="blog-card-footer"><a href="blog/gestion-forestal-sostenible-ia.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/gestion-forestal-sostenible-ia.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/0fd9734a-0365-4cfb-8556-d0dde5d57999.jpg" alt="La industria de la inteligencia artificial en China y el sector forestal - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">14 octubre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">14 octubre 2026</span></div>
             <h2>La industria de la inteligencia artificial en China y el sector forestal</h2><p>Descubre cómo la industria de la inteligencia artificial en China está transformando sectores globales y las oportunidades que esto ofrece al sector f...</p>
-            <div class="blog-card-footer"><a href="blog/industria-inteligencia-artificial-china-forestal.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/industria-inteligencia-artificial-china-forestal.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/ecb00b36-f9da-4a5f-88bc-f145e5a70af6.jpg" alt="El agente de inteligencia artificial: su impacto en la gestión forestal - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">12 octubre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">12 octubre 2026</span></div>
             <h2>El agente de inteligencia artificial: su impacto en la gestión forestal</h2><p>Descubre cómo los agentes de inteligencia artificial están transformando la gestión forestal con automatización, análisis avanzado y soluciones innova...</p>
-            <div class="blog-card-footer"><a href="blog/agente-inteligencia-artificial-gestion-forestal.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/agente-inteligencia-artificial-gestion-forestal.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/2b548508-e3cd-4501-9c65-4aaaa70d4e9c.jpg" alt="Drones forestales España: herramientas clave contra incendios - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">10 octubre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">10 octubre 2026</span></div>
             <h2>Drones forestales España: herramientas clave contra incendios</h2><p>Descubre cómo los drones forestales en España están transformando la prevención, gestión de incendios y restauración del medio ambiente con tecnología...</p>
-            <div class="blog-card-footer"><a href="blog/drones-forestales-espana-incendios.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/drones-forestales-espana-incendios.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/5d6e92b6-8649-42e1-bb47-9edcb0d2aaa8.jpg" alt="Drones forestales en España: Innovación y futuro en gestión forestal - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">8 octubre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">8 octubre 2026</span></div>
             <h2>Drones forestales en España: Innovación y futuro en gestión forestal</h2><p>Descubre cómo los drones forestales están transformando la gestión y conservación de los bosques en España. Innovación, eficiencia y sostenibilidad en...</p>
-            <div class="blog-card-footer"><a href="blog/revolucion-drones-forestales-espana.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/revolucion-drones-forestales-espana.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/4bb809a2-d59c-4419-b3e3-a2e8d77408ec.jpg" alt="Genesis Inteligencia Artificial y su impacto en el sector forestal - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">6 octubre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">6 octubre 2026</span></div>
             <h2>Genesis Inteligencia Artificial y su impacto en el sector forestal</h2><p>Descubre cómo Genesis Inteligencia Artificial está revolucionando la tecnología forestal con soluciones innovadoras basadas en IA para un futuro más s...</p>
-            <div class="blog-card-footer"><a href="blog/genesis-inteligencia-artificial-forestal.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/genesis-inteligencia-artificial-forestal.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/eb628157-7cce-4076-baa5-4bc90c94411c.jpg" alt="Avances en la gestión forestal sostenible con IA y su impacto - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">4 octubre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">4 octubre 2026</span></div>
             <h2>Avances en la gestión forestal sostenible con IA y su impacto</h2><p>"Descubre cómo la Inteligencia Artificial está revolucionando la gestión forestal sostenible con aplicaciones innovadoras para monitoreo, predicción y...</p>
-            <div class="blog-card-footer"><a href="blog/avances-gestion-forestal-sostenible-ia.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/avances-gestion-forestal-sostenible-ia.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/0cdd0d0b-a9a1-4061-bd3e-8ba195d72306.jpg" alt="El riesgo existencial de la inteligencia artificial en el sector forestal - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">2 octubre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">2 octubre 2026</span></div>
             <h2>El riesgo existencial de la inteligencia artificial en el sector forestal</h2><p>Descubre qué es el riesgo existencial de la inteligencia artificial, su impacto en el sector forestal y cómo gestionar sus beneficios y desafíos.</p>
-            <div class="blog-card-footer"><a href="blog/riesgo-existencial-inteligencia-artificial.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/riesgo-existencial-inteligencia-artificial.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/05283456-26f1-4fe4-9a41-0838f3082ae2.jpg" alt="Congreso Inteligencia Artificial Granada: Innovación en el sector forestal - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">30 septiembre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">30 septiembre 2026</span></div>
             <h2>Congreso Inteligencia Artificial Granada: Innovación en el sector forestal</h2><p>Descubre cómo el Congreso de Inteligencia Artificial en Granada impulsa la gestión sostenible del sector forestal. Tendencias, avances y más en 2026.</p>
-            <div class="blog-card-footer"><a href="blog/congreso-inteligencia-artificial-granada.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/congreso-inteligencia-artificial-granada.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/0fd9734a-0365-4cfb-8556-d0dde5d57999.jpg" alt="Las mejores apps de inteligencia artificial gratis para forestales - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">28 septiembre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">28 septiembre 2026</span></div>
             <h2>Las mejores apps de inteligencia artificial gratis para forestales</h2><p>Descubre las mejores apps de inteligencia artificial gratis para optimizar la gestión forestal en España. Mejora tus operaciones con herramientas inno...</p>
-            <div class="blog-card-footer"><a href="blog/mejores-apps-inteligencia-artificial-gratis.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/mejores-apps-inteligencia-artificial-gratis.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/02df733d-92da-44a3-ab43-14f64edabf51.jpg" alt="Drones forestales España: Usos, tendencias y conservación ambiental - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">26 septiembre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">26 septiembre 2026</span></div>
             <h2>Drones forestales España: Usos, tendencias y conservación ambiental</h2><p>Descubre cómo los drones forestales en España están revolucionando la gestión ambiental: prevención de incendios, reforestación, IA y más. tendances.</p>
-            <div class="blog-card-footer"><a href="blog/drones-forestales-espana-aplicaciones-tendencias.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/drones-forestales-espana-aplicaciones-tendencias.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/365da9c8-36d3-4102-ba63-d120ed6c7a86.jpg" alt="Plan IA360: Impacto en la inteligencia artificial forestal - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">24 septiembre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">24 septiembre 2026</span></div>
             <h2>Plan IA360: Impacto en la inteligencia artificial forestal</h2><p>Descubre cómo el Plan IA360 impulsa la inteligencia artificial en España y sus aplicaciones innovadoras en el sector forestal para una gestión más sos...</p>
-            <div class="blog-card-footer"><a href="blog/plan-ia360-sector-forestal.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/plan-ia360-sector-forestal.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/e1010d8f-a26c-43b1-b634-8e3fe3f49480.jpg" alt="Drones Forestales España: Revolución en la Gestión de los Bosques - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">22 septiembre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">22 septiembre 2026</span></div>
             <h2>Drones Forestales España: Revolución en la Gestión de los Bosques</h2><p>Descubre cómo los drones forestales en España están transformando la gestión de los bosques con tecnología avanzada, IA y soluciones innovadoras para ...</p>
-            <div class="blog-card-footer"><a href="blog/drones-forestales-espana-tecnologia.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/drones-forestales-espana-tecnologia.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/eb628157-7cce-4076-baa5-4bc90c94411c.jpg" alt="Predicción económica Anthropic: IA y futuro del sector forestal - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">18 septiembre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">18 septiembre 2026</span></div>
             <h2>Predicción económica Anthropic: IA y futuro del sector forestal</h2><p>Explora los escenarios económicos de Anthropic sobre la inteligencia artificial para 2030 y su impacto en el sector forestal español. ¿Está tu negocio...</p>
-            <div class="blog-card-footer"><a href="blog/predicciones-economicas-anthropic-ia.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/predicciones-economicas-anthropic-ia.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="https://ombria.es/assets/blog-fotos/885d0f20-ee94-41c2-975e-ba13071749e0.jpg" alt="Las críticas de Michael Burry al crecimiento de la inteligencia artificial - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">16 septiembre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA para empresas</span><span class="blog-date">16 septiembre 2026</span></div>
             <h2>Las críticas de Michael Burry al crecimiento de la inteligencia artificial</h2><p>Descubre las críticas de Michael Burry sobre el crecimiento de la inteligencia artificial y su impacto en el sector forestal español. Análisis y refle...</p>
-            <div class="blog-card-footer"><a href="blog/michael-burry-criticas-crecimiento-ia.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/michael-burry-criticas-crecimiento-ia.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
         
         <article class="blog-card reveal">
           <div class="blog-card-img"><img src="assets/ombria-1.jpg" alt="Chip Roy AI Warning - OmbrIA" loading="lazy" /></div>
           <div class="blog-card-body">
-            <div class="blog-card-meta"><span class="blog-tag">IA Forestal</span><span class="blog-date">15 septiembre 2026</span></div>
+            <div class="blog-card-meta"><span class="blog-tag">IA medioambiental</span><span class="blog-date">15 septiembre 2026</span></div>
             <h2>Chip Roy advierte sobre la IA: riesgos para el sector forestal</h2>
             <p>Descubre la advertencia del congresista Chip Roy sobre los riesgos de la inteligencia artificial y qué significa para el sector forestal español y la ...</p>
-            <div class="blog-card-footer"><a href="blog/chip-roy-artificial-intelligence-warning.html" class="blog-read">Leer articulo &rarr;</a><span class="read-time">8 min lectura</span></div>
+            <div class="blog-card-footer"><a href="blog/chip-roy-artificial-intelligence-warning.html" class="blog-read">Leer artículo &rarr;</a><span class="read-time">8 min lectura</span></div>
           </div>
         </article>
-        
-        
-        
-        
-        
-        
-                
-        
-
       </div>
-    </section>
+      <p class="blog-empty" id="blog-empty" hidden>Muy pronto, nuevos artículos en esta sección.</p>
+    </div>
+  </section>
 
-    <section class="cta" style="--bg:url('/assets/ombria-15.jpg')">
-      <h2>¿Quieres aplicar la IA en tu empresa forestal?</h2>
-      <p>El primer paso es un diagnóstico gratuito. Analizamos tu empresa y te decimos exactamente dónde la IA genera más impacto.</p>
-      <a href="contacto.html" class="btn-white">Solicitar diagnóstico gratuito</a>
-    </section>
-
-    <footer>
-      <p class="footer-tagline"><strong>Automatizamos tu empresa forestal</strong> con soluciones de IA personalizadas: diagnóstico de procesos, automatización inteligente y agentes de IA a medida para llevar tu gestión al siguiente nivel.</p>
-      <div class="footer-bottom">
-        <div class="footer-legal">
-          <a href="privacidad.html">Política de Privacidad</a><span class="sep">|</span>
-          <a href="cookies.html">Política de Cookies</a><span class="sep">|</span>
-          <a href="aviso-legal.html">Aviso Legal</a><span class="sep">|</span>
-          <a href="#" data-cookie-settings>Configurar cookies</a>
-        </div>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/marc.ia.forestal/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.linkedin.com/in/marc-chirlaque-zapata-64b06b268/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.7c0-1.36-.02-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.8H9z"/></svg></a>
-          <a href="https://www.youtube.com/@Marc%C2%B7IAForestal" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5v-7l6.3 3.5z"/></svg></a>
-        </div>
+  <section class="cta">
+    <div class="wrap">
+      <div class="cta-box">
+        <h2>¿Qué puedes automatizar en tu empresa?</h2>
+        <p>Te lo decimos en una llamada gratuita y sin compromiso.</p>
+        <a href="/diagnostico" class="btn light">Reserva tu llamada gratuita →</a>
       </div>
-      <p class="footer-copyright">© 2026 OmbrIA. Todos los derechos reservados.</p>
-    </footer>
+    </div>
+  </section>
 
-    <script>
-      document.getElementById('navToggle').addEventListener('click', function() {
-        document.getElementById('nav').classList.toggle('open');
+  <script>
+    // Categoría de cada tarjeta según su etiqueta (las tarjetas nuevas las añade el bot del blog)
+    (function () {
+      var cards = document.querySelectorAll('.blog-card');
+      cards.forEach(function (c) {
+        var tag = (c.querySelector('.blog-tag') || {}).textContent || '';
+        c.dataset.cat = /empresas/i.test(tag) ? 'empresas' : 'medio';
       });
-      const reveals = document.querySelectorAll('.reveal');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((e, i) => {
-          if (e.isIntersecting) {
-            setTimeout(() => e.target.classList.add('visible'), i * 80);
-            observer.unobserve(e.target);
-          }
+      var botones = document.querySelectorAll('.blog-tabs button');
+      botones.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var f = b.dataset.filtro, visibles = 0;
+          botones.forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+          cards.forEach(function (c) {
+            var ver = f === 'todos' || c.dataset.cat === f;
+            c.hidden = !ver; if (ver) visibles++;
+          });
+          document.getElementById('blog-empty').hidden = visibles > 0;
         });
-      }, { threshold: 0.12 });
-      reveals.forEach(r => observer.observe(r));
-    </script>
-    <script src="assets/utm.js"></script>
+      });
+    })();
+  </script>
+
+  <footer>
+    <div class="wrap">
+      <div class="row">
+        <div><a href="https://ombria.es/" class="logo"><img src="assets/logo.png" alt="" width="44" height="44" /><span>Ombr<b>IA</b></span></a><p style="margin-top:10px;">IA y automatización para empresas · Valencia<br />info@ombria.es · 644 34 24 30</p></div>
+        <div class="social">
+          <a href="https://www.instagram.com/marcchirlaque.ia/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.linkedin.com/in/marc-chirlaque-zapata-64b06b268/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.7c0-1.36-.02-3.1-1.9-3.1-1.9 0-2.2 1.48-2.2 3v5.8H9z"/></svg></a>
+          <a href="https://www.youtube.com/@marcchirlaque" target="_blank" rel="noopener" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5v-7l6.3 3.5z"/></svg></a>
+        </div>
+      </div>
+      <div class="legal" style="margin-top:24px;">
+        <a href="privacidad.html">Política de Privacidad</a>
+        <a href="cookies.html">Política de Cookies</a>
+        <a href="aviso-legal.html">Aviso Legal</a>
+        <a href="#" data-cookie-settings>Configurar cookies</a>
+      </div>
+      <p class="copy">© 2026 OmbrIA. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    var burger = document.getElementById('burger');
+    burger.addEventListener('click', function () {
+      var open = document.getElementById('menu').classList.toggle('open');
+      burger.setAttribute('aria-expanded', open);
+    });
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e, i) {
+        if (e.isIntersecting) { setTimeout(function () { e.target.classList.add('visible'); }, i * 70); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function (r) { obs.observe(r); });
+  </script>
+  <script src="/assets/utm.js"></script>
 </body>
 </html>
