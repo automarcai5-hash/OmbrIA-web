@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" type="image/png" href="assets/logo.png" />
-<title>Diagnóstico de Automatización IA para Empresas Forestales | OmbrIA</title>
-<meta name="description" content="Identificamos qué procesos de tu empresa forestal puedes automatizar con Inteligencia Artificial. Primera llamada gratuita y sin compromiso." />
+<title>Diagnóstico para empresas: dónde pierdes tiempo y dinero | OmbrIA</title>
+<meta name="description" content="Analizamos tu empresa, detectamos dónde pierdes tiempo y dinero y te damos un plan detallado para solucionarlo. Primera llamada gratuita y sin compromiso." />
 <meta name="robots" content="noindex, follow" />
 <link rel="canonical" href="https://ombria.es/diagnostico" />
 <meta name="theme-color" content="#2d9494" />
@@ -257,6 +257,22 @@
     .section { padding: 60px 5%; }
     .form-box { padding: 28px; }
   }
+
+  /* NUEVO (2026-11-04) */
+  .hero { padding: 96px 5% 70px; }
+  .hero-checks { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; margin: 22px 0 0; }
+  .hero-checks li { color: #dff0f0 !important; font-weight: 600 !important; font-size: 0.98rem; }
+  .hero-checks li::before { content: "✓ "; color: #6fd6c6 !important; }
+  .time-box { background: var(--color-dark) !important; border-radius: var(--radius); padding: 36px 34px; max-width: 760px; margin: 0 auto; }
+  .time-box h2 { color: #ffffff !important; }
+  .time-box p, .time-box li { color: #cfe3e3 !important; }
+  .time-box ul { list-style: none; margin: 18px 0 22px; }
+  .time-box li { padding: 8px 0 8px 30px; position: relative; }
+  .time-box li::before { content: "✓"; position: absolute; left: 0; color: #6fd6c6 !important; font-weight: 700; }
+  .time-box .punch { color: #ffffff !important; font-weight: 700 !important; font-size: 1.15rem; margin-bottom: 0; }
+  .about { display: flex; gap: 26px; align-items: center; max-width: 760px; margin: 0 auto; }
+  .about img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; flex: none; box-shadow: var(--shadow); }
+  @media (max-width: 640px) { .about { flex-direction: column; text-align: center; } .time-box { padding: 28px 22px; } .hero { padding: 76px 5% 56px; } }
 </style>
 </head>
 <body>
@@ -264,199 +280,108 @@
 <!-- 1. HERO -->
 <section class="hero">
   <div class="section-inner">
-    <span class="eyebrow" style="color:#8fd4d4 !important;">Automatización · Inteligencia Artificial · Sector Forestal</span>
-    <h1>Descubre dónde tu empresa forestal está perdiendo tiempo y qué puedes automatizar.</h1>
-    <p class="lead">Analizamos cómo trabaja tu empresa, detectamos tareas repetitivas y diseñamos automatizaciones con IA a medida para reducir trabajo manual, costes y carga administrativa.</p>
-    <p class="lead" style="font-weight:700; color:#ffffff !important;">No vendemos soluciones genéricas. Analizamos primero tu empresa y automatizamos lo que realmente tiene impacto.</p>
-    <a href="#formulario" class="btn">Reservar llamada gratuita</a>
-    <p class="microcopy" style="color:#a9c9c9 !important;">Sin compromiso. Primero identificamos si existe una oportunidad real de automatización para tu empresa.</p>
-    <p class="hero-trust">IA especializada en empresas forestales · Soluciones 100% personalizadas · Diagnóstico antes de implementar</p>
-  </div>
-</section>
-
-<!-- 2. PROBLEMA -->
-<section class="section">
-  <div class="section-narrow center">
-    <h2>Tu equipo no debería estar perdiendo tiempo haciendo trabajo que una máquina puede hacer.</h2>
-    <p class="lead">En muchas empresas forestales, una parte importante del trabajo diario sigue dependiendo de tareas manuales, repetitivas y administrativas. No porque sean difíciles. Sino porque siempre se han hecho así.</p>
-  </div>
-  <ul class="problem-list">
-    <li>Introducir la misma información en varios sistemas</li>
-    <li>Revisar y clasificar documentos manualmente</li>
-    <li>Preparar informes una y otra vez</li>
-    <li>Buscar información entre emails, archivos y hojas de cálculo</li>
-    <li>Responder continuamente las mismas consultas</li>
-    <li>Copiar datos de un lugar a otro</li>
-    <li>Hacer seguimiento manual de tareas, clientes o proveedores</li>
-    <li>Perder horas coordinando información entre personas</li>
-    <li>Tener datos disponibles, pero no utilizarlos para tomar decisiones</li>
-    <li>Depender de determinadas personas para procesos que deberían estar sistematizados</li>
-  </ul>
-  <div class="section-narrow center">
-    <p class="lead">Cada una de estas tareas puede parecer pequeña. Pero multiplicadas por días, empleados y meses, pueden convertirse en cientos de horas de trabajo improductivo.</p>
-    <div class="cost-box">
-      <h3>¿Cuánto te está costando mantener estos procesos manualmente?</h3>
-      <p class="cost-formula">Personas involucradas × horas dedicadas × coste/hora × semanas = coste real del trabajo manual</p>
-      <p class="microcopy" style="margin-top:0;">Es solo una forma sencilla de hacerte una idea del coste. No es una cifra universal ni un cálculo exacto para tu empresa — eso es precisamente lo que revisamos en el diagnóstico.</p>
-    </div>
-    <div class="highlight-box">La pregunta no es si puedes automatizar algo. La pregunta es cuánto te está costando no hacerlo.</div>
-  </div>
-</section>
-
-<!-- 3. AGITACIÓN -->
-<section class="section bg-dark">
-  <div class="section-narrow center">
-    <h2>El coste no siempre aparece como una factura.</h2>
-    <p class="lead" style="font-weight:600; color:#ffffff !important;">Horas perdidas → más costes operativos → más errores → más trabajo administrativo → menos capacidad para crecer.</p>
-    <p>Mientras tu equipo dedica horas a tareas repetitivas, esas mismas horas no se están dedicando a producir, vender, gestionar proyectos o tomar mejores decisiones. Y cuanto más crece una empresa, más caro puede resultar mantener procesos manuales.</p>
-    <div class="highlight-box" style="background:rgba(45,148,148,0.15) !important; color:#ffffff !important; border-left-color:#4fb8b8 !important;">
-      No necesitas contratar más personas para hacer más trabajo repetitivo. Primero necesitas saber qué trabajo puede dejar de hacerse manualmente.
-    </div>
-  </div>
-</section>
-
-<!-- 4. NUEVO MECANISMO -->
-<section class="section">
-  <div class="section-narrow center">
-    <h2>No te vendemos "IA". Encontramos dónde puede generar dinero o ahorrar costes en tu empresa.</h2>
-    <p class="lead">En OmbrIA seguimos un proceso sencillo:</p>
-  </div>
-  <div class="steps">
-    <div class="step"><div class="step-num">1</div><div><h3>Entendemos cómo trabajáis</h3><p>Analizamos cómo se realizan realmente las tareas y procesos de tu empresa.</p></div></div>
-    <div class="step"><div class="step-num">2</div><div><h3>Detectamos dónde se pierde tiempo</h3><p>Localizamos tareas repetitivas, trabajo administrativo y cuellos de botella.</p></div></div>
-    <div class="step"><div class="step-num">3</div><div><h3>Identificamos qué merece la pena automatizar</h3><p>No todo debe automatizarse. Buscamos las oportunidades con mayor sentido operativo y económico.</p></div></div>
-    <div class="step"><div class="step-num">4</div><div><h3>Priorizamos por impacto</h3><p>Ordenamos las oportunidades según su potencial de ahorro de tiempo, reducción de costes, control o capacidad.</p></div></div>
-    <div class="step"><div class="step-num">5</div><div><h3>Te mostramos por dónde empezar</h3><p>Definimos las soluciones recomendadas y un roadmap claro para avanzar.</p></div></div>
-  </div>
-  <p class="lead center" style="margin-top:26px;">Si existe una oportunidad clara, podemos encargarnos también de la implementación.</p>
-</section>
-
-<!-- 5. OFERTA PRINCIPAL -->
-<section class="section bg-light">
-  <div class="center" style="margin-bottom:10px;">
-    <span class="eyebrow">Primer paso</span>
-    <h2>Diagnóstico de Automatización IA para tu empresa</h2>
-    <p class="lead section-narrow" style="margin:0 auto 20px;">Una sesión de diagnóstico en la que analizamos tus procesos, identificamos oportunidades de automatización y priorizamos aquellas que pueden generar mayor impacto en tu empresa.</p>
-    <p class="lead section-narrow" style="margin:0 auto 20px; font-weight:700; color:var(--color-dark) !important;">Al terminar tendrás un mapa claro de las oportunidades de automatización de tu empresa.</p>
-    <p class="lead section-narrow" style="margin:0 auto 20px;"><strong>Precio del Diagnóstico Inicial: desde 500 € + IVA por área</strong> (marketing, ventas, delivery y administración). Solo analizamos las áreas que tu empresa necesita. Las llamadas previas son gratuitas y sin compromiso.</p>
-  </div>
-  <div class="offer-box">
-    <div class="offer-item"><span class="offer-num">01</span><div><h3>Análisis del proceso actual</h3><p style="margin:0;">Entendemos cómo se realizan hoy las tareas clave y dónde interviene trabajo manual.</p></div></div>
-    <div class="offer-item"><span class="offer-num">02</span><div><h3>Detección de tareas automatizables</h3><p style="margin:0;">Identificamos procesos repetitivos, administrativos y susceptibles de optimización.</p></div></div>
-    <div class="offer-item"><span class="offer-num">03</span><div><h3>Priorización por impacto</h3><p style="margin:0;">Ordenamos las oportunidades según el impacto potencial para tu empresa.</p></div></div>
-    <div class="offer-item"><span class="offer-num">04</span><div><h3>Propuesta de soluciones</h3><p style="margin:0;">Te mostramos qué podríamos automatizar, cómo funcionaría y qué necesitaríamos para implementarlo.</p></div></div>
-    <div class="offer-item"><span class="offer-num">05</span><div><h3>Roadmap de implementación</h3><p style="margin:0;">Definimos qué tendría sentido hacer primero y qué podría venir después.</p></div></div>
-  </div>
-  <div class="section-narrow" style="margin-top:34px;">
-    <h3 class="center" style="margin-bottom:16px;">Al terminar sabrás:</h3>
-    <ul class="know-list">
-      <li>Qué procesos no merece la pena automatizar.</li>
-      <li>Qué procesos podrían optimizarse.</li>
-      <li>Qué procesos tienen mayor potencial de automatización.</li>
-      <li>Qué solución podría aplicarse a cada oportunidad.</li>
-      <li>Por dónde tendría sentido empezar.</li>
+    <span class="eyebrow" style="color:#8fd4d4 !important;">Consultoría · Automatización · IA para empresas</span>
+    <h1>Analizamos tu empresa y te decimos dónde estás perdiendo tiempo y dinero.</h1>
+    <p class="lead">Una consultoría para detectar las tareas que te frenan y un plan detallado para quitártelas de encima, con IA y automatización solo donde tenga sentido. <strong style="color:#ffffff !important;">Para que dediques ese tiempo a lo que hace crecer tu empresa: ganar más clientes.</strong></p>
+    <a href="#formulario" class="btn">Reserva tu llamada gratuita</a>
+    <ul class="hero-checks">
+      <li>Sin tecnicismos</li>
+      <li>Sin compromiso</li>
+      <li>Sabrás por dónde empezar</li>
     </ul>
   </div>
-  <div class="center" style="margin-top:34px;">
-    <a href="#formulario" class="btn">Reservar llamada gratuita</a>
-    <p class="microcopy">Sin compromiso. Si no encontramos una oportunidad clara, te lo diremos.</p>
-  </div>
 </section>
 
-<!-- 6. EJEMPLOS -->
+<!-- 2. ¿TE SUENA? -->
 <section class="section">
-  <div class="section-narrow center">
-    <h2>Algunos ejemplos de lo que podríamos encontrar</h2>
-    <p class="lead">Cada empresa es diferente. Por eso no partimos de un catálogo cerrado. Pero estas son algunas áreas donde la IA y la automatización pueden generar oportunidades:</p>
-  </div>
-  <div class="grid">
-    <div class="card"><span class="icon">📄</span><h3>Documentación</h3><p style="margin:0;">Extracción, clasificación y procesamiento automático de información.</p></div>
-    <div class="card"><span class="icon">📊</span><h3>Informes</h3><p style="margin:0;">Generación y actualización automática de informes a partir de diferentes fuentes.</p></div>
-    <div class="card"><span class="icon">📩</span><h3>Emails</h3><p style="margin:0;">Clasificación, respuesta, extracción de información y creación de tareas.</p></div>
-    <div class="card"><span class="icon">🔄</span><h3>Procesos administrativos</h3><p style="margin:0;">Automatización de tareas repetitivas que actualmente requieren intervención manual.</p></div>
-    <div class="card"><span class="icon">🔎</span><h3>Gestión de información</h3><p style="margin:0;">Encontrar, organizar y utilizar información de forma mucho más rápida.</p></div>
-    <div class="card"><span class="icon">🤖</span><h3>Agentes IA</h3><p style="margin:0;">Sistemas capaces de ejecutar determinadas tareas y procesos siguiendo instrucciones y reglas definidas.</p></div>
-    <div class="card"><span class="icon">🔗</span><h3>Integraciones</h3><p style="margin:0;">Conectar herramientas que actualmente funcionan de forma aislada.</p></div>
-    <div class="card"><span class="icon">📈</span><h3>Control y seguimiento</h3><p style="margin:0;">Automatizar alertas, seguimiento y recopilación de datos para mejorar la gestión.</p></div>
+  <div class="section-inner">
+    <h2 class="center">¿Te suena?</h2>
+    <div class="grid">
+      <div class="card"><span class="icon">🔁</span><h3>Las mismas tareas cada día</h3><p>Copiar datos, pasar partes a limpio, hacer presupuestos, contestar las mismas preguntas…</p></div>
+      <div class="card"><span class="icon">🗂️</span><h3>La información, por todas partes</h3><p>Entre correos, hojas de Excel, WhatsApp y papeles. Encontrar algo lleva su rato.</p></div>
+      <div class="card"><span class="icon">⏳</span><h3>Sabes que se pierde tiempo</h3><p>Pero no exactamente dónde, cuánto te cuesta ni por dónde empezar a arreglarlo.</p></div>
+    </div>
   </div>
 </section>
 
-<!-- 7. PERSONALIZACIÓN -->
+<!-- 3. NO TIENES TIEMPO -->
 <section class="section bg-light">
-  <div class="section-narrow center">
-    <h2>Tu empresa no necesita otra herramienta. Necesita una solución que encaje con cómo trabajáis.</h2>
-    <p>No creemos en implementar la misma automatización en todas las empresas. Por eso empezamos por tus procesos. Porque una empresa de gestión forestal, un vivero, una empresa de biomasa o una consultoría forestal pueden tener problemas completamente diferentes.</p>
-    <div class="highlight-box">La tecnología se adapta al proceso. No al revés.</div>
-    <p>Trabajamos con diferentes tipos de empresas forestales: gestión y explotación, viveros, biomasa, consultoría, propietarios y otras organizaciones del sector.</p>
+  <div class="time-box">
+    <h2>¿No tienes tiempo ni para respirar? Justo por eso.</h2>
+    <p>Sabemos que tu día ya va lleno. Por eso casi todo el trabajo lo hacemos nosotros:</p>
+    <ul>
+      <li>Rellenas un cuestionario <strong style="color:#fff !important;">a tu ritmo, desde el móvil</strong>, en los ratos que tengas.</li>
+      <li>Hacemos <strong style="color:#fff !important;">una llamada</strong>, cuando a ti te venga bien.</li>
+      <li>Nosotros analizamos, ordenamos y te entregamos el plan.</li>
+    </ul>
+    <p class="punch">No esperes a tener tiempo para ganar tiempo.</p>
   </div>
 </section>
 
-<!-- 8. AUTORIDAD -->
+<!-- 4. CÓMO LO HACEMOS -->
 <section class="section">
   <div class="section-narrow center">
-    <h2>IA aplicada al sector forestal. No tecnología genérica.</h2>
-  </div>
-  <div class="pillars">
-    <div class="pillar"><span class="icon">🌲</span><h3>Especialización sectorial</h3><p>Entendemos el contexto y las necesidades de las empresas forestales.</p></div>
-    <div class="pillar"><span class="icon">🔍</span><h3>Diagnóstico antes de implementar</h3><p>No empezamos recomendando herramientas. Primero identificamos el problema.</p></div>
-    <div class="pillar"><span class="icon">🛡️</span><h3>Ciberseguridad incluida</h3><p>Antes de automatizar revisamos accesos, datos, dependencias, riesgos técnicos y riesgos humanos.</p></div>
-    <div class="pillar"><span class="icon">📈</span><h3>Impacto medible</h3><p>Cada implementación debe perseguir un resultado empresarial concreto.</p></div>
-  </div>
-  <div class="section-narrow center" style="margin-top:36px;">
-    <div class="highlight-box">No empezamos por la herramienta. Empezamos por entender el problema.</div>
-    <p class="lead" style="margin-bottom:0;">El objetivo no es "tener IA". Es ahorrar tiempo, reducir costes, aumentar capacidad o mejorar el control.</p>
-  </div>
-</section>
-
-<!-- 9. OBJECIONES -->
-<section class="section bg-light">
-  <div class="section-narrow">
-    <h2 class="center">Quizá estés pensando…</h2>
-    <div class="highlight-box center" style="margin-bottom:34px;">No necesitas saber qué automatizar. Nosotros identificamos las oportunidades. Y si no encontramos una oportunidad clara, te lo diremos.</div>
-    <div class="objection"><h3>"Mi empresa es demasiado pequeña."</h3><p>La automatización no depende únicamente del tamaño. Depende de cuánto tiempo y recursos consumen tus procesos.</p></div>
-    <div class="objection"><h3>"Ya tenemos software para eso."</h3><p>Perfecto. No buscamos sustituir todo lo que utilizas. Buscamos detectar qué partes todavía requieren trabajo manual y dónde pueden conectarse mejor tus herramientas.</p></div>
-    <div class="objection"><h3>"No sé qué se puede automatizar."</h3><p>Precisamente por eso existe el diagnóstico. No necesitas saber qué automatizar antes de hablar con nosotros.</p></div>
-    <div class="objection"><h3>"No quiero meter IA porque sí."</h3><p>Nosotros tampoco. Si una automatización no tiene sentido económico u operativo, no te la recomendaremos.</p></div>
-    <div class="objection"><h3>"¿Y si no encontramos nada?"</h3><p>Entonces habrás obtenido claridad sobre tus procesos sin tener que implementar tecnología innecesaria.</p></div>
-    <div class="objection"><h3>"¿Me vais a intentar vender algo al terminar?"</h3><p>No necesariamente. El objetivo del diagnóstico es determinar si existe una oportunidad real. Si no encontramos una automatización que tenga sentido para tu empresa, te lo diremos.</p></div>
-  </div>
-</section>
-
-<!-- 10. PROCESO -->
-<section class="section">
-  <div class="section-narrow center">
-    <h2>Empezar es más sencillo de lo que parece.</h2>
+    <h2>Cómo lo hacemos</h2>
   </div>
   <div class="steps">
-    <div class="step"><div class="step-num">1</div><div><h3>Reserva una llamada gratuita</h3><p>Cuéntanos brevemente cómo funciona tu empresa y qué procesos te están generando más trabajo.</p></div></div>
-    <div class="step"><div class="step-num">2</div><div><h3>Analizamos las oportunidades</h3><p>Revisamos procesos, tareas y puntos de fricción para identificar dónde puede tener sentido automatizar.</p></div></div>
-    <div class="step"><div class="step-num">3</div><div><h3>Decides qué hacer</h3><p>Te presentamos las oportunidades detectadas y, si existe una oportunidad real, una propuesta de implementación. Sin obligarte a contratar nada.</p></div></div>
+    <div class="step"><div class="step-num">1</div><div><h3>Entendemos cómo trabajáis</h3><p>Con un cuestionario y una llamada con tu equipo, vemos cómo se hacen de verdad las cosas en tu empresa.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div><h3>Detectamos dónde se pierde tiempo y dinero</h3><p>Área por área: ventas, administración, operaciones… Las tareas repetitivas, los cuellos de botella y lo que depende de una sola persona.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div><h3>Te damos un plan detallado</h3><p>Qué cambiar, por dónde empezar y qué impacto tiene cada cosa, ordenado de más a menos importante.</p></div></div>
+    <div class="step"><div class="step-num">4</div><div><h3>Te ayudamos a ponerlo en marcha</h3><p>Si quieres, lo implantamos contigo y formamos a tu equipo. Y si no, el plan es tuyo.</p></div></div>
   </div>
 </section>
 
-<!-- 11. CTA FINAL -->
-<section class="section bg-dark center">
-  <div class="section-narrow">
-    <h2>Descubre dónde está la oportunidad.</h2>
-    <p class="lead">Identifica qué procesos tienen mayor potencial, por dónde empezar y qué podrías automatizar con IA.</p>
-    <a href="#formulario" class="btn">Reservar llamada gratuita</a>
-    <p class="microcopy" style="color:#a9c9c9 !important;">Sin compromiso · 100% personalizado · Especializado en empresas forestales</p>
+<!-- 4b. PARA QUÉ: EL TIEMPO QUE RECUPERAS -->
+<section class="section bg-dark">
+  <div class="section-inner">
+    <div class="section-narrow center">
+      <h2>El tiempo que recuperas, para hacer crecer tu empresa</h2>
+      <p class="lead" style="color:#cfe3e3 !important;">Cada hora que dejas de perder en papeleo y tareas repetitivas es una hora que puedes dedicar a lo que de verdad da dinero.</p>
+    </div>
+    <div class="grid">
+      <div class="card" style="background:#24413f !important; border-color:#2f5552 !important;"><span class="icon">🤝</span><h3 style="color:#fff !important;">Más clientes</h3><p style="color:#cfe3e3 !important;">Tiempo para vender, hacer seguimiento y contestar a los clientes antes que la competencia.</p></div>
+      <div class="card" style="background:#24413f !important; border-color:#2f5552 !important;"><span class="icon">📈</span><h3 style="color:#fff !important;">Más negocio</h3><p style="color:#cfe3e3 !important;">Tiempo para pensar en tu empresa, abrir nuevos servicios y crecer, en vez de apagar fuegos.</p></div>
+      <div class="card" style="background:#24413f !important; border-color:#2f5552 !important;"><span class="icon">😮‍💨</span><h3 style="color:#fff !important;">Menos estrés</h3><p style="color:#cfe3e3 !important;">Menos errores, menos cosas olvidadas y menos papeleo por la noche. Para ti y para tu equipo.</p></div>
+    </div>
   </div>
 </section>
 
-<!-- 12. FORMULARIO -->
+<!-- 5. QUÉ TE LLEVAS -->
+<section class="section bg-light">
+  <div class="section-narrow center">
+    <h2>Qué te llevas</h2>
+    <ul class="know-list" style="text-align:left;">
+      <li>Un mapa de cómo trabaja tu empresa hoy</li>
+      <li>Las oportunidades de mejora, ordenadas por impacto</li>
+      <li>Una revisión de seguridad: tus datos, contraseñas y accesos</li>
+      <li>Una hoja de ruta clara para empezar</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 6. QUIÉN ESTÁ DETRÁS -->
+<section class="section">
+  <div class="about">
+    <img src="assets/marc-chirlaque-ombria-monte-v2.jpg" alt="Marc Chirlaque, fundador de OmbrIA" width="120" height="120" loading="lazy" />
+    <div>
+      <h3>Soy Marc Chirlaque, fundador de OmbrIA.</h3>
+      <p style="margin-bottom:0;">Técnico forestal: antes de la IA estuvo el monte, y sé lo que es trabajar sin tiempo para el papeleo. Hoy ayudo a empresas a quitarse ese trabajo de encima. Y quien hace el diagnóstico es quien lo implementa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FORMULARIO -->
 <section class="section form-section" id="formulario">
   <div class="center">
-    <h2>Cuéntanos dónde estás perdiendo tiempo</h2>
+    <h2>Reserva tu llamada gratuita</h2>
+    <p class="lead">Cuéntanos qué te quita más tiempo y te llamamos para verlo juntos.</p>
   </div>
   <form class="form-box" id="diagnostico-form">
     <input type="hidden" name="formulario" value="diagnostico">
-    <div class="form-row"><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" required></div>
-    <div class="form-row"><label for="empresa">Empresa</label><input type="text" id="empresa" name="empresa" required></div>
-    <div class="form-row"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
-    <div class="form-row"><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="telefono" required></div>
-    <div class="form-row"><label for="actividad">¿A qué se dedica tu empresa?</label><input type="text" id="actividad" name="actividad"></div>
-    <div class="form-row"><label for="proceso">¿Qué proceso te gustaría mejorar o automatizar?</label><textarea id="proceso" name="proceso" rows="3"></textarea></div>
+    <div class="form-row"><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" autocomplete="name" required></div>
+    <div class="form-row"><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" required></div>
+    <div class="form-row"><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="telefono" autocomplete="tel" required></div>
+    <div class="form-row"><label for="proceso">¿Qué es lo que más tiempo te quita? <span style="font-weight:400; opacity:0.7;">(opcional)</span></label><textarea id="proceso" name="proceso" rows="3" placeholder="Por ejemplo: los presupuestos, los partes, contestar correos…"></textarea></div>
     <div class="form-row">
       <label for="privacidad" style="display:flex; gap:0.6rem; align-items:flex-start; font-weight:400; cursor:pointer;">
         <input type="checkbox" id="privacidad" required style="width:auto; margin-top:0.3rem; flex:none;">
@@ -464,25 +389,22 @@
       </label>
       <p style="font-size:0.78rem; line-height:1.5; margin-top:0.5rem; opacity:0.8;">Responsable: Marc Chirlaque Zapata (OmbrIA). Finalidad: responder a tu solicitud y preparar el diagnóstico. Legitimación: tu consentimiento. Destinatarios: no se ceden datos a terceros, salvo obligación legal. Derechos: acceso, rectificación, supresión y demás derechos en info@ombria.es. Más información en la Política de Privacidad.</p>
     </div>
-    <button type="submit" class="btn">Quiero descubrir qué puedo automatizar</button>
-    <p class="microcopy center">Revisaremos tu información antes de la reunión para aprovechar mejor el tiempo.</p>
+    <button type="submit" class="btn">Quiero mi llamada gratuita →</button>
+    <p class="microcopy center">🔒 Tus datos solo se usan para contactarte.</p>
   </form>
   <div id="form-success" class="form-box">
     <h3 id="success-title">¡Gracias!</h3>
-    <p id="success-text">Hemos recibido tu información. Te contactaremos en las próximas 24-48h para agendar una primera llamada gratuita.</p>
+    <p id="success-text">Hemos recibido tu información. Te contactaremos en las próximas 24-48h para agendar la llamada.</p>
   </div>
 </section>
 
-<!-- 13. FAQ -->
+<!-- 8. PREGUNTAS RÁPIDAS -->
 <section class="section">
   <div class="section-narrow">
-    <h2 class="center">Preguntas frecuentes</h2>
-    <div class="faq-item"><h3>¿Qué tipo de empresas pueden trabajar con OmbrIA?</h3><p>Empresas de diferentes perfiles dentro del sector forestal, incluyendo gestión y explotación forestal, propietarios, viveros, biomasa, consultorías y otras organizaciones relacionadas.</p></div>
-    <div class="faq-item"><h3>¿Tengo que saber de Inteligencia Artificial?</h3><p>No. Nosotros nos encargamos de traducir las oportunidades tecnológicas a soluciones prácticas para tu empresa.</p></div>
-    <div class="faq-item"><h3>¿Las automatizaciones son soluciones cerradas?</h3><p>No. Las soluciones se diseñan según los procesos y necesidades de cada empresa.</p></div>
-    <div class="faq-item"><h3>¿El diagnóstico es gratuito?</h3><p>Las llamadas previas sí: son gratuitas y sin compromiso. En ellas conocemos tu empresa y vemos si tiene sentido hacer el diagnóstico. El Diagnóstico Inicial, en el que analizamos tus procesos a fondo y preparamos el roadmap, es un servicio de pago, desde 500 € + IVA por área. Solo analizamos las áreas que tu empresa necesita.</p></div>
-    <div class="faq-item"><h3>¿Qué pasa después del diagnóstico?</h3><p>Recibirás una visión clara de las oportunidades detectadas y podremos definir un roadmap de implementación si existe una oportunidad real.</p></div>
-    <div class="faq-item"><h3>¿Tengo que contratar la implementación?</h3><p>No debería plantearse como una consecuencia automática. El diagnóstico debe determinar primero si existe una oportunidad suficientemente interesante.</p></div>
+    <h2 class="center">Preguntas rápidas</h2>
+    <div class="faq-item"><h3>¿Cuánto cuesta?</h3><p>La primera llamada es gratuita y sin compromiso: en ella vemos si tiene sentido hacer el diagnóstico. El Diagnóstico Inicial, en el que analizamos tus procesos a fondo y preparamos el plan, es de pago: desde 500 € + IVA por área, y solo analizamos las áreas que tu empresa necesita.</p></div>
+    <div class="faq-item"><h3>¿Tengo que saber de IA?</h3><p>No. Te lo explicamos todo sin tecnicismos y nos encargamos de la parte técnica.</p></div>
+    <div class="faq-item"><h3>¿Y si no encontramos nada que mejorar?</h3><p>Te lo diremos claramente en la llamada, antes de que pagues nada.</p></div>
   </div>
 </section>
 
@@ -495,18 +417,6 @@
     e.preventDefault();
     const form = this;
     const successBox = document.getElementById('form-success');
-
-    if (!LEADS_ENDPOINT) {
-      // Todavía no hay ningún sistema conectado para recibir estos datos.
-      // No se muestra un mensaje de "enviado" para no hacer creer al usuario
-      // que el lead ha llegado a algún sitio cuando en realidad no es así.
-      document.getElementById('success-title').textContent = 'Formulario en configuración';
-      document.getElementById('success-text').textContent = 'Este formulario todavía no está conectado a nuestro sistema de recepción de leads. Escríbenos directamente a info@ombria.es o al 644 34 24 30 mientras lo terminamos de configurar.';
-      form.style.display = 'none';
-      successBox.style.display = 'block';
-      return;
-    }
-
     const data = Object.fromEntries(new FormData(form).entries());
     if (window.ombriaEsBot && window.ombriaEsBot(form, data)) {
       form.style.display = 'none';
@@ -521,7 +431,7 @@
       });
       if (!res.ok) throw new Error('Respuesta no OK del servidor');
       document.getElementById('success-title').textContent = `¡Gracias, ${data.nombre || ''}!`;
-      document.getElementById('success-text').textContent = 'Hemos recibido tu información. Te contactaremos en las próximas 24-48h para agendar una primera llamada gratuita.';
+      document.getElementById('success-text').textContent = 'Hemos recibido tu información. Te contactaremos en las próximas 24-48h para agendar la llamada.';
       form.style.display = 'none';
       successBox.style.display = 'block';
     } catch (err) {
