@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="assets/logo.png" />
+<title>Guía gratis: graba así y deja que la IA te edite el vídeo | OmbrIA</title>
+<meta name="description" content="Los 10 puntos para grabar tus vídeos y que Claude Code te los edite: cómo grabar, qué hacer cuando te equivocas y qué revisar al final." />
+<meta name="robots" content="noindex, follow" />
+<link rel="canonical" href="https://ombria.es/claude-code-edita" />
+<meta name="theme-color" content="#2d9494" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Guía gratis: graba así y deja que la IA te edite el vídeo" />
+<meta property="og:description" content="10 puntos y un prompt para que Claude Code te edite los vídeos." />
+<meta property="og:url" content="https://ombria.es/claude-code-edita" />
+<meta property="og:image" content="https://ombria.es/assets/logo.png" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-primary: #2d9494;
+    --color-primary-dark: #1f6b6b;
+    --color-primary-light: #e8f5f5;
+    --color-dark: #1a2b2b;
+    --color-text: #2e3d3d;
+    --color-muted: #6b8080;
+    --color-light: #f7fafa;
+    --color-white: #ffffff;
+    --color-line: #d9e6e6;
+    --font: 'Outfit', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    --radius: 14px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); color: var(--color-text); background: var(--color-light); line-height: 1.6; }
+  h1, h2, h3 { color: var(--color-dark); line-height: 1.2; text-wrap: balance; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 5%; }
+  .hero { padding: 64px 0 34px; text-align: center; }
+  .eyebrow { display: inline-block; color: var(--color-primary); font-weight: 700; letter-spacing: 1.5px; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 16px; }
+  h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin-bottom: 18px; }
+  .lead { font-size: 1.12rem; color: var(--color-muted); max-width: 60ch; margin: 0 auto; }
+  .incluye { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin: 30px 0 8px; }
+  .incluye div { background: var(--color-white); border: 1px solid var(--color-line); border-radius: var(--radius); padding: 18px; text-align: left; }
+  .incluye strong { display: block; color: var(--color-dark); font-size: 1.05rem; margin-bottom: 4px; }
+  .incluye span { color: var(--color-muted); font-size: 0.95rem; }
+  .card { background: var(--color-white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 34px; margin: 24px 0 60px; }
+  .card h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+  .card > p { color: var(--color-muted); margin-bottom: 22px; }
+  .form-row { display: grid; gap: 6px; margin-bottom: 16px; }
+  label { font-weight: 600; color: var(--color-dark); font-size: 0.97rem; }
+  input[type=text], input[type=email] { font: inherit; padding: 13px 15px; border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-light); color: var(--color-text); width: 100%; }
+  input:focus-visible, button:focus-visible { outline: 3px solid var(--color-primary-light); outline-offset: 2px; border-color: var(--color-primary); }
+  .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; cursor: pointer; }
+  .check input { margin-top: 5px; flex: none; }
+  .legal { font-size: 0.78rem; line-height: 1.5; color: var(--color-muted); margin-top: 6px; }
+  .btn { display: inline-block; width: 100%; background: var(--color-primary); color: var(--color-white); font: 700 1.05rem var(--font); padding: 16px 28px; border-radius: 50px; border: none; cursor: pointer; transition: background .2s ease; }
+  .btn:hover { background: var(--color-primary-dark); }
+  .btn[disabled] { opacity: .6; cursor: wait; }
+  .aviso { margin-top: 14px; font-size: 0.95rem; color: #9a3b2e; }
+  .pasos { list-style: none; display: grid; gap: 10px; margin: 6px 0 26px; counter-reset: p; }
+  .pasos li { counter-increment: p; display: grid; grid-template-columns: 32px 1fr; gap: 10px; align-items: start; }
+  .pasos li::before { content: counter(p); width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--color-primary-light); color: var(--color-primary-dark); font-weight: 700; font-size: 0.9rem; }
+  .prompt { border: 1px solid var(--color-line); border-radius: 12px; padding: 18px; display: grid; gap: 12px; margin-bottom: 16px; }
+  .prompt-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .prompt-head h3 { font-size: 1.15rem; }
+  .tag { font-family: var(--mono); font-size: 0.75rem; color: var(--color-muted); letter-spacing: .05em; display: block; }
+  pre { background: var(--color-light); border-radius: 10px; padding: 14px; font-family: var(--mono); font-size: 0.86rem; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--color-text); }
+  .copiar { font: 600 0.92rem var(--font); background: var(--color-primary); color: var(--color-white); border: 0; border-radius: 50px; padding: 8px 18px; cursor: pointer; }
+  .copiar.ok { background: var(--color-dark); }
+  .cta-final { background: var(--color-primary-light); border-radius: 12px; padding: 18px; margin-top: 10px; }
+  .cta-final a { color: var(--color-primary-dark); font-weight: 700; }
+  .ok-no { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 6px 0 26px; }
+  .ok-no div { border: 1px solid var(--color-line); border-radius: 12px; padding: 14px 16px; }
+  .ok-no h3 { font-size: 1rem; margin-bottom: 6px; }
+  .ok-no ul { padding-left: 18px; font-size: 0.95rem; }
+  @media (max-width: 520px) { .ok-no { grid-template-columns: 1fr; } }
+  code { font-family: var(--mono); background: var(--color-light); padding: 1px 6px; border-radius: 6px; font-size: 0.9em; }
+  .card > h3 { font-size: 1.15rem; margin: 6px 0 10px; }
+  .closing-bar { text-align: center; padding: 26px 5%; color: var(--color-muted); font-size: 0.9rem; }
+  @media (max-width: 520px) { .card { padding: 24px 18px; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+</style>
+</head>
+<body>
+<header class="hero wrap">
+  <span class="eyebrow">Guía gratuita · Claude Code edita tus vídeos</span>
+  <h1>Graba así y deja que la IA te edite el vídeo</h1>
+  <p class="lead">Los 10 puntos que he aprendido grabando mis vídeos de YouTube para que Claude Code los edite bien: cómo grabar, qué hacer cuando te equivocas y qué revisar tú al final.</p>
+  <div class="incluye">
+    <div><strong>10 puntos</strong><span>Antes, durante y después de grabar</span></div>
+    <div><strong>El prompt</strong><span>Para pedirle la edición a la IA</span></div>
+    <div><strong>Qué revisar</strong><span>Los fallos típicos que tienes que mirar tú</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card" id="acceso">
+    <h2>Recíbela al momento</h2>
+    <p>Déjame tu nombre y tu email: la lista se abre aquí mismo y te mando una copia a tu correo.</p>
+    <form id="recurso-form" novalidate>
+      <input type="hidden" name="formulario" value="claude-code-edita">
+      <input type="hidden" name="recurso" value="Lista: 10 puntos para grabar y que la IA te edite">
+      <div class="form-row"><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" autocomplete="given-name" required></div>
+      <div class="form-row"><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" required></div>
+      <div class="form-row"><label for="empresa">Empresa (opcional)</label><input type="text" id="empresa" name="empresa" autocomplete="organization"></div>
+      <div class="form-row">
+        <label for="privacidad" class="check"><input type="checkbox" id="privacidad" required><span>He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>.</span></label>
+        <p class="legal">Responsable: Marc Chirlaque Zapata (OmbrIA). Finalidad: enviarte el recurso y, si te interesa, información sobre automatización con IA. Legitimación: tu consentimiento. Destinatarios: no se ceden datos a terceros, salvo obligación legal. Derechos: acceso, rectificación, supresión y demás derechos en info@ombria.es.</p>
+      </div>
+      <button type="submit" class="btn" id="enviar">Quiero la lista</button>
+      <p class="aviso" id="aviso" hidden></p>
+    </form>
+  </section>
+
+  <section class="card" id="prompts" hidden>
+    <span class="eyebrow">Tu lista</span>
+    <h2 id="prompts-titulo">Aquí tienes la lista</h2>
+    <p>La IA edita muy bien, pero solo con lo que le das. Cuanto mejor grabes, menos tendrás que corregir.</p>
+
+    <h3>Antes de grabar</h3>
+    <ol class="pasos">
+      <li><span><strong>Graba por separado la cara y la pantalla.</strong> Lo que dices a cámara, con el móvil. Lo que enseñas en el ordenador, con un grabador de pantalla (yo uso OBS, que es gratis). La IA los junta después.</span></li>
+      <li><span><strong>Un micro barato, sin eco.</strong> Con uno de 20–50 € basta. Activa la cancelación de ruido y no subas la ganancia de más: es mejor que la voz no sature.</span></li>
+      <li><span><strong>La luz, de frente.</strong> Nunca con una ventana detrás, porque la cara queda a contraluz. Fondo liso, y evita ir del mismo color que la pared.</span></li>
+      <li><span><strong>Limpia la pantalla.</strong> Cierra pestañas, chats y notificaciones. Que no salgan claves, correos ni datos de clientes. La IA puede taparlos, pero no te fíes: mejor que no salgan.</span></li>
+    </ol>
+
+    <h3>Mientras grabas</h3>
+    <ol class="pasos" start="5" style="counter-reset: p 4">
+      <li><span><strong>Mira a la lente</strong>, no a tu cara en la pantalla del móvil.</span></li>
+      <li><span><strong>Si te equivocas, no pares la grabación.</strong> Calla un par de segundos y repite la frase entera. La IA se queda con la última toma.</span></li>
+      <li><span><strong>Deja 2 segundos de silencio entre frases.</strong> Así los cortes quedan limpios y no se come ninguna sílaba.</span></li>
+      <li><span><strong>Di solo lo que sea verdad.</strong> Si dices «lo hace en dos minutos», que sean dos minutos. En uno de mis vídeos, la IA vio que tardó diez y quitó la frase.</span></li>
+    </ol>
+
+    <h3>Después</h3>
+    <ol class="pasos" start="9" style="counter-reset: p 8">
+      <li><span><strong>Ponlo todo en una carpeta con nombres claros</strong> (por ejemplo: <code>cara.mp4</code>, <code>pantalla.mp4</code>) y dile a la IA qué es cada archivo y qué quieres conseguir.</span></li>
+      <li><span><strong>Revísalo tú siempre.</strong> Lo típico: nombres propios mal escritos en los subtítulos (a mí me ponía «Cloud Code» en vez de «Claude Code») y rótulos que tapan la cara. La IA hace el trabajo pesado; el criterio lo pones tú.</span></li>
+    </ol>
+
+    <article class="prompt">
+      <div class="prompt-head"><div><span class="tag">PROMPT</span><h3>Pedirle la edición a Claude Code</h3></div><button class="copiar" type="button" data-target="p1">Copiar</button></div>
+      <pre id="p1">En esta carpeta tienes las grabaciones de un vídeo para YouTube:
+- [cara.mp4]: lo que digo a cámara (el inicio y el final).
+- [pantalla.mp4]: la grabación de la pantalla, con mi explicación.
+
+Edítalo así:
+1. Transcríbelo palabra a palabra.
+2. Quita los silencios largos y, cuando repita una frase, quédate con la última toma.
+3. Comprueba que ningún corte se come una sílaba.
+4. Si en la pantalla sale algún dato privado (claves, correos, nombres de clientes), tápalo y dime dónde estaba.
+5. Avísame si digo algo que no coincide con lo que se ve en la grabación.
+6. Al final, dame la lista de cortes, los capítulos y una propuesta de descripción.
+
+Antes de montar el vídeo final, enséñame el plan y espera a que te diga que sí.
+</pre>
+    </article>
+
+    <div class="cta-final">
+      <strong>¿Quieres vídeos para tu empresa sin pasarte horas editando?</strong> Si quieres que te montemos algo así, adaptado a lo que grabáis, la primera llamada es gratuita y sin compromiso: <a href="/diagnostico?utm_source=youtube&amp;utm_content=claude-code-edita">reserva tu llamada</a>.
+    </div>
+  </section>
+</main>
+
+<div class="closing-bar">Marc · IA para Empresas · @marcchirlaque.ia · OmbrIA · info@ombria.es</div>
+
+<script>
+  const LEADS_ENDPOINT = 'https://ombria-n8n.fhqb2h.easypanel.host/webhook/lead-magnet';
+  const form = document.getElementById('recurso-form');
+  const aviso = document.getElementById('aviso');
+
+  function mostrarPrompts(nombre) {
+    if (nombre) document.getElementById('prompts-titulo').textContent = '¡Listo, ' + nombre + '! Aquí tienes tu guía';
+    document.getElementById('acceso').hidden = true;
+    const sec = document.getElementById('prompts');
+    sec.hidden = false;
+    sec.scrollIntoView({ block: 'start' });
+  }
+
+  // Enlace del email: ?acceso=1 abre el recurso directamente
+  if (new URLSearchParams(location.search).get('acceso') === '1') mostrarPrompts('');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    aviso.hidden = true;
+    if (!form.checkValidity()) {
+      aviso.textContent = 'Rellena tu nombre, un email válido y acepta la política de privacidad.';
+      aviso.hidden = false;
+      return;
+    }
+    const data = Object.fromEntries(new FormData(form).entries());
+    if (window.ombriaEsBot && window.ombriaEsBot(form, data)) { mostrarPrompts(''); return; }
+    const boton = document.getElementById('enviar');
+    boton.disabled = true; boton.textContent = 'Enviando…';
+    try {
+      const res = await fetch(LEADS_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+      if (!res.ok) throw new Error('Respuesta no OK');
+      mostrarPrompts((data.nombre || '').trim().split(' ')[0]);
+    } catch (err) {
+      // Aunque falle el registro, la persona se lleva los prompts
+      mostrarPrompts((data.nombre || '').trim().split(' ')[0]);
+    }
+  });
+
+  document.querySelectorAll('.copiar').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const pre = document.getElementById(btn.dataset.target);
+      const hecho = function () { btn.textContent = 'Copiado'; btn.classList.add('ok'); setTimeout(function () { btn.textContent = 'Copiar'; btn.classList.remove('ok'); }, 1800); };
+      const seleccionar = function () { const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Pulsa Ctrl+C'; };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(pre.textContent).then(hecho).catch(seleccionar);
+      else seleccionar();
+    });
+  });
+</script>
+
+<script src="/cookies.js"></script>
+<script src="/assets/utm.js"></script>
+<script src="/assets/antispam.js"></script>
+</body>
+</html>

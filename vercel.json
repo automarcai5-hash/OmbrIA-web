@@ -25,6 +25,8 @@
     { "source": "/crm-claude-code", "destination": "/crm-claude-code.html" },
     { "source": "/buscador-clientes", "destination": "/buscador-clientes.html" },
     { "source": "/rea-claude-code", "destination": "/rea-claude-code.html" },
+    { "source": "/claude-code-edita", "destination": "/claude-code-edita.html" },
+    { "source": "/hermes-asistente", "destination": "/hermes-asistente.html" },
     { "source": "/cuestionario-clientes", "destination": "/cuestionario-clientes.html" }
   ]
 }
