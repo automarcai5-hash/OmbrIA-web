@@ -27,6 +27,7 @@
     { "source": "/rea-claude-code", "destination": "/rea-claude-code.html" },
     { "source": "/claude-code-edita", "destination": "/claude-code-edita.html" },
     { "source": "/detector-morosos", "destination": "/detector-morosos.html" },
+    { "source": "/ia-local", "destination": "/ia-local.html" },
     { "source": "/hermes-asistente", "destination": "/hermes-asistente.html" },
     { "source": "/cuestionario-clientes", "destination": "/cuestionario-clientes.html" }
   ]
