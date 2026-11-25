@@ -10,7 +10,7 @@ Proyecto de trabajo de la web de OmbrIA. Aquí se trabaja todo lo relacionado co
 
 ### Oferta
 1. **Llamadas previas: gratuitas** y sin compromiso.
-2. **Diagnóstico Inicial IA & Cyber: de pago.** Pasos: auditoría y dibujo de procesos en BPMN (marketing, ventas, delivery y administración) → mejoras y oportunidades (stack, automatización, IA solo si tiene sentido) → revisión de ciberseguridad (accesos, datos, dependencias, riesgos) → roadmap priorizado por impacto y riesgo.
+2. **Diagnóstico Inicial IA & Cyber: de pago.** Pasos: auditoría y dibujo de procesos (marketing, ventas, entrega del servicio y administración; de cara al cliente nunca «delivery» ni «BPMN», desde el 2026-11-23) → mejoras y oportunidades (stack, automatización, IA solo si tiene sentido) → revisión de ciberseguridad (accesos, datos, dependencias, riesgos) → roadmap priorizado por impacto y riesgo.
 3. **Implementación**: ejecución del roadmap, orquestación de herramientas, agentes y flujos de IA, formación y seguimiento.
 
 Tono: "sin humo", no vender IA por vender. Mantener este mensaje coherente en todas las páginas.
@@ -22,7 +22,7 @@ Tono: "sin humo", no vender IA por vender. Mantener este mensaje coherente en to
 - Correo info@ombria.es: IONOS Correo Basic, redirigido a automarcai5@gmail.com.
 - Coste aproximado: 46 €/año (10 € el dominio y 36 € el correo).
 - Google Analytics 4 `G-SFWQ53K1MT`: lo carga `cookies.js` solo después de que el visitante acepte las cookies. Google Search Console verificado (`google5a9344feb8c55a99.html` y meta en index).
-- Más documentación (fuera del repo): `Empresa OmbrIA/Info Página Web OmbrIA i Contrasenyes/`. En parte está desactualizada: la landing ya no es `diagnostico-automatizacion-ia.html` ni usa el webhook `diagnostico-leads`.
+- Más documentación (fuera del repo): `Empresa OmbrIA/Administracion/Info Página Web OmbrIA i Contrasenyes/`. En parte está desactualizada: la landing ya no es `diagnostico-automatizacion-ia.html` ni usa el webhook `diagnostico-leads`.
 
 ## Estructura del código
 Web estática: HTML + CSS + JS sin framework ni build.
@@ -72,6 +72,8 @@ El flujo de n8n **Agente creador de blog OmbrIA** (`58WdGeVhd2HAnF2y`) hace comm
 - **Lead magnets de la marca personal (2026-10-18):** `plantilla-apps.html` (servida en `/plantilla-apps`, `noindex`, fuera del sitemap) envía a otro webhook, `…/webhook/lead-magnet` (flujo **Marca personal · Lead magnet → ERP** `itHEc4poAv71nK6q`), con `formulario=plantilla-apps` y un campo `recurso`. El lead entra en el mismo CRM del ERP, pero recibe un email con la plantilla en vez del de «te contactamos en 24 h». Tras el formulario (o con `?acceso=1`, el enlace del email) se muestran los 3 prompts. Llega desde el DM de ManyChat del reel de Claude Artifacts con `?utm_source=instagram&utm_medium=reel&utm_campaign=reel-apps&utm_content=reel-apps`.
 - **`prompts-campo.html` (2026-10-22, servida en `/prompts-campo`, `noindex`):** 3 prompts para técnicos de campo (parte diario, informe de inspección y presupuesto) del reel «Informe en 1 minuto». Misma estructura que `plantilla-apps.html`, con `formulario=prompts-campo`. Desde ese día, el flujo del lead magnet elige el email según `formulario` (catálogo `RECURSOS` en el nodo «Procesar y Normalizar Datos»). **Un recurso nuevo = página nueva + entrada nueva en ese catálogo.**
 - **Recursos de YouTube (2026-10-22, `noindex`, misma estructura):** `crm-claude-code.html` (`/crm-claude-code`, 4 prompts para montar un CRM con Claude Code, vídeo YT-2) y `buscador-clientes.html` (`/buscador-clientes`, plantilla de n8n del buscador de clientes en Google Maps, vídeo YT-3). La plantilla está en `assets/descargas/buscador-clientes-google-maps-n8n.json`: es el flujo `28ioIN8Yd7s2hXll` **limpio** (sin la dirección de Marc ni IDs de Airtable o credenciales). Si se regenera, volver a limpiarla.
+- **`rea-claude-code.html` (2026-11-10, `/rea-claude-code`, `noindex`, misma estructura):** guía para recrear herramientas con Claude Code y REA (qué sí y qué no, instalación y 4 prompts), vídeo YT-7. Entrada `rea-claude-code` en el catálogo `RECURSOS` del flujo del lead magnet (copia previa del flujo en `../copias-flujos/lead-magnet-itHEc4poAv71nK6q-2026-11-10-antes-rea.json`).
+- **`skills-claude.html` y `plugin-google.html` (2026-11-25, `/skills-claude` y `/plugin-google`, `noindex`, misma estructura que `ia-local`):** regalos de los vídeos YT-10 (pack de 5 skills en `assets/descargas/skills-claude-ombria.zip`, sin datos de Marc) y YT-11 (guía del plugin Elephant-Goldfish de Google). Entradas `skills-claude` y `plugin-google` en el catálogo `RECURSOS` del flujo del lead magnet (copia previa en `../copias-flujos/lead-magnet-itHEc4poAv71nK6q-2026-11-25-antes-skills-plugin.json`).
 - **Antispam (2026-10-21):** `assets/antispam.js` añade a cada formulario un campo trampa invisible (`sitio_web_hp`) y exige 2,5 s desde la carga. Cada formulario llama a `ombriaEsBot(form, data)` antes del `fetch`: si es un bot, muestra el éxito sin enviar nada, y el campo trampa se quita de los datos. Un formulario nuevo debe incluir el script y hacer esa llamada. Solo frena a los bots que rellenan el formulario; los que llaman al webhook directamente tendrían que filtrarse en n8n (no está hecho).
 
 ## Seguridad (revisada el 2026-10-21)

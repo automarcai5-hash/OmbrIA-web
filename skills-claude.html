@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="assets/logo.png" />
+<title>Gratis: 5 skills para Claude Code listas para usar | OmbrIA</title>
+<meta name="description" content="Pack gratis con las 5 skills de Claude Code que uso cada semana, cómo instalar las de Anthropic y la plantilla para crear la tuya. Listas para copiar." />
+<meta name="robots" content="noindex, follow" />
+<link rel="canonical" href="https://ombria.es/skills-claude" />
+<meta name="theme-color" content="#2d9494" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Gratis: 5 skills para Claude Code" />
+<meta property="og:description" content="Las skills que uso cada semana, cómo instalarlas y la plantilla para crear la tuya." />
+<meta property="og:url" content="https://ombria.es/skills-claude" />
+<meta property="og:image" content="https://ombria.es/assets/logo.png" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-primary: #2d9494;
+    --color-primary-dark: #1f6b6b;
+    --color-primary-light: #e8f5f5;
+    --color-dark: #1a2b2b;
+    --color-text: #2e3d3d;
+    --color-muted: #6b8080;
+    --color-light: #f7fafa;
+    --color-white: #ffffff;
+    --color-line: #d9e6e6;
+    --font: 'Outfit', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    --radius: 14px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); color: var(--color-text); background: var(--color-light); line-height: 1.6; }
+  h1, h2, h3 { color: var(--color-dark); line-height: 1.2; text-wrap: balance; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 5%; }
+  .hero { padding: 64px 0 34px; text-align: center; }
+  .eyebrow { display: inline-block; color: var(--color-primary); font-weight: 700; letter-spacing: 1.5px; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 16px; }
+  h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin-bottom: 18px; }
+  .lead { font-size: 1.12rem; color: var(--color-muted); max-width: 60ch; margin: 0 auto; }
+  .incluye { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin: 30px 0 8px; }
+  .incluye div { background: var(--color-white); border: 1px solid var(--color-line); border-radius: var(--radius); padding: 18px; text-align: left; }
+  .incluye strong { display: block; color: var(--color-dark); font-size: 1.05rem; margin-bottom: 4px; }
+  .incluye span { color: var(--color-muted); font-size: 0.95rem; }
+  .card { background: var(--color-white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 34px; margin: 24px 0 60px; }
+  .card h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+  .card > p { color: var(--color-muted); margin-bottom: 22px; }
+  .form-row { display: grid; gap: 6px; margin-bottom: 16px; }
+  label { font-weight: 600; color: var(--color-dark); font-size: 0.97rem; }
+  input[type=text], input[type=email] { font: inherit; padding: 13px 15px; border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-light); color: var(--color-text); width: 100%; }
+  input:focus-visible, button:focus-visible { outline: 3px solid var(--color-primary-light); outline-offset: 2px; border-color: var(--color-primary); }
+  .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; cursor: pointer; }
+  .check input { margin-top: 5px; flex: none; }
+  .legal { font-size: 0.78rem; line-height: 1.5; color: var(--color-muted); margin-top: 6px; }
+  .btn { display: inline-block; width: 100%; background: var(--color-primary); color: var(--color-white); font: 700 1.05rem var(--font); padding: 16px 28px; border-radius: 50px; border: none; cursor: pointer; transition: background .2s ease; }
+  .btn:hover { background: var(--color-primary-dark); }
+  .btn[disabled] { opacity: .6; cursor: wait; }
+  .aviso { margin-top: 14px; font-size: 0.95rem; color: #9a3b2e; }
+  .pasos { list-style: none; display: grid; gap: 10px; margin: 6px 0 26px; counter-reset: p; }
+  .pasos li { counter-increment: p; display: grid; grid-template-columns: 32px 1fr; gap: 10px; align-items: start; }
+  .pasos li::before { content: counter(p); width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--color-primary-light); color: var(--color-primary-dark); font-weight: 700; font-size: 0.9rem; }
+  .prompt { border: 1px solid var(--color-line); border-radius: 12px; padding: 18px; display: grid; gap: 12px; margin-bottom: 16px; }
+  .prompt-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .prompt-head h3 { font-size: 1.15rem; }
+  .tag { font-family: var(--mono); font-size: 0.75rem; color: var(--color-muted); letter-spacing: .05em; display: block; }
+  pre { background: var(--color-light); border-radius: 10px; padding: 14px; font-family: var(--mono); font-size: 0.86rem; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--color-text); }
+  .copiar { font: 600 0.92rem var(--font); background: var(--color-primary); color: var(--color-white); border: 0; border-radius: 50px; padding: 8px 18px; cursor: pointer; }
+  .copiar.ok { background: var(--color-dark); }
+  .cta-final { background: var(--color-primary-light); border-radius: 12px; padding: 18px; margin-top: 10px; }
+  .cta-final a { color: var(--color-primary-dark); font-weight: 700; }
+  .ok-no { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 6px 0 26px; }
+  .ok-no div { border: 1px solid var(--color-line); border-radius: 12px; padding: 14px 16px; }
+  .ok-no h3 { font-size: 1rem; margin-bottom: 6px; }
+  .ok-no ul { padding-left: 18px; font-size: 0.95rem; }
+  @media (max-width: 520px) { .ok-no { grid-template-columns: 1fr; } }
+  code { font-family: var(--mono); background: var(--color-light); padding: 1px 6px; border-radius: 6px; font-size: 0.9em; }
+  .card > h3 { font-size: 1.15rem; margin: 6px 0 10px; }
+  .closing-bar { text-align: center; padding: 26px 5%; color: var(--color-muted); font-size: 0.9rem; }
+  @media (max-width: 520px) { .card { padding: 24px 18px; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0 26px; font-size: 0.95rem; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--color-line); }
+  th { color: var(--color-dark); background: var(--color-light); }
+</style>
+</head>
+<body>
+<header class="hero wrap">
+  <span class="eyebrow">Gratis · Skills de Claude Code</span>
+  <h1>Mis 5 skills de Claude Code, listas para copiar</h1>
+  <p class="lead">El pack del vídeo: las skills que uso cada semana, cómo instalar las de Anthropic y la plantilla para que crees la tuya.</p>
+  <div class="incluye">
+    <div><strong>5 skills</strong><span>Ideas, guiones, descripciones, LinkedIn y estadísticas</span></div>
+    <div><strong>Instalación</strong><span>Las tuyas y las de Anthropic, paso a paso</span></div>
+    <div><strong>Plantilla</strong><span>Para crear tu propia skill</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card" id="acceso">
+    <h2>Recíbela al momento</h2>
+    <p>Déjame tu nombre y tu email: se abre aquí mismo y te mando una copia a tu correo.</p>
+    <form id="recurso-form" novalidate>
+      <input type="hidden" name="formulario" value="skills-claude">
+      <input type="hidden" name="recurso" value="Pack: 5 skills para Claude Code">
+      <div class="form-row"><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" autocomplete="given-name" required></div>
+      <div class="form-row"><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" required></div>
+      <div class="form-row"><label for="empresa">Empresa (opcional)</label><input type="text" id="empresa" name="empresa" autocomplete="organization"></div>
+      <div class="form-row">
+        <label for="privacidad" class="check"><input type="checkbox" id="privacidad" required><span>He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>.</span></label>
+        <p class="legal">Responsable: Marc Chirlaque Zapata (OmbrIA). Finalidad: enviarte el recurso y, si te interesa, información sobre automatización con IA. Legitimación: tu consentimiento. Destinatarios: no se ceden datos a terceros, salvo obligación legal. Derechos: acceso, rectificación, supresión y demás derechos en info@ombria.es.</p>
+      </div>
+      <button type="submit" class="btn" id="enviar">Quiero el pack</button>
+      <p class="aviso" id="aviso" hidden></p>
+    </form>
+  </section>
+
+  <section class="card" id="prompts" hidden>
+    <span class="eyebrow">Tu pack</span>
+    <h2 id="prompts-titulo">Aquí lo tienes</h2>
+    <p>Las 5 skills que uso cada semana, limpias para que las adaptes a ti, y la plantilla para crear la tuya.</p>
+    <p><a class="btn" href="/assets/descargas/skills-claude-ombria.zip" download style="text-align:center">Descargar el pack (.zip)</a></p>
+
+    <h3>Qué hay dentro</h3>
+    <table>
+      <thead><tr><th>Skill</th><th>Para qué</th></tr></thead>
+      <tbody>
+        <tr><td><code>ideas-contenido</code></td><td>Ideas de vídeos y reels a partir de lo que ya te ha funcionado.</td></tr>
+        <tr><td><code>guion-reel</code></td><td>Guiones de reels listos para grabar: gancho, texto, moraleja y CTA.</td></tr>
+        <tr><td><code>descripcion-youtube</code></td><td>La descripción de tus vídeos, siempre con la misma estructura y capítulos.</td></tr>
+        <tr><td><code>post-linkedin</code></td><td>De un vídeo a un post para dueños de empresa.</td></tr>
+        <tr><td><code>revisar-estadisticas</code></td><td>De las estadísticas a 3 conclusiones y qué cambiar.</td></tr>
+        <tr><td><code>plantilla-skill</code></td><td>La plantilla para crear tu propia skill.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>1 · Instálalas</h3>
+    <ol class="pasos">
+      <li><span>Descomprime el ZIP y copia cada carpeta en la carpeta de skills de tu usuario: <code>C:\Users\TU_USUARIO\.claude\skills\</code> en Windows o <code>~/.claude/skills/</code> en Mac. Así las tienes en todos tus proyectos.</span></li>
+      <li><span>Si solo las quieres en un proyecto, cópialas en la carpeta <code>.claude/skills/</code> de ese proyecto.</span></li>
+      <li><span>Abre una <strong>sesión nueva</strong> de Claude Code. Si no, no las ve.</span></li>
+      <li><span>Abre cada <code>SKILL.md</code> y cambia lo que sea tuyo (por ejemplo, tu texto de «Sobre mí»). Es texto normal.</span></li>
+    </ol>
+
+    <h3>2 · Las skills de Anthropic (gratis)</h3>
+    <p>En Claude Code, en la <strong>terminal</strong> (el panel de VS Code no tiene el comando <code>/plugin</code>):</p>
+    <article class="prompt">
+      <div class="prompt-head"><div><span class="tag">PASO 1</span><h3>Añadir la tienda de skills</h3></div><button class="copiar" type="button" data-target="p1">Copiar</button></div>
+      <pre id="p1">/plugin marketplace add anthropics/skills</pre>
+    </article>
+    <article class="prompt">
+      <div class="prompt-head"><div><span class="tag">PASO 2</span><h3>Instalar las skills</h3></div><button class="copiar" type="button" data-target="p2">Copiar</button></div>
+      <pre id="p2">/plugin
+(ve a «Discover», busca document-skills e instálalo para tu usuario)</pre>
+    </article>
+    <p>Las que más uso: las de documentos (Excel, Word, PowerPoint y PDF), <code>frontend-design</code> para webs, <code>skill-creator</code> para crear skills y <code>webapp-testing</code> para probar webs.</p>
+
+    <h3>3 · Crea la tuya con skill-creator</h3>
+    <article class="prompt">
+      <div class="prompt-head"><div><span class="tag">PROMPT</span><h3>Crear una skill</h3></div><button class="copiar" type="button" data-target="p3">Copiar</button></div>
+      <pre id="p3">Usa la skill skill-creator de Anthropic para crear una skill que [lo que quieres que haga]. Siempre igual: [la estructura, en orden]. Tono [cómo]. Guárdala en mi carpeta de usuario para tenerla en todos los proyectos.</pre>
+    </article>
+    <p>La regla: <strong>cualquier cosa que le pides a Claude más de dos veces, y siempre le explicas igual, es una skill.</strong></p>
+
+    <div class="ok-no">
+      <div><h3>Trucos</h3><ul><li>Lo más importante es la descripción: pon las palabras que usarías tú al pedirlo</li><li>Una skill, una tarea</li><li>Si no se activa sola, nómbrala: «usa la skill tal para…»</li><li>Si falla, dile «esto ha salido mal por esto, mejora la skill»</li></ul></div>
+      <div><h3>Lo que nadie te cuenta</h3><ul><li>Las de Anthropic son de demostración: pruébalas antes de fiarte</li><li>Una skill puede llevar scripts: mira qué hay dentro antes de instalar una que no conoces</li><li>No siempre se activa sola</li><li>Es tan buena como lo bien que expliques lo que quieres</li></ul></div>
+    </div>
+    <div class="cta-final">
+      <strong>¿Quieres que tu empresa trabaje así?</strong> Procesos que se hacen siempre igual, sin explicarlos cada vez. La primera llamada es gratuita y sin compromiso: <a href="/diagnostico?utm_source=youtube&amp;utm_content=skills-claude">reserva tu llamada</a>.
+    </div>
+  </section>
+</main>
+
+<div class="closing-bar">Marc · IA para Empresas · @marcchirlaque.ia · OmbrIA · info@ombria.es</div>
+
+<script>
+  const LEADS_ENDPOINT = 'https://ombria-n8n.fhqb2h.easypanel.host/webhook/lead-magnet';
+  const form = document.getElementById('recurso-form');
+  const aviso = document.getElementById('aviso');
+
+  function mostrarPrompts(nombre) {
+    if (nombre) document.getElementById('prompts-titulo').textContent = '¡Listo, ' + nombre + '! Aquí lo tienes';
+    document.getElementById('acceso').hidden = true;
+    const sec = document.getElementById('prompts');
+    sec.hidden = false;
+    sec.scrollIntoView({ block: 'start' });
+  }
+
+  // Enlace del email: ?acceso=1 abre el recurso directamente
+  if (new URLSearchParams(location.search).get('acceso') === '1') mostrarPrompts('');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    aviso.hidden = true;
+    if (!form.checkValidity()) {
+      aviso.textContent = 'Rellena tu nombre, un email válido y acepta la política de privacidad.';
+      aviso.hidden = false;
+      return;
+    }
+    const data = Object.fromEntries(new FormData(form).entries());
+    if (window.ombriaEsBot && window.ombriaEsBot(form, data)) { mostrarPrompts(''); return; }
+    const boton = document.getElementById('enviar');
+    boton.disabled = true; boton.textContent = 'Enviando…';
+    try {
+      const res = await fetch(LEADS_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+      if (!res.ok) throw new Error('Respuesta no OK');
+      mostrarPrompts((data.nombre || '').trim().split(' ')[0]);
+    } catch (err) {
+      // Aunque falle el registro, la persona se lleva los prompts
+      mostrarPrompts((data.nombre || '').trim().split(' ')[0]);
+    }
+  });
+
+  document.querySelectorAll('.copiar').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const pre = document.getElementById(btn.dataset.target);
+      const hecho = function () { btn.textContent = 'Copiado'; btn.classList.add('ok'); setTimeout(function () { btn.textContent = 'Copiar'; btn.classList.remove('ok'); }, 1800); };
+      const seleccionar = function () { const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Pulsa Ctrl+C'; };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(pre.textContent).then(hecho).catch(seleccionar);
+      else seleccionar();
+    });
+  });
+</script>
+
+<script src="/cookies.js"></script>
+<script src="/assets/utm.js"></script>
+<script src="/assets/antispam.js"></script>
+</body>
+</html>

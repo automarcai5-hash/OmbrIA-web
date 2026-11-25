@@ -28,6 +28,8 @@
     { "source": "/claude-code-edita", "destination": "/claude-code-edita.html" },
     { "source": "/detector-morosos", "destination": "/detector-morosos.html" },
     { "source": "/ia-local", "destination": "/ia-local.html" },
+    { "source": "/skills-claude", "destination": "/skills-claude.html" },
+    { "source": "/plugin-google", "destination": "/plugin-google.html" },
     { "source": "/hermes-asistente", "destination": "/hermes-asistente.html" },
     { "source": "/cuestionario-clientes", "destination": "/cuestionario-clientes.html" }
   ]
