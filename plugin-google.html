@@ -8,7 +8,7 @@
 <meta name="description" content="Guía gratis del plugin Elephant-Goldfish de Google para Claude Code: cómo instalarlo, cuándo usar cada comando y los prompts que uso en cada paso." />
 <meta name="robots" content="noindex, follow" />
 <link rel="canonical" href="https://ombria.es/plugin-google" />
-<meta name="theme-color" content="#2d9494" />
+<meta name="theme-color" content="#05070D" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Gratis: el plugin de Google para Claude Code" />
 <meta property="og:description" content="Cómo instalarlo, cuándo usar cada paso y los prompts que uso." />
@@ -17,91 +17,150 @@
 <meta name="twitter:card" content="summary" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --color-primary: #2d9494;
-    --color-primary-dark: #1f6b6b;
-    --color-primary-light: #e8f5f5;
-    --color-dark: #1a2b2b;
-    --color-text: #2e3d3d;
-    --color-muted: #6b8080;
-    --color-light: #f7fafa;
-    --color-white: #ffffff;
-    --color-line: #d9e6e6;
-    --font: 'Outfit', system-ui, sans-serif;
+    --bg: #05070D;
+    --panel: rgba(16, 24, 44, 0.72);
+    --line: rgba(120, 170, 255, 0.16);
+    --line-hi: rgba(46, 155, 255, 0.55);
+    --text: #DCE4F5;
+    --title: #F4F7FF;
+    --muted: #8D9AB8;
+    --azul: #2E9BFF;
+    --azul-claro: #7CC3FF;
+    --naranja: #FF8A3D;
+    --font: 'Space Grotesk', system-ui, sans-serif;
     --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
-    --radius: 14px;
-    --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    --radius: 18px;
   }
   html { scroll-behavior: smooth; }
-  body { font-family: var(--font); color: var(--color-text); background: var(--color-light); line-height: 1.6; }
-  h1, h2, h3 { color: var(--color-dark); line-height: 1.2; text-wrap: balance; }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 0 5%; }
-  .hero { padding: 64px 0 34px; text-align: center; }
-  .eyebrow { display: inline-block; color: var(--color-primary); font-weight: 700; letter-spacing: 1.5px; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 16px; }
-  h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin-bottom: 18px; }
-  .lead { font-size: 1.12rem; color: var(--color-muted); max-width: 60ch; margin: 0 auto; }
-  .incluye { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin: 30px 0 8px; }
-  .incluye div { background: var(--color-white); border: 1px solid var(--color-line); border-radius: var(--radius); padding: 18px; text-align: left; }
-  .incluye strong { display: block; color: var(--color-dark); font-size: 1.05rem; margin-bottom: 4px; }
-  .incluye span { color: var(--color-muted); font-size: 0.95rem; }
-  .card { background: var(--color-white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 34px; margin: 24px 0 60px; }
-  .card h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
-  .card > p { color: var(--color-muted); margin-bottom: 22px; }
+  body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.6; overflow-x: hidden; position: relative; }
+  a { color: var(--azul-claro); }
+
+  /* Fondo animado: rejilla que se mueve, halos de luz y chispas */
+  .fondo { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
+    background: radial-gradient(ellipse 80% 60% at 50% -10%, #10234A 0%, transparent 60%), var(--bg); }
+  .fondo::before { content: ""; position: absolute; inset: -50%;
+    background-image: linear-gradient(rgba(46,155,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(46,155,255,.08) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, #000 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, #000 20%, transparent 75%);
+    animation: rejilla 18s linear infinite; }
+  @keyframes rejilla { to { transform: translateY(48px); } }
+  .halo { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .55; }
+  .halo.h1 { width: 520px; height: 520px; background: var(--azul); top: -160px; left: -120px; animation: flotar 16s ease-in-out infinite; }
+  .halo.h2 { width: 420px; height: 420px; background: #1B4FD8; bottom: -160px; right: -100px; animation: flotar 20s ease-in-out infinite reverse; }
+  .halo.h3 { width: 260px; height: 260px; background: var(--naranja); top: 40%; right: 8%; opacity: .18; animation: flotar 24s ease-in-out infinite; }
+  @keyframes flotar { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(60px, 40px) scale(1.12); } }
+  .chispa { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: var(--azul-claro); box-shadow: 0 0 10px 2px var(--azul); opacity: 0; animation: subir linear infinite; }
+  @keyframes subir { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: .9; } 100% { transform: translateY(-110vh); opacity: 0; } }
+
+  h1, h2, h3 { color: var(--title); line-height: 1.15; text-wrap: balance; letter-spacing: -0.02em; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 16px; }
+  .hero { padding: 72px 16px 30px; text-align: center; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--azul-claro); font-weight: 600; letter-spacing: 1.5px; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 20px;
+    padding: 7px 14px; border: 1px solid var(--line-hi); border-radius: 50px; max-width: 100%; flex-wrap: wrap; justify-content: center; line-height: 1.4; background: rgba(46,155,255,.08); }
+  .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--azul); box-shadow: 0 0 10px var(--azul); animation: latido 1.6s ease-in-out infinite; }
+  @keyframes latido { 50% { transform: scale(1.6); opacity: .5; } }
+  h1 { font-size: clamp(2.1rem, 6vw, 3.6rem); font-weight: 700; margin-bottom: 20px; }
+  h1 .brillo { background: linear-gradient(90deg, var(--azul-claro), var(--azul), #FFFFFF, var(--azul-claro)); background-size: 300% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent; animation: brillo 6s linear infinite; }
+  @keyframes brillo { to { background-position: 300% 0; } }
+  .lead { font-size: 1.12rem; color: var(--muted); max-width: 58ch; margin: 0 auto; }
+  .incluye { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 36px 0 8px; }
+  .incluye div { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; text-align: left; backdrop-filter: blur(8px);
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease, opacity .7s ease; }
+  .incluye div:hover { transform: translateY(-4px); border-color: var(--line-hi); box-shadow: 0 10px 40px -10px rgba(46,155,255,.45); }
+  .incluye .ico { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; margin-bottom: 12px; font-size: 1.1rem;
+    background: linear-gradient(135deg, rgba(46,155,255,.35), rgba(46,155,255,.08)); border: 1px solid var(--line-hi); }
+  .incluye strong { display: block; color: var(--title); font-size: 1.05rem; margin-bottom: 4px; }
+  .incluye span { color: var(--muted); font-size: 0.95rem; }
+
+  .card { position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 36px; margin: 26px 0 60px; backdrop-filter: blur(10px);
+    box-shadow: 0 30px 80px -30px rgba(0,0,0,.8); }
+  .card::before { content: ""; position: absolute; inset: -1px; border-radius: 22px; padding: 1px; pointer-events: none;
+    background: conic-gradient(from var(--giro, 0deg), transparent 0 70%, var(--azul) 80%, transparent 90%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+    animation: borde 5s linear infinite; }
+  @property --giro { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+  @keyframes borde { to { --giro: 360deg; } }
+  .card h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 8px; }
+  .card > p { color: var(--muted); margin-bottom: 22px; }
   .form-row { display: grid; gap: 6px; margin-bottom: 16px; }
-  label { font-weight: 600; color: var(--color-dark); font-size: 0.97rem; }
-  input[type=text], input[type=email] { font: inherit; padding: 13px 15px; border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-light); color: var(--color-text); width: 100%; }
-  input:focus-visible, button:focus-visible { outline: 3px solid var(--color-primary-light); outline-offset: 2px; border-color: var(--color-primary); }
-  .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; cursor: pointer; }
-  .check input { margin-top: 5px; flex: none; }
-  .legal { font-size: 0.78rem; line-height: 1.5; color: var(--color-muted); margin-top: 6px; }
-  .btn { display: inline-block; width: 100%; background: var(--color-primary); color: var(--color-white); font: 700 1.05rem var(--font); padding: 16px 28px; border-radius: 50px; border: none; cursor: pointer; transition: background .2s ease; }
-  .btn:hover { background: var(--color-primary-dark); }
-  .btn[disabled] { opacity: .6; cursor: wait; }
-  .aviso { margin-top: 14px; font-size: 0.95rem; color: #9a3b2e; }
-  .pasos { list-style: none; display: grid; gap: 10px; margin: 6px 0 26px; counter-reset: p; }
-  .pasos li { counter-increment: p; display: grid; grid-template-columns: 32px 1fr; gap: 10px; align-items: start; }
-  .pasos li::before { content: counter(p); width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--color-primary-light); color: var(--color-primary-dark); font-weight: 700; font-size: 0.9rem; }
-  .prompt { border: 1px solid var(--color-line); border-radius: 12px; padding: 18px; display: grid; gap: 12px; margin-bottom: 16px; }
+  label { font-weight: 600; color: var(--title); font-size: 0.95rem; }
+  input[type=text], input[type=email] { font: inherit; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: rgba(5,7,13,.6); color: var(--title); width: 100%; transition: border-color .2s, box-shadow .2s; }
+  input[type=text]:focus, input[type=email]:focus { outline: none; border-color: var(--azul); box-shadow: 0 0 0 4px rgba(46,155,255,.18); }
+  button:focus-visible, a:focus-visible, input[type=checkbox]:focus-visible { outline: 3px solid var(--azul); outline-offset: 2px; }
+  .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; cursor: pointer; color: var(--text); }
+  .check input { margin-top: 5px; flex: none; accent-color: var(--azul); }
+  .legal { font-size: 0.76rem; line-height: 1.5; color: var(--muted); margin-top: 6px; }
+  .btn { position: relative; overflow: hidden; display: inline-block; width: 100%; background: linear-gradient(135deg, #3AA8FF, #1F6FE0); color: #fff; font: 700 1.08rem var(--font); padding: 17px 28px; border-radius: 50px; border: none; cursor: pointer;
+    box-shadow: 0 10px 30px -8px rgba(46,155,255,.7); transition: transform .2s ease; animation: pulso 2.6s ease-in-out infinite; }
+  .btn::after { content: ""; position: absolute; top: 0; left: -60%; width: 40%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent); transform: skewX(-20deg); animation: destello 3.2s ease-in-out infinite; }
+  @keyframes destello { 0%, 55% { left: -60%; } 100% { left: 130%; } }
+  @keyframes pulso { 50% { box-shadow: 0 10px 44px -4px rgba(46,155,255,.95); } }
+  .btn:hover { transform: translateY(-2px); }
+  .btn[disabled] { opacity: .6; cursor: wait; animation: none; }
+  a.btn { text-decoration: none; text-align: center; }
+  .pasos { list-style: none; display: grid; gap: 12px; margin: 6px 0 26px; counter-reset: p; }
+  .pasos li { counter-increment: p; display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; }
+  .pasos li::before { content: counter(p); width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(135deg, #3AA8FF, #1F6FE0); color: #fff; font-weight: 700; font-size: 0.9rem; box-shadow: 0 0 16px -2px rgba(46,155,255,.7); }
+  .aviso { margin-top: 14px; font-size: 0.95rem; color: #FF9F7A; }
+  .prompt { border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: grid; gap: 12px; margin-bottom: 16px; background: rgba(5,7,13,.45); transition: border-color .25s, box-shadow .25s, opacity .7s ease, transform .7s ease; }
+  .prompt:hover { border-color: var(--line-hi); box-shadow: 0 0 30px -12px rgba(46,155,255,.6); }
   .prompt-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-  .prompt-head h3 { font-size: 1.15rem; }
-  .tag { font-family: var(--mono); font-size: 0.75rem; color: var(--color-muted); letter-spacing: .05em; display: block; }
-  pre { background: var(--color-light); border-radius: 10px; padding: 14px; font-family: var(--mono); font-size: 0.86rem; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--color-text); }
-  .copiar { font: 600 0.92rem var(--font); background: var(--color-primary); color: var(--color-white); border: 0; border-radius: 50px; padding: 8px 18px; cursor: pointer; }
-  .copiar.ok { background: var(--color-dark); }
-  .cta-final { background: var(--color-primary-light); border-radius: 12px; padding: 18px; margin-top: 10px; }
-  .cta-final a { color: var(--color-primary-dark); font-weight: 700; }
+  .prompt-head h3 { font-size: 1.12rem; }
+  .tag { font-family: var(--mono); font-size: 0.72rem; color: var(--azul-claro); letter-spacing: .08em; display: block; }
+  pre { background: #03050A; border: 1px solid rgba(46,155,255,.12); border-radius: 10px; padding: 14px; font-family: var(--mono); font-size: 0.86rem; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; color: #BFE0FF; }
+  .copiar { font: 600 0.9rem var(--font); background: rgba(46,155,255,.15); color: var(--azul-claro); border: 1px solid var(--line-hi); border-radius: 50px; padding: 8px 18px; cursor: pointer; transition: background .2s, color .2s; }
+  .copiar:hover, .copiar.ok { background: var(--azul); color: #fff; }
+  .cta-final { border: 1px solid rgba(255,138,61,.4); background: linear-gradient(135deg, rgba(255,138,61,.12), rgba(46,155,255,.08)); border-radius: 14px; padding: 20px; margin-top: 10px; }
+  .cta-final strong { color: var(--title); }
+  .cta-final a { color: var(--naranja); font-weight: 700; }
   .ok-no { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 6px 0 26px; }
-  .ok-no div { border: 1px solid var(--color-line); border-radius: 12px; padding: 14px 16px; }
+  .ok-no div { border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; background: rgba(5,7,13,.35); }
+  .ok-no div:last-child { border-color: rgba(255,138,61,.3); }
   .ok-no h3 { font-size: 1rem; margin-bottom: 6px; }
   .ok-no ul { padding-left: 18px; font-size: 0.95rem; }
-  @media (max-width: 520px) { .ok-no { grid-template-columns: 1fr; } }
-  code { font-family: var(--mono); background: var(--color-light); padding: 1px 6px; border-radius: 6px; font-size: 0.9em; }
-  .card > h3 { font-size: 1.15rem; margin: 6px 0 10px; }
-  .closing-bar { text-align: center; padding: 26px 5%; color: var(--color-muted); font-size: 0.9rem; }
-  @media (max-width: 520px) { .card { padding: 24px 18px; } }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
-  table { width: 100%; border-collapse: collapse; margin: 6px 0 26px; font-size: 0.95rem; }
-  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--color-line); }
-  th { color: var(--color-dark); background: var(--color-light); }
+  @media (max-width: 560px) { .ok-no { grid-template-columns: 1fr; } }
+  code { font-family: var(--mono); background: rgba(46,155,255,.12); color: #BFE0FF; padding: 1px 6px; border-radius: 6px; font-size: 0.88em; }
+  .card > h3 { font-size: 1.2rem; margin: 10px 0 10px; color: var(--title); }
+  .video { position: relative; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; border: 1px solid var(--line-hi); box-shadow: 0 20px 60px -20px rgba(46,155,255,.6); margin: 6px 0 26px; }
+  .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .closing-bar { text-align: center; padding: 26px 16px 40px; color: var(--muted); font-size: 0.9rem; }
+  .tabla { overflow-x: auto; margin: 6px 0 26px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.94rem; min-width: 480px; }
+  th, td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td:first-child code { white-space: nowrap; }
+  th { color: var(--title); background: rgba(46,155,255,.1); }
+  tbody tr { transition: background .2s; } tbody tr:hover { background: rgba(46,155,255,.06); }
+  .aparece { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .aparece.visto { opacity: 1; transform: none; }
+  @media (max-width: 560px) { .card { padding: 26px 18px; } .hero { padding-top: 48px; } .eyebrow { font-size: .7rem; letter-spacing: 1px; } .halo.h1 { width: 320px; height: 320px; } .halo.h2 { width: 280px; height: 280px; } }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .aparece { opacity: 1; transform: none; }
+  }
 </style>
 </head>
 <body>
+<div class="fondo" aria-hidden="true"><span class="halo h1"></span><span class="halo h2"></span><span class="halo h3"></span></div>
 <header class="hero wrap">
   <span class="eyebrow">Gratis · Plugin de Google para Claude Code</span>
-  <h1>Programa mejor con el plugin gratis de Google</h1>
+  <h1>Programa mejor con el <span class="brillo">plugin gratis de Google</span></h1>
   <p class="lead">La guía del vídeo: cómo instalar Elephant-Goldfish en Claude Code, cuándo usar cada paso y los prompts que uso en cada uno.</p>
   <div class="incluye">
-    <div><strong>Instalación</strong><span>Los dos comandos, en la terminal</span></div>
-    <div><strong>Cada paso</strong><span>Brainstorm, draft, review y resolve</span></div>
-    <div><strong>Mis prompts</strong><span>Para copiar y pegar</span></div>
+    <div class="aparece"><span class="ico">⚡</span><strong>Instalación</strong><span>Los dos comandos, en la terminal</span></div>
+    <div class="aparece"><span class="ico">🧭</span><strong>Cada paso</strong><span>Brainstorm, draft, review y resolve</span></div>
+    <div class="aparece"><span class="ico">📋</span><strong>Mis prompts</strong><span>Para copiar y pegar</span></div>
   </div>
 </header>
 
 <main class="wrap">
-  <section class="card" id="acceso">
+  <section class="card aparece" id="acceso">
     <h2>Recíbela al momento</h2>
     <p>Déjame tu nombre y tu email: se abre aquí mismo y te mando una copia a tu correo.</p>
     <form id="recurso-form" novalidate>
@@ -124,6 +183,9 @@
     <h2 id="prompts-titulo">Aquí la tienes</h2>
     <p>El plugin Elephant-Goldfish de Google, como lo usé en el vídeo. Es gratis y de código abierto; lo que pagas es Claude Code.</p>
 
+    <h3>▶ El vídeo</h3>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/36Gj8JPm3pM" title="El vídeo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
     <h3>1 · Instálalo</h3>
     <p>En Claude Code, en la <strong>terminal</strong> (el panel de VS Code no tiene el comando <code>/plugin</code>):</p>
     <article class="prompt">
@@ -137,7 +199,7 @@
     <p>Abre una <strong>sesión nueva</strong> y escribe <code>/egm</code>: verás sus comandos.</p>
 
     <h3>2 · Cuándo usar cada paso</h3>
-    <table>
+    <div class="tabla"><table>
       <thead><tr><th>Comando</th><th>Para qué</th></tr></thead>
       <tbody>
         <tr><td><code>/egm:egm-brainstorm</code></td><td>Pensar la idea: te pregunta, te lleva la contraria y siete revisores la critican. Deja un <code>concepts_brief.md</code>.</td></tr>
@@ -149,7 +211,7 @@
         <tr><td><code>/egm:egm-drift-report</code></td><td>Compara tus documentos con el código y te dice dónde ya no coinciden.</td></tr>
         <tr><td><code>/egm:egm-review-loop</code></td><td>Revisar cualquier documento, eligiendo los revisores.</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <h3>3 · Los prompts que usé</h3>
     <article class="prompt">
@@ -190,6 +252,29 @@
 <div class="closing-bar">Marc · IA · @marcchirlaque.ia · OmbrIA · info@ombria.es</div>
 
 <script>
+
+  // Animaciones: chispas que suben y bloques que aparecen al bajar
+  (function () {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const f = document.querySelector('.fondo');
+    for (let i = 0; i < 26; i++) {
+      const c = document.createElement('span'); c.className = 'chispa';
+      c.style.left = Math.random() * 100 + '%'; c.style.top = (60 + Math.random() * 60) + '%';
+      c.style.animationDuration = (9 + Math.random() * 12) + 's'; c.style.animationDelay = (-Math.random() * 20) + 's';
+      f.appendChild(c);
+    }
+  })();
+  const vigia = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visto'); vigia.unobserve(e.target); } });
+  }, { threshold: 0.12 }) : null;
+  function animar(raiz) {
+    raiz.querySelectorAll('.aparece, .prompt, .card > h3, .tabla, .ok-no > div, .cta-final, .video').forEach(function (el, i) {
+      el.classList.add('aparece'); el.style.transitionDelay = Math.min(i * 60, 300) + 'ms';
+      if (vigia) vigia.observe(el); else el.classList.add('visto');
+    });
+  }
+  animar(document);
+
   const LEADS_ENDPOINT = 'https://ombria-n8n.fhqb2h.easypanel.host/webhook/lead-magnet';
   const form = document.getElementById('recurso-form');
   const aviso = document.getElementById('aviso');
@@ -199,6 +284,7 @@
     document.getElementById('acceso').hidden = true;
     const sec = document.getElementById('prompts');
     sec.hidden = false;
+    animar(sec);
     sec.scrollIntoView({ block: 'start' });
   }
 
